@@ -1,0 +1,660 @@
+{
+  "code": [
+    {
+      "code": "82287-4",
+      "display": "Physical activity panel"
+    }
+  ],
+  "title": "Physical activity panel",
+  "resourceType": "Questionnaire",
+  "status": "draft",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 32.0.0"
+      }
+    ]
+  },
+  "item": [
+    {
+      "type": "decimal",
+      "code": [
+        {
+          "code": "30525-0",
+          "display": "Age"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+          "valueCoding": {
+            "code": "a",
+            "display": "a",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/30525-0",
+      "text": "Age"
+    },
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "46098-0",
+          "display": "Sex"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "drop-down",
+                "display": "Drop down"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/46098-0",
+      "text": "Sex",
+      "answerOption": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "1"
+            }
+          ],
+          "valueCoding": {
+            "code": "LA2-8",
+            "display": "Male"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "2"
+            }
+          ],
+          "valueCoding": {
+            "code": "LA3-6",
+            "display": "Female"
+          }
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "82288-2",
+          "display": "Absolute aerobic exer intensity"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "drop-down",
+                "display": "Drop down"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82288-2",
+      "text": "Absolute aerobic exer intensity",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "LA20164-2",
+            "display": "Light exercise intensity"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA20165-9",
+            "display": "Moderate exercise intensity"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA20166-7",
+            "display": "Vigorous exercise intensity"
+          }
+        }
+      ],
+      "item": [
+        {
+          "text": "The patient's level of aerobic absolute exercise intensity based on the rate of energy expenditure during aerobic (endurance) physical activity. This term was created for, but not limited in use to, the absolute intensity level as classified by the 2008 Physical Activity Guidelines (PAG) for Americans. Based on the 2008 PAG, light-intensity activity expends 1.1 to 2.9 times the amount of energy expended when a person is at rest, moderate-intensity activities expend 3.0 to 5.9 times, and vigorous-intensity activities expend 6.0 or more times the energy expended at rest.",
+          "type": "display",
+          "linkId": "/82288-2-help",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "82289-0",
+          "display": "RPE Score"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "drop-down",
+                "display": "Drop down"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82289-0",
+      "text": "RPE Score",
+      "answerOption": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "0"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ],
+          "valueCoding": {
+            "code": "LA6111-4",
+            "display": "0"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "1"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ],
+          "valueCoding": {
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "2"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ],
+          "valueCoding": {
+            "code": "LA6113-0",
+            "display": "2"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "3"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ],
+          "valueCoding": {
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "4"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 4
+            }
+          ],
+          "valueCoding": {
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "5"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 5
+            }
+          ],
+          "valueCoding": {
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "6"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 6
+            }
+          ],
+          "valueCoding": {
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "7"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 7
+            }
+          ],
+          "valueCoding": {
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "8"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 8
+            }
+          ],
+          "valueCoding": {
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "9"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 9
+            }
+          ],
+          "valueCoding": {
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix",
+              "valueString": "10"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 10
+            }
+          ],
+          "valueCoding": {
+            "code": "LA13942-0",
+            "display": "10"
+          }
+        }
+      ],
+      "item": [
+        {
+          "text": "The patient's perceived relative intensity level based on their level of effort relative to his or her fitness. Patients who are less fit generally require a higher level of effort than fitter people who do the same activity. This term was created for, but not limited in use to, the relative intensity level as classified by the 2008 Physical Activity Guidelines (PAG) for Americans. According to the 2008 PAG, on a scale of 0 to 10, where sitting is 0 and the highest level of effort possible is 10, moderate-intensity activity is at a level of 5 or 6, and vigorous-intensity activity is a 7 or 8.",
+          "type": "display",
+          "linkId": "/82289-0-help",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "decimal",
+      "code": [
+        {
+          "code": "82290-8",
+          "display": "Freq aerobic physical activity"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+          "valueCoding": {
+            "code": "/wk",
+            "display": "/wk",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82290-8",
+      "text": "Freq aerobic physical activity",
+      "item": [
+        {
+          "text": "The frequency (days/week, min/week, hours/day, etc.) that the patient spends doing moderate to vigorous aerobic physical activity per week. According to the 2008 Physical activity guidelines (PAG) for Americans, adult patients should spend at least 150 minutes (2 hours and 30 minutes) a week doing moderate-intensity aerobic physical activity or 75 minutes (1 hour and 15 minutes) a week of vigorous-intensity aerobic physical activity. Adults who do 300 minutes (5 hours) of moderate intensity aerobic physical activity a week, or 150 minutes of vigorous intensity aerobic physical activity, have greater health benefits. For children and adolescents, the 2008 PAG recommends about 60 minutes or more per day and at least 3 days per week of either moderate- or vigorous-intensity aerobic physical activity.",
+          "type": "display",
+          "linkId": "/82290-8-help",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "decimal",
+      "code": [
+        {
+          "code": "82293-2",
+          "display": "Freq bone-strengthening"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+          "valueCoding": {
+            "code": "/wk",
+            "display": "/wk",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82293-2",
+      "text": "Freq bone-strengthening",
+      "item": [
+        {
+          "text": "The frequency (days/week, hours/day, etc.) a patient spends doing bone-strengthening activities (sometimes called weight-bearing or weight-loading activity). This kind of activity is commonly produced by impact with the ground and promotes bone growth and strength. According to the 2008 Physical Activity Guidelines (PAG) for Americans, children and adolescents should include bone-strengthening physical activity on at least 3 days of the week as part of their 60 or more minutes of daily physical activity. Bone-strengthening activities can also be aerobic and muscle-strengthening. Examples include running, jumping rope, basketball, tennis, and hopscotch.",
+          "type": "display",
+          "linkId": "/82293-2-help",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "decimal",
+      "code": [
+        {
+          "code": "82291-6",
+          "display": "Freq muscle-strengthening"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
+          "valueCoding": {
+            "code": "/wk",
+            "display": "/wk",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82291-6",
+      "text": "Freq muscle-strengthening",
+      "item": [
+        {
+          "text": "The frequency (days/week, hours/day, etc.) a patient spends doing muscle-strengthening activities. According to the 2008 Physical Activity Guidelines for Americans, children and adolescents should do muscle-strengthening physical activities at least 3 days per week and adults should do muscle-strengthening activities that are moderate or high intensity and involve all major muscle group at least 2 days a week.",
+          "type": "display",
+          "linkId": "/82291-6-help",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "82292-4",
+          "display": "Meeting guidelines phys activity"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "drop-down",
+                "display": "Drop down"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82292-4",
+      "text": "Meeting guidelines phys activity",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "LA26337-8",
+            "display": "Not meeting the recommended guidelines"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA26336-0",
+            "display": "Meeting the recommended guidelines"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA26338-6",
+            "display": "Exceeding the recommended guidelines"
+          }
+        }
+      ],
+      "item": [
+        {
+          "text": "Indicates whether a patient is meeting the recommended guidelines for various types of physical activities, including aerobic, bone-strengthening and muscle-strengthening activities. For example, according to the 2008 Physical Activity Guidelines for Americans (2008 PAG), children and adolescents should do muscle-strengthening physical activities at least 3 days per week as part of their 60 minutes or more of daily physical activity. If they do muscle-strengthen activities less than 3 day per week, they are not meeting the recommended guidelines according to the 2008 PAG. If they do more than 3 days per week, they are exceeding the recommended amount.",
+          "type": "display",
+          "linkId": "/82292-4-help",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "code": [
+        {
+          "code": "82294-0",
+          "display": "Phys Activity Guide used"
+        }
+      ],
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                "code": "drop-down",
+                "display": "Drop down"
+              }
+            ],
+            "text": "Drop down"
+          }
+        }
+      ],
+      "required": false,
+      "linkId": "/82294-0",
+      "text": "Phys Activity Guide used",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "LA26249-5",
+            "display": "2008 EU Physical Activity Guidelines"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA26246-1",
+            "display": "2008 Physical Activity Guidelines for Americans (PAG)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA26248-7",
+            "display": "American College of Sports Medicine (ACSM) exercise guidelines"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA26247-9",
+            "display": "Caring for Our Children, 3rd Edition (CFOC3)"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA26250-3",
+            "display": "2010 Global recommendations on physical activity for health"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "LA46-8",
+            "display": "Other"
+          }
+        }
+      ]
+    }
+  ]
+}
