@@ -25,6 +25,7 @@
       "code": [
         {
           "code": "69725-0",
+          "system": "http://loinc.org",
           "display": "Feeling nervous, anxious or on edge"
         }
       ],
@@ -118,6 +119,7 @@
       "code": [
         {
           "code": "68509-9",
+          "system": "http://loinc.org",
           "display": "Over the past 2 weeks have you not been able to stop or control worrying"
         }
       ],
@@ -211,6 +213,7 @@
       "code": [
         {
           "code": "69733-4",
+          "system": "http://loinc.org",
           "display": "Worrying too much about different things"
         }
       ],
@@ -304,6 +307,7 @@
       "code": [
         {
           "code": "69734-2",
+          "system": "http://loinc.org",
           "display": "Trouble relaxing"
         }
       ],
