@@ -25,8 +25,7 @@
       "code": [
         {
           "code": "69725-0",
-          "system": "http://loinc.org",
-          "display": "Feeling nervous, anxious or on edge"
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
@@ -104,8 +103,7 @@
       "code": [
         {
           "code": "68509-9",
-          "system": "http://loinc.org",
-          "display": "Over the past 2 weeks have you not been able to stop or control worrying"
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
@@ -183,8 +181,7 @@
       "code": [
         {
           "code": "69733-4",
-          "system": "http://loinc.org",
-          "display": "Worrying too much about different things"
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
@@ -262,8 +259,7 @@
       "code": [
         {
           "code": "69734-2",
-          "system": "http://loinc.org",
-          "display": "Trouble relaxing"
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
@@ -341,7 +337,7 @@
       "code": [
         {
           "code": "69735-9",
-          "display": "Being so restless that it is hard to sit still"
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
@@ -419,7 +415,7 @@
       "code": [
         {
           "code": "69689-8",
-          "display": "Becoming easily annoyed or irritable."
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
@@ -497,7 +493,7 @@
       "code": [
         {
           "code": "69736-7",
-          "display": "Feeling afraid as if something awful might happen"
+          "system": "http://loinc.org"
         }
       ],
       "required": false,
