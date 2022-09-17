@@ -29,21 +29,6 @@
           "display": "Feeling nervous, anxious or on edge"
         }
       ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "required": false,
       "linkId": "/69725-0",
       "text": "Feeling nervous, anxious or on edge",
@@ -121,21 +106,6 @@
           "code": "68509-9",
           "system": "http://loinc.org",
           "display": "Over the past 2 weeks have you not been able to stop or control worrying"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -217,21 +187,6 @@
           "display": "Worrying too much about different things"
         }
       ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "required": false,
       "linkId": "/69733-4",
       "text": "Worrying too much about different things",
@@ -309,21 +264,6 @@
           "code": "69734-2",
           "system": "http://loinc.org",
           "display": "Trouble relaxing"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -404,21 +344,6 @@
           "display": "Being so restless that it is hard to sit still"
         }
       ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "required": false,
       "linkId": "/69735-9",
       "text": "Being so restless that it is hard to sit still",
@@ -497,21 +422,6 @@
           "display": "Becoming easily annoyed or irritable."
         }
       ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "required": false,
       "linkId": "/69689-8",
       "text": "Becoming easily annoyed or irritable.",
@@ -588,21 +498,6 @@
         {
           "code": "69736-7",
           "display": "Feeling afraid as if something awful might happen"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
