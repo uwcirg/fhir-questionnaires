@@ -9,6 +9,18 @@
   "title": "Generalized anxiety disorder 7 item (GAD-7)",
   "resourceType": "Questionnaire",
   "status": "active",
+  "identifier": [
+    {
+      "system": "http://cnics-pro.cirg.washington.edu",
+      "value": "56",
+      "use": "secondary"
+    },
+    {
+      "system": "paintracker.cirg.washington.edu",
+      "value": "35",
+      "use": "secondary"
+    }
+  ],
   "meta": {
     "profile": [
       "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
@@ -26,6 +38,14 @@
         {
           "code": "69725-0",
           "system": "http://loinc.org"
+        },
+        {
+          "code": "398",
+          "system": "http://cnics-pro.cirg.washington.edu"
+        },
+        {
+          "code": "1254",
+          "system": "http://paintracker.cirg.washington.edu"
         }
       ],
       "required": false,
