@@ -28,3 +28,7 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
   - item.linkId
      - usage: QuestionnaireResponse will refer to this
      - REQUIRED.
+  - item.type
+     - example: "choice"
+     - REQUIRED.
+     - Note: we ignore other directives eg item.extension.valueCodeableConcept.coding.code "drop-down".  
