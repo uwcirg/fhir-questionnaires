@@ -32,3 +32,5 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
      - example: "choice"
      - REQUIRED.
      - Note: we ignore other directives eg item.extension.valueCodeableConcept.coding.code "drop-down".  
+
+**We'll continue to curate this as need be**
