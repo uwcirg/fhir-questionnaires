@@ -1,14 +1,22 @@
 {
-  "status": "draft",
+  "id": "CIRG_GAD7",
+  "code": [
+    {
+      "code": "69737-5",
+      "system": "http://loinc.org"
+      "display": "Generalized anxiety disorder 7 item (GAD-7)"
+    }
+  ],
   "title": "Generalized anxiety disorder 7 item (GAD-7)",
   "resourceType": "Questionnaire",
+  "status": "active",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
     ],
     "tag": [
       {
-        "code": "lformsVersion: 29.2.1"
+        "code": "lformsVersion: 32.0.0"
       }
     ]
   },
@@ -18,23 +26,7 @@
       "code": [
         {
           "code": "69725-0",
-          "display": "Feeling nervous, anxious or on edge",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -112,23 +104,7 @@
       "code": [
         {
           "code": "68509-9",
-          "display": "Over the past 2 weeks have you not been able to stop or control worrying",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -206,23 +182,7 @@
       "code": [
         {
           "code": "69733-4",
-          "display": "Worrying too much about different things",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -300,23 +260,7 @@
       "code": [
         {
           "code": "69734-2",
-          "display": "Trouble relaxing",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -394,23 +338,7 @@
       "code": [
         {
           "code": "69735-9",
-          "display": "Being so restless that it is hard to sit still",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -488,23 +416,7 @@
       "code": [
         {
           "code": "69689-8",
-          "display": "Becoming easily annoyed or irritable.",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -582,23 +494,7 @@
       "code": [
         {
           "code": "69736-7",
-          "display": "Feeling afraid as if something awful might happen",
           "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
         }
       ],
       "required": false,
@@ -676,15 +572,16 @@
       "code": [
         {
           "code": "70274-6",
-          "display": "Generalized anxiety disorder 7 item total score",
-          "system": "http://loinc.org"
+          "display": "Generalized anxiety disorder 7 item total score"
         }
       ],
       "extension": [
         {
           "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unit",
           "valueCoding": {
-            "display": "{score}"
+            "code": "{score}",
+            "display": "{score}",
+            "system": "http://unitsofmeasure.org"
           }
         }
       ],
@@ -694,6 +591,3 @@
     }
   ]
 }
-
-
-
