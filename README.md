@@ -10,6 +10,9 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
    - usage: human readable.
    - REQUIRED.
    - example: "Everyday Cognition - Participant Self Report Form [ECog]"
+- "description"
+   - usage: A sentence or two description of the questionnaire. This may be presented in the questionnaire user interface on a page prior to the questionnaire, and/or included in reports. 
+   - REQUIRED.
 - "code"
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
 - "name"
