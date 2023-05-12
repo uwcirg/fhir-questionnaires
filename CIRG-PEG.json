@@ -285,6 +285,18 @@
       ],
       "text": "Mean score",
       "type": "decimal"
+    },
+    {
+      "linkId": "CIRG-PEG-SUM",
+      "code": [
+        {
+          "system": "https://cirg.uw.edu",
+          "code": "CIRG-PEG-SUM",
+          "display": "Sum score [PEG]"
+        }
+      ],
+      "text": "Sum score",
+      "type": "decimal"
     }
   ]
 }
