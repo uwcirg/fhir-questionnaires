@@ -1,0 +1,290 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "CIRG-PEG",
+  "name": "Pain_intensity_Enjoyment_of_life_General_activity_PEG_item_pain_scale FIXME",
+  "title": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
+  "status": "draft",
+  "description": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale. Based on both https://fhir.loinc.org/Questionnaire/?url=http://loinc.org/q/91148-7 and https://loinc.org/91148-7/ (not FHIR), conserving and harmonizing codes from those. Note that these two had different codes for the first question, and that it was implemented in the loinc FHIR as a decimal (not a choice), but academic references did not support that, so the decision here was to implement a choice with novel codes.",
+  "code": [
+    {
+      "system": "http://loinc.org",
+      "code": "91148-7",
+      "display": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale"
+    }
+  ],
+  "item": [
+    {
+      "linkId": "108518",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "75893-8"
+        }
+      ],
+      "text": "What number best describes your pain on average in the past week?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "75893-8-0",
+            "display": "0"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-1",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-2",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-3",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-4",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-5",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-6",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-7",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-8",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-9",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "75893-8-10",
+            "display": "10"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "91145-3",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "91145-3",
+          "display": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?"
+        }
+      ],
+      "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6111-4",
+            "display": "0"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6113-0",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA13942-0",
+            "display": "10"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "91146-1",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "91146-1",
+          "display": "What number best describes how, during the past week, pain has interfered with your general activity?"
+        }
+      ],
+      "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6111-4",
+            "display": "0"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6113-0",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA13942-0",
+            "display": "10"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "91147-9",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "91147-9",
+          "display": "Mean score [PEG]"
+        }
+      ],
+      "text": "Mean score",
+      "type": "decimal"
+    }
+  ]
+}
