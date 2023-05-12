@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "CIRG-PEG",
-  "name": "Pain_intensity_Enjoyment_of_life_General_activity_PEG_item_pain_scale FIXME",
+  "name": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
   "title": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
   "status": "draft",
   "description": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale. Based on both https://fhir.loinc.org/Questionnaire/?url=http://loinc.org/q/91148-7 and https://loinc.org/91148-7/ (not FHIR), conserving and harmonizing codes from those. Note that these two had different codes for the first question, and that it was implemented in the loinc FHIR as a decimal (not a choice), but academic references did not support that, so the decision here was to implement a choice with novel codes.",
