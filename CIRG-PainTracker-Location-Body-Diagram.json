@@ -1612,6 +1612,18 @@
           }
         }
       ]
+    },
+    {
+      "linkId": "CIRG-PainTracker-Location-Body-Diagram-IGNORE",
+      "code": [
+        {
+          "code": "CIRG-PainTracker-Location-Body-Diagram-IGNORE",
+          "display": "CIRG-PainTracker-Location-Body-Diagram-IGNORE"
+        }
+      ],
+      "text": "CIRG-PainTracker-Location-Body-Diagram-IGNORE Only included as a mechanism in dhair2 to trigger reporting the questionnaire - this will never have a meaningful value.",
+      "type": "decimal",
+      "required": false
     }
   ]
 }
