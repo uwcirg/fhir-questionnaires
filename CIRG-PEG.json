@@ -26,66 +26,77 @@
       "answerOption": [
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA6111-4",
             "display": "0"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA6112-2",
             "display": "1"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA6113-0",
             "display": "2"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA6114-8",
             "display": "3"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA6115-5",
             "display": "4"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA10137-0",
             "display": "5"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA10138-8",
             "display": "6"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA10139-6",
             "display": "7"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA10140-4",
             "display": "8"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA10141-2",
             "display": "9"
           }
         },
         {
           "valueCoding": {
+            "system": "http://loinc.org",
             "code": "LA13942-0",
             "display": "10"
           }
