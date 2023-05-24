@@ -4,7 +4,7 @@
   "name": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
   "title": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
   "status": "draft",
-  "description": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale. Based on both https://fhir.loinc.org/Questionnaire/?url=http://loinc.org/q/91148-7 and https://loinc.org/91148-7/ (not FHIR), conserving and harmonizing codes from those. Note that these two had different codes for the first question, and that it was implemented in the loinc FHIR as a decimal (not a choice), but academic references did not support that, so the decision here was to implement a choice with novel codes.",
+  "description": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale. Based primarily on https://loinc.org/91148-7/ and to a lesser extent https://fhir.loinc.org/Questionnaire/?url=http://loinc.org/q/91148-7, using codes from the former. Note that these two references had different codes for the first question and that it was implemented at fhir.loinc.org as a decimal (not a choice), but academic references did not support that. The CIRG-PEG-SUM item is a scoring variant used at UW Medicine's Center for Pain Relief.",
   "code": [
     {
       "system": "http://loinc.org",
@@ -14,7 +14,7 @@
   ],
   "item": [
     {
-      "linkId": "108518",
+      "linkId": "75893-8",
       "code": [
         {
           "system": "http://loinc.org",
@@ -26,67 +26,67 @@
       "answerOption": [
         {
           "valueCoding": {
-            "code": "75893-8-0",
+            "code": "LA6111-4",
             "display": "0"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-1",
+            "code": "LA6112-2",
             "display": "1"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-2",
+            "code": "LA6113-0",
             "display": "2"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-3",
+            "code": "LA6114-8",
             "display": "3"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-4",
+            "code": "LA6115-5",
             "display": "4"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-5",
+            "code": "LA10137-0",
             "display": "5"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-6",
+            "code": "LA10138-8",
             "display": "6"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-7",
+            "code": "LA10139-6",
             "display": "7"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-8",
+            "code": "LA10140-4",
             "display": "8"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-9",
+            "code": "LA10141-2",
             "display": "9"
           }
         },
         {
           "valueCoding": {
-            "code": "75893-8-10",
+            "code": "LA13942-0",
             "display": "10"
           }
         }
