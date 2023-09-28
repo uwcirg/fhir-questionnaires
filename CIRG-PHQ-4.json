@@ -1,11 +1,8 @@
 {
   "resourceType": "Questionnaire",
-  "meta": {
-    "profile": [
-      "http://hl7.org/fhir/4.0/StructureDefinition/Questionnaire"
-    ],
-  },
+  "id": "CIRG-PHQ-4",
   "title": "Patient Health Questionnaire 4 item (PHQ-4)",
+  "name": "Patient Health Questionnaire 4 item (PHQ-4)",
   "status": "active",
   "copyright": "Copyright © Pfizer Inc. All rights reserved. Developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
   "code": [
