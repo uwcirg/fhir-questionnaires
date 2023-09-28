@@ -3,6 +3,7 @@
   "id": "CIRG-PHQ-4",
   "title": "Patient Health Questionnaire 4 item (PHQ-4)",
   "name": "Patient Health Questionnaire 4 item (PHQ-4)",
+  "description": "Patient Health Questionnaire 4 item (PHQ-4)",
   "status": "active",
   "copyright": "Copyright © Pfizer Inc. All rights reserved. Developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
   "code": [
@@ -14,29 +15,19 @@
   ],
   "item": [
     {
-      "type": "choice",
-      "code": [
-        {
-          "code": "69725-0",
-          "display": "Feeling nervous, anxious or on edge",
-          "system": "http://loinc.org"
-        }
-      ],
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
+      "linkId": "introduction",
+      "type": "display",
+      "_text": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+            "valueString": "<div>Over the past 2 weeks, have you been bothered by these problems?</div>"
           }
-        }
-      ],
+        ]
+      }
+    },
+    {
+      "type": "choice",
       "required": false,
       "linkId": "/69725-0",
       "text": "Feeling nervous, anxious or on edge",
