@@ -13,11 +13,9 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
    - example: "Everyday Cognition - Participant Self Report Form [ECog]"
    - In our [questionnaire filler](https://github.com/uwcirg/asbi-screening-app), this is used for the page's <head><title>.
 - "description"
-   - usage: A sentence or two description of the questionnaire. This may be presented in the questionnaire user interface on a page prior to the questionnaire, and/or included in reports. 
-   - format: markdown (per spec)
-   - Last year I was thinking we'd make this required (1..1). That would be a change from the standard, which says 0..1.
-   - We now use item[0]._text.extension for this same purpose (see below); that supports XHTML, but this is only Markdown.
-   - Amy do you use this anywhere? It seems not, but I may be missing something. I don't see it in the questionnaire filler's DCW Questionnaires. If you don't, I won't bother populating it.
+   - Spec says: "Natural language description of the questionnaire", 0..1, Markdown.
+   - Contrast this with item[0]._text.extension (see below), which we use to describe the questionnaire in XHTML for rendering on web pages.
+   - Amy do you use this anywhere? It seems not (I don't see it in the questionnaire filler's DCW Questionnaires, at least), but I may be missing something. If you're not using it, then I'll reserve it for descriptive text that we don't intend to render. 
 - "code"
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
 - "name"
