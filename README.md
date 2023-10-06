@@ -4,30 +4,32 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
 # Fields and how we use them
 - "id"
    - usage: this is how we refer to the questionnaire in code, CarePlans, etc.
-   - REQUIRED, and we need it to be a known & reliable value (not assigned by the FHIR server)
+   - REQUIRED (same as standard), and we need it to be a known & reliable value (not assigned by the FHIR server) - that part is not per standard.
    - example: "CIRG-PHQ9"
    - Our profile: add the above info
 - "title"
    - usage: human friendly.
    - REQUIRED (1..1). THIS IS A CHANGE FROM THE STANDARD, which says 0..1. Add this to our profile.
    - example: "Everyday Cognition - Participant Self Report Form [ECog]"
-   - In DCW, this is used for the page's <head><title> (in [one case](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-CarePartner.json), the project title is included, which isn't good - NBD since that questionnaire is unlikely to be used elsewhere).
+   - In our [questionnaire filler](https://github.com/uwcirg/asbi-screening-app), this is used for the page's <head><title>.
 - "description"
    - usage: A sentence or two description of the questionnaire. This may be presented in the questionnaire user interface on a page prior to the questionnaire, and/or included in reports. 
    - format: markdown (per spec)
-   - REQUIRED (1..1). THIS IS A CHANGE FROM THE STANDARD, which says 0..1. Add this to our profile? 
+   - Last year I was thinking we'd make this required (1..1). That would be a change from the standard, which says 0..1.
+   - We now use item[0]._text.extension for this same purpose (see below); that supports XHTML, but this is only Markdown.
+   - Amy do you use this anywhere? It seems not, but I may be missing something. I don't see it in the questionnaire filler's DCW Questionnaires. If you don't, I won't bother populating it.
 - "code"
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
 - "name"
-   - usage: arbitrary?
+   - Standard says 0..1; computer friendly.
+   - Do we use this anywhere Amy? I see that it's populated for the DCW Questionnaires.
 - "linkId"
    - usage: QuestionnaireResponse will refer to this
-   - REQUIRED.
+   - REQUIRED (1..1), same as standard.
 - "status"
-   - example: "active"
-- "extension"."valueCoding"
-   - usage: perhaps don't need this, implicit?
-   - example: https://github.com/uwcirg/fhir-questionnaires/pull/2/files#diff-66fd6a93556a044e8ffa3a290dac3e49b37b29b60c0cdddfb2645fe5cea49ae2R582 
+   - REQUIRED (1..1), same as standard.
+   - Default for us: "active"
+   - We don't read this for anything, and have populated it inconsistently.
 - "item"
   - item.text - used in the UI.
   - item.code.display - ignore, same as item.text but from external source. No need to remove, often too laborious.
@@ -35,22 +37,25 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
      - usage: QuestionnaireResponse will refer to this
      - REQUIRED.
   - item.type
-     - example: "choice"
+     - example: "choice", "decimal", "display"
      - REQUIRED.
      - Note: we ignore other directives eg item.extension.valueCodeableConcept.coding.code "drop-down".  
-  - item[n]._text.extension
+  - item[n]._text.extension where item.type = "display"
     - XTHML displayed...
       - ... during the questionnaire, usually instructions.
       - ... in the [summary report](https://github.com/uwcirg/patient-summary) "about" pop-up.
       - Not a question (does not have an answerOption[]).
       - Usually at item[0] (the screener gives it its own page in this case)
       - Sometimes later as instructions for a specific question item
-      - Examples of both in [MINICOG in the questionnaire filler]([https://github.com/uwcirg/asbi-screening-app](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-MINICOG.json))).
+      - Examples of both in [MINICOG in the questionnaire filler](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-MINICOG.json).
     - "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
     - "valueString": XTHML
     - Examples
       - CIRG-PC-PTSD-5.json
       - CIRG-PHQ-4.json
       - 1_Questionnaire-USAUDIT.json (screener app)
+  - "extension"."valueCoding"
+    - We sometimes use this to indicate that an item is a score [here](https://github.com/uwcirg/fhir-questionnaires/pull/2/files#diff-66fd6a93556a044e8ffa3a290dac3e49b37b29b60c0cdddfb2645fe5cea49ae2R582)
+    - Amy do you read this for anything?
 
 **We'll continue to curate this as need be**
