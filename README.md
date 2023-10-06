@@ -30,17 +30,25 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
    - REQUIRED (1..1), same as standard.
    - Default for us: "active"
    - We don't read this for anything, and have populated it inconsistently.
-- "item"
-  - item.text - used in the UI.
-  - item.code.display - ignore, same as item.text but from external source. No need to remove, often too laborious.
-  - item.linkId
-     - usage: QuestionnaireResponse will refer to this
+- "item"[n]
+  - item[n].text - used in the UI.
+  - item[n].code.display - ignore, same as item.text but from external source. No need to remove, often too laborious.
+  - item[n].linkId
+     - QuestionnaireResponse refers to this (for dhair2 this is questions.fhir_linkId)
      - REQUIRED.
-  - item.type
-     - example: "choice", "decimal", "display"
+  - item[n].type
+     - example: "choice", "decimal", "string", "display"
      - REQUIRED.
      - Note: we ignore other directives eg item.extension.valueCodeableConcept.coding.code "drop-down".  
-  - item[n]._text.extension where item.type = "display"
+  - item[n].answerOption[n]
+    - item.answerOption[n].valueCoding
+      - code: QuestionnaireResponse refers to this (for dhair2 this is options.fhir_code)
+      - display: the text displayed for the option.
+    - item.answerOption[n].extension
+      - "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue"
+        - almost always valueDecimal; rarely valueString (example [here](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-C-IDAS.json)).
+      - "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix" I see this is nearly always populated, but Amy do you use this at all? Seems redundant w/ ordinalValue (just above).
+  - item[n]._text.extension where item[n].type = "display"
     - XTHML displayed...
       - ... during the questionnaire, usually instructions.
       - ... in the [summary report](https://github.com/uwcirg/patient-summary) "about" pop-up.
@@ -54,8 +62,10 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
       - CIRG-PC-PTSD-5.json
       - CIRG-PHQ-4.json
       - 1_Questionnaire-USAUDIT.json (screener app)
-  - "extension"."valueCoding"
+  - item[n]."extension"."valueCoding"
     - We sometimes use this to indicate that an item is a score [here](https://github.com/uwcirg/fhir-questionnaires/pull/2/files#diff-66fd6a93556a044e8ffa3a290dac3e49b37b29b60c0cdddfb2645fe5cea49ae2R582)
     - Amy do you read this for anything?
+  - item[n]."enableWhen"
+    - Amy you're not using this for anything, are you? I see it for the DCW Audit questionnaires, but we don't use those...
 
 **We'll continue to curate this as need be**
