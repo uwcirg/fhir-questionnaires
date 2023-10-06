@@ -39,7 +39,8 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
   - item[n].linkId
      - REQUIRED.
      - QuestionnaireResponse refers to this.
-     - If we identify a FHIR resource for the Questionnaire that's established in the community, then we'll use its values for these. Otherwise, use a pattern like 'CIRG-[project eg "PainTracker"]-[our question ID], eg [this PainTracker body diagram question](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-PainTracker-Location-Body-Diagram.json#L17)'. Note that this is not used for computed mappings, that's done from the source of the QuestionnaireResponse (eg dhair2's question.fhir_linkId)).
+     - Note that this is not used for computed mappings back *to* the non-FHIR source (eg dhair2); that source maps in this direction (eg dhair2's question.fhir_linkId)). 
+     - If we identify a FHIR resource for the Questionnaire that's established in the community, then we'll use its values for these. Otherwise, use whatever is easy... a pattern like 'CIRG-[project eg "PainTracker"]-[our question ID], eg [this PainTracker body diagram question](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-PainTracker-Location-Body-Diagram.json#L17)' is good, but sometimes not easy (hard to scale).
   - item[n].type
      - example: "choice", "decimal", "string", "display"
      - REQUIRED.
@@ -47,7 +48,8 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
   - item[n].answerOption[n]
     - item.answerOption[n].valueCoding
       - code: QuestionnaireResponse refers to this
-        - If we identify a FHIR resource for the Questionnaire that's established in the community, then we'll use its values for these. Otherwise, use eg option.id from dhair2 eg [this PainTracker body diagram question](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-PainTracker-Location-Body-Diagram.json#L17)'. Note that this is not used for computed mappings, that's done from the source of the QuestionnaireResponse (eg dhair2's options.fhir_code).
+        - This is not used for computed mappings back *to* the non-FHIR source (eg dhair2); that source maps in this direction (eg dhair2's options.fhir_code).
+        - If we identify a FHIR resource for the Questionnaire that's established in the community, then we'll use its values for these. Otherwise, use whatever is easy... a pattern like option.id from dhair2 eg [this PainTracker body diagram question](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-PainTracker-Location-Body-Diagram.json#L17)' is good, but sometimes not easy (hard to scale).
       - display: the text displayed for the option.
     - item.answerOption[n].extension
       - "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue"
