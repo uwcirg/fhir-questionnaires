@@ -1,5 +1,10 @@
 # fhir-questionnaires
-A repository of FHIR Questionnaires in json format. This is intended to be a temporary repository so we can refine them prior to committing them to FHIR repositories.
+A repository of FHIR Questionnaires in json format. This is intended to be a definitive source which we populate FHIR repositories from.
+
+# Process for creating these
+1. Search for the Questionnaire first at the [NLM forms builder](https://lhcformbuilder.nlm.nih.gov/) and then at LOINC (NLM includes many of the LOINC Questionaires).
+2. If we've already have a non-FHIR implementation of the questionnaire in one of our systems (eg dhair2, DCW), compare verbiage, scoring, with what's found. We generally need to retain whatever verbiage we've been using historically, but confirm on a case-by-case basis w/ research staff.
+3. Even if we find a FHIR Questionnaire elsewhere, we'll need to bring them to this repository so we can add/edit a small number of fields as described below.
 
 # Fields and how we use them
 - "id"
@@ -32,15 +37,17 @@ A repository of FHIR Questionnaires in json format. This is intended to be a tem
   - item[n].text - used in the UI.
   - item[n].code.display - ignore, same as item.text but from external source. No need to remove, often too laborious.
   - item[n].linkId
-     - QuestionnaireResponse refers to this (for dhair2 this is questions.fhir_linkId)
      - REQUIRED.
+     - QuestionnaireResponse refers to this.
+     - If we identify a FHIR resource for the Questionnaire that's established in the community, then we'll use its values for these. Otherwise, use a pattern like 'CIRG-[project eg "PainTracker"]-[our question ID], eg [this PainTracker body diagram question](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-PainTracker-Location-Body-Diagram.json#L17)'. Note that this is not used for computed mappings, that's done from the source of the QuestionnaireResponse (eg dhair2's question.fhir_linkId)).
   - item[n].type
      - example: "choice", "decimal", "string", "display"
      - REQUIRED.
      - Note: we ignore other directives eg item.extension.valueCodeableConcept.coding.code "drop-down".  
   - item[n].answerOption[n]
     - item.answerOption[n].valueCoding
-      - code: QuestionnaireResponse refers to this (for dhair2 this is options.fhir_code)
+      - code: QuestionnaireResponse refers to this
+        - If we identify a FHIR resource for the Questionnaire that's established in the community, then we'll use its values for these. Otherwise, use eg option.id from dhair2 eg [this PainTracker body diagram question](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-PainTracker-Location-Body-Diagram.json#L17)'. Note that this is not used for computed mappings, that's done from the source of the QuestionnaireResponse (eg dhair2's options.fhir_code).
       - display: the text displayed for the option.
     - item.answerOption[n].extension
       - "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue"
