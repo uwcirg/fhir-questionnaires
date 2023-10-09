@@ -9,8 +9,9 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
 # Fields and how we use them
 - "id"
    - usage: this is how we refer to the questionnaire in code, CarePlans, etc.
-   - REQUIRED (same as standard), and we need it to be a known & reliable value (not assigned by the FHIR server) - that part is not per standard.
-   - example: "CIRG-PHQ9"
+   - REQUIRED 1..1 (same as standard), and we need it to be a known & reliable value (not assigned by the FHIR server) - that part is not per standard.
+   - QuestionnaireResponse.questionnaire points at this via eg "Questionnaire/CIRG-PHQ-4"
+   - example: "CIRG-PHQ-4"
    - Our profile: add the above info
 - "title"
    - usage: human friendly.
@@ -26,9 +27,6 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
 - "name"
    - Standard says 0..1; computer friendly.
    - Do we use this anywhere Amy? I see that it's populated for the DCW Questionnaires.
-- "linkId"
-   - usage: QuestionnaireResponse will refer to this
-   - REQUIRED (1..1), same as standard.
 - "status"
    - REQUIRED (1..1), same as standard.
    - Default for us: "active"
