@@ -1,10 +1,15 @@
 # fhir-questionnaires
-A repository of FHIR Questionnaires in json format. This is intended to be a definitive source which we populate FHIR repositories from.
+A repository of FHIR Questionnaires in json format. This is intended to be a definitive source which we populate FHIR repositories from. Even if we know of a FHIR Questionnaire elsewhere, we'll need to bring them to this repository so we can add/edit a subset of fields as described below.
 
 # Process for creating these
 1. Search for the Questionnaire first at the [NLM forms builder](https://lhcformbuilder.nlm.nih.gov/) and then at LOINC (NLM includes many of the LOINC Questionaires).
-2. If we've already have a non-FHIR implementation of the questionnaire in one of our systems (eg dhair2, DCW), compare verbiage, scoring, with what's found. We generally need to retain whatever verbiage we've been using historically, but confirm on a case-by-case basis w/ research staff.
-3. Even if we find a FHIR Questionnaire elsewhere, we'll need to bring them to this repository so we can add/edit a small number of fields as described below.
+   1. We want the FHIR "R4" (current) version. If a particular questionnaire is only available as an earlier version of FHIR (eg DSTU2, or STU3), we'll probably want to start there and adapt it to the R4 format.
+   1. If we've already have a non-FHIR implementation of the questionnaire in one of our systems (eg dhair2, DCW), compare verbiage, scoring, with what's found. We generally need to retain whatever verbiage we've been using historically, but confirm on a case-by-case basis w/ research staff.
+1. If we don't find an existing FHIR Questionnaire, here are the alternatives:
+   1. Copy existing similar qnr from our repo
+      1. Example: CIRG-PainTracker-STOP (very brief qnr, 4 yes/no questions)
+   1. Create one de novo w/ help from a script (see chatgpt script) - makes sense for something like PainTracker TRT - fairly long, all codings novel.
+      1. Example: CIRG-PainTracker-TRT
 
 # Fields and how we use them
 - "id"
