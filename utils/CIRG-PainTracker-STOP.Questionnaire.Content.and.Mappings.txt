@@ -1,0 +1,19 @@
+Have you been told you snore?
+item.linkId: STOP-0
+Yes
+No
+
+Are you often tired during the day? 
+item.linkId: STOP-1
+Yes
+No
+
+Do you know if you stop breathing or has anyone witnessed you stop breathing while you are asleep? 
+item.linkId: STOP-2
+Yes
+No
+
+Do you have high blood pressure or are you on medication to control high blood pressure?
+item.linkId: STOP-3
+Yes
+No

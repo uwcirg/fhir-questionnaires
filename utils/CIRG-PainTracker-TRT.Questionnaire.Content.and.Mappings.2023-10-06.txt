@@ -1,0 +1,151 @@
+To the best of your recollection, how many different healthcare providers have you seen in the LAST 6 MONTHS for your pain?
+item.linkId: TRT-1-header
+
+General Practice physicians (e.g., family medicine, internal medicine)
+item.linkId: TRT-1-1
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+Medical Specialists (e.g., rheumatologist, allergy specialist, immunologist)
+item.linkId: TRT-1-2
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+Pain Specialists
+item.linkId: TRT-1-3
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+Surgical Specialists
+item.linkId: TRT-1-4
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+To the best of your recollection, how many different healthcare providers have you seen in the LAST 6 MONTHS for your pain?
+item.linkId: TRT-2-header
+
+Psychologists, Psychiatrists and other mental health professionals
+item.linkId: TRT-2-1
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+Physical Therapists
+item.linkId: TRT-2-2
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+Complementary and Alternative healthcare professionals (e.g., naturopath, massage therapist, accupuncutrist)
+item.linkId: TRT-2-3
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+More than 10
+
+To the best of your recollection, which were the following treatments that you tried for your pain in the LAST 6 MONTHS? (TRT-3*1)
+item.linkId: TRT-3-header
+
+Exercise, physical therapy or occupational therapy?
+item.linkId: TRT-3-1
+Did not have this type of treatment
+It was very effective
+It was moderately effective
+Not at all effective
+
+Physical modalities such as heat, massage, or TENS?
+item.linkId: TRT-3-2
+Did not have this type of treatment
+It was very effective
+It was moderately effective
+Not at all effective
+
+Any behavioral treatment such as cognitive behavioral therapy, distraction, or relaxation?
+item.linkId: TRT-3-3
+Did not have this type of treatment
+It was very effective
+It was moderately effective
+Not at all effective
+
+To the best of your recollection, how effective were the following treatments for your pain in the LAST 6 MONTHS?
+item.linkId: TRT-4-header
+
+Non-opioid medications such as non-steroidal anti-inflammatory medications (like Motrin, Advil, ibuprofen, Celebrex) or “neuropathic pain medications” (like Neurontin, Lyrica, Cymbalta, other anti- depressant)?
+item.linkId: TRT-4-1
+Did not have this type of treatment
+It was very effective
+It was moderately effective
+Not at all effective
+
+Alternative therapies such as acupuncture, hypnosis, yoga or meditation?
+item.linkId: TRT-4-2
+Did not have this type of treatment
+It was very effective
+It was moderately effective
+Not at all effective
