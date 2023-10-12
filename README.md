@@ -34,7 +34,7 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
 - "name"
    - Standard says 0..1; computer friendly.
-   - Do we use this anywhere Amy? I see that it's populated for the DCW Questionnaires.
+   - This is used (along with `id`) by our Questionnaire Filler to determine what questionnaire(s) to query for; implemented [here](https://github.com/uwcirg/asbi-screening-app/blob/9b4d6daa9b31bc799af1c69de612f8b495fd3e44/src/util/screening-selector.js#L211). 
 - "status"
    - REQUIRED (1..1), same as standard.
    - Default for us: "active"
@@ -77,8 +77,8 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
       - 1_Questionnaire-USAUDIT.json (screener app)
   - item[n]."extension"."valueCoding"
     - We sometimes use this to indicate that an item is a score [here](https://github.com/uwcirg/fhir-questionnaires/pull/2/files#diff-66fd6a93556a044e8ffa3a290dac3e49b37b29b60c0cdddfb2645fe5cea49ae2R582)
-    - Amy do you read this for anything?
+    - As of 2023-10-12 we don't have code that reads this.
   - item[n]."enableWhen"
-    - Amy you're not using this for anything, are you? I see it for the DCW Audit questionnaires, but we don't use those...
+    - This can be used by our Questionnaire Filler to determine whether to display a question. Implementation [here](https://github.com/asbi-cds-tools/questionnaire-to-survey/blob/63f117fd666830f4fdecec10ad4cea363abed413/fhirConversionTools.js#L346); example of usage [here](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-USAUDIT.json#L77).
 
 **We'll continue to curate this as need be**
