@@ -24,9 +24,10 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
    - example: "Everyday Cognition - Participant Self Report Form [ECog]"
    - In our [questionnaire filler](https://github.com/uwcirg/asbi-screening-app), this is used for the page's <head><title>.
 - "description"
-   - Spec says: "Natural language description of the questionnaire", 0..1, Markdown.
-   - Contrast this with item[0]._text.extension (see below), which we use to describe the questionnaire in XHTML for rendering on web pages.
-   - Amy do you use this anywhere? It seems not (I don't see it in the questionnaire filler's DCW Questionnaires, at least), but I may be missing something. If you're not using it, then I'll reserve it for descriptive text that we don't intend to render. 
+   = REQUIRED (1..1). This is in contrast to spec (0..1).
+   - Per spec: "Natural language description of the questionnaire"; [Markdown w/out HTML](https://build.fhir.org/datatypes.html#markdown).
+   - 2023-10-12 Moving forward we'll use this for descriptive text to displayed to non-lay users (eg in the summary report). Also, while we'll use Markdown, we expect that the front-end may convert that to html (and indeed we'll include e.g. links to references here).
+   - Contrast this with item[0]._text.extension (see below).
 - "code"
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
 - "name"
@@ -61,7 +62,7 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
   - item[n]._text.extension where item[n].type = "display"
     - XTHML displayed...
       - ... during the questionnaire, usually instructions.
-      - ... in the [summary report](https://github.com/uwcirg/patient-summary) "about" pop-up.
+      - ... sometimes in the [summary report](https://github.com/uwcirg/patient-summary) "about" pop-up, but as of 2023-10-12 we are moving to `description` for that.
       - Not a question (does not have an answerOption[]).
       - Usually at item[0] (the screener gives it its own page in this case)
       - Sometimes later as instructions for a specific question item
