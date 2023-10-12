@@ -2,6 +2,7 @@
   "resourceType": "Questionnaire",
   "id": "CIRG-PainTracker-TRT",
   "title": "PainTracker 'TRT' questionnaire",
+  "description": "The 'TRT' questionnaire is novel to PainTracker; it contains questions about the number of healthcare and other service providers the patient has seen, as well as the effectiveness of their treatment.",
   "status": "active",
   "item": [
     {
