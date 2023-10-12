@@ -26,7 +26,9 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
 - "description"
    = REQUIRED (1..1). This is in contrast to spec (0..1).
    - Per spec: "Natural language description of the questionnaire"; [Markdown w/out HTML](https://build.fhir.org/datatypes.html#markdown).
-   - 2023-10-12 Moving forward we'll use this for descriptive text to displayed to non-lay users (eg in the summary report). Also, while we'll use Markdown, we expect that the front-end may convert that to html (and indeed we'll include e.g. links to references here).
+   - 2023-10-12 Moving forward we'll use this for descriptive text to displayed to non-lay users (eg in the summary report).
+     - We'll use Markdown w/out HTML, and we expect that the front-end may convert that to html (and indeed we'll include e.g. links to references here).
+     - This may include `<-- HTML style comments -->` for internal notes that we don't want rendered (hopefully a lib like showdown.js will interpret those as HTML comments, so they won't be displayed...).
    - Contrast this with item[0]._text.extension (see below).
 - "code"
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
