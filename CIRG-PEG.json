@@ -4,7 +4,7 @@
   "name": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
   "title": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
   "status": "draft",
-  "description": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale. Reference: [https://pubmed.ncbi.nlm.nih.gov/19418100/](https://pubmed.ncbi.nlm.nih.gov/19418100/). The CIRG-PEG-SUM item is a scoring variant used at UW Medicine's Center for Pain Relief. <-- This FHIR resource is based primarily on https://loinc.org/91148-7/ and to a lesser extent https://fhir.loinc.org/Questionnaire/?url=http://loinc.org/q/91148-7, using codes from the former. Note that these two references had different codes for the first question and that it was implemented at fhir.loinc.org as a decimal (not a choice), but academic references did not support that. -->",
+  "description": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale. Reference: [https://pubmed.ncbi.nlm.nih.gov/19418100/](https://pubmed.ncbi.nlm.nih.gov/19418100/). The CIRG-PEG-SUM item is a scoring variant used at UW Medicine's Center for Pain Relief. <!-- This FHIR resource is based primarily on https://loinc.org/91148-7/ and to a lesser extent https://fhir.loinc.org/Questionnaire/?url=http://loinc.org/q/91148-7, using codes from the former. Note that these two references had different codes for the first question and that it was implemented at fhir.loinc.org as a decimal (not a choice), but academic references did not support that. -->",
   "code": [
     {
       "system": "http://loinc.org",
