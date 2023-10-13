@@ -2,7 +2,7 @@
   "resourceType": "Questionnaire",
   "id": "CIRG-PainTracker-STOP",
   "title": "STOP Questionnaire: A Tool to Screen Patients for Obstructive Sleep Apnea",
-  "description": "STOP Questionnaire: A Tool to Screen Patients for Obstructive Sleep Apnea. https://pubs.asahq.org/anesthesiology/article/108/5/812/8377/STOP-QuestionnaireA-Tool-to-Screen-Patients-for",
+  "description": "STOP Questionnaire: A Tool to Screen Patients for Obstructive Sleep Apnea. Reference: [https://pubs.asahq.org/anesthesiology/article/108/5/812/8377/STOP-QuestionnaireA-Tool-to-Screen-Patients-for](https://pubs.asahq.org/anesthesiology/article/108/5/812/8377/STOP-QuestionnaireA-Tool-to-Screen-Patients-for)",
   "status": "active",
   "item": [
     {
