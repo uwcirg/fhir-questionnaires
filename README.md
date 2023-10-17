@@ -34,7 +34,7 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
    - usage: uniquely identify the questionnaire according to some system, eg at LOINC. Not our canonical reference (see "id"). See https://github.com/uwcirg/fhir-questionnaires/pull/2/files#r974579864
 - "name"
    - Standard says 0..1; computer friendly.
-   - This is used (along with `id`) by our Questionnaire Filler to determine what questionnaire(s) to query for; implemented [here](https://github.com/uwcirg/asbi-screening-app/blob/9b4d6daa9b31bc799af1c69de612f8b495fd3e44/src/util/screening-selector.js#L211). 
+   - As of 2023-10-17 this is used (along with `id`) by our Questionnaire Filler to determine what questionnaire(s) to query for; implemented [here](https://github.com/uwcirg/asbi-screening-app/blob/9b4d6daa9b31bc799af1c69de612f8b495fd3e44/src/util/screening-selector.js#L211). However, we instead can rely solely on `id` for this, per [here](https://github.com/uwcirg/fhir-questionnaires/pull/11#discussion_r1362519807), so no need to populate this moving forward. 
 - "status"
    - REQUIRED (1..1), same as standard.
    - Default for us: "active"
