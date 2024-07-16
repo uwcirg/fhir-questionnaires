@@ -1,6 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "CIRG-PainTracker-GE",
+  "name": "CIRG PainTracker patient goals and expectations",
   "title": "PainTracker patient goals and expectations questionnaire",
   "description": "The patient goals and expectations questionnaire is novel to PainTracker; it contains questions about patient's expectations and treatment goals from their visits to the UWMC Center for Pain Relief.",
   "status": "active",
