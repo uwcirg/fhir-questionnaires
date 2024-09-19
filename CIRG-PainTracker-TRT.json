@@ -7,7 +7,7 @@
   "item": [
     {
       "linkId": "TRT-1-header",
-      "text": "To the best of your recollection, how many different healthcare providers have you seen in the LAST 6 MONTHS for your pain?",
+      "text": "Number of healthcare providers seen for pain past 6 months",
       "type": "string"
     },
     {
@@ -328,7 +328,7 @@
     },
     {
       "linkId": "TRT-2-header",
-      "text": "To the best of your recollection, how many different healthcare providers have you seen in the LAST 6 MONTHS for your pain?",
+      "text": "Number of healthcare providers seen for pain past 6 months",
       "type": "string"
     },
     {
@@ -570,7 +570,7 @@
     },
     {
       "linkId": "TRT-3-header",
-      "text": "To the best of your recollection, which were the following treatments that you tried for your pain in the LAST 6 MONTHS?",
+      "text": "Efficacy of pain treatments in last 6 months",
       "type": "string"
     },
     {
@@ -668,7 +668,7 @@
     },
     {
       "linkId": "TRT-4-header",
-      "text": "To the best of your recollection, how effective were the following treatments for your pain in the LAST 6 MONTHS?",
+      "text": "Efficacy of pain treatments in last 6 months",
       "type": "string"
     },
     {
