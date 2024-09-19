@@ -570,7 +570,7 @@
     },
     {
       "linkId": "TRT-3-header",
-      "text": "To the best of your recollection, which were the following treatments that you tried for your pain in the LAST 6 MONTHS? (TRT-3*1)",
+      "text": "To the best of your recollection, which were the following treatments that you tried for your pain in the LAST 6 MONTHS?",
       "type": "string"
     },
     {
