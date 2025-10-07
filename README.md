@@ -1,6 +1,8 @@
 # fhir-questionnaires
 A repository of FHIR Questionnaires in json format. This is intended to be a definitive source which we populate FHIR repositories from. Even if we know of a FHIR Questionnaire elsewhere, we'll need to bring them to this repository so we can add/edit a subset of fields as described below.
 
+**TODO: Add questionnaires from https://github.com/uwcirg/asbi-screening-app/tree/master/src/fhir (e.g. PHQ-9, GAD-7, etc)**
+
 # Process for creating these
 1. Search for the Questionnaire first at the [NLM forms builder](https://lhcformbuilder.nlm.nih.gov/) and then at LOINC (NLM includes many of the LOINC Questionaires).
    1. We want the FHIR "R4" (current) version. If a particular questionnaire is only available as an earlier version of FHIR (eg DSTU2, or STU3), we'll probably want to start there and adapt it to the R4 format.
