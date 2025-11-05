@@ -28,7 +28,7 @@
         },
         {
           "valueCoding": {
-            "code": "IPV4-1-11",
+            "code": "IPV4-1-1",
             "display": "No"
           }
         }
@@ -47,7 +47,7 @@
         },
         {
           "valueCoding": {
-            "code": "IPV4-2-11",
+            "code": "IPV4-2-1",
             "display": "No"
           }
         }
@@ -66,7 +66,7 @@
         },
         {
           "valueCoding": {
-            "code": "IPV4-3-11",
+            "code": "IPV4-3-1",
             "display": "No"
           }
         }
@@ -85,7 +85,7 @@
         },
         {
           "valueCoding": {
-            "code": "IPV4-4-11",
+            "code": "IPV4-4-1",
             "display": "No"
           }
         }
