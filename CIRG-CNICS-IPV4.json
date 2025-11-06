@@ -8,12 +8,12 @@
     {
       "linkId": "IPV4-header-1",
       "text": "The next questions are about you and a partner. By \"partner\" we mean current or former husband/wife, boyfriend/girlfriend, domestic partner, romantic partner, or sex partner.",
-      "type": "string"
+      "type": "display"
     },
     {
       "linkId": "IPV4-header-2",
       "text": "In the PAST YEAR, did a current or former partner…",
-      "type": "string"
+      "type": "display"
     },
     {
       "linkId": "IPV4-1",
