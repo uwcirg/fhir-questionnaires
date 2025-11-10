@@ -6,21 +6,6 @@
   "description": "The CNICS Modified ASSIST is based on the \"NIDA-Modified ASSIST version 2.0\"(LOINC 95513-8). It adds questions about additional substances (e.g. psychedelics), using substances as the same time, and overdoses",
   "item": [
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/63643-1",
       "code": [
         {
@@ -105,21 +90,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95430-5",
       "code": [
         {
@@ -199,21 +169,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95431-3",
       "code": [
         {
@@ -293,21 +248,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95432-1",
       "code": [
         {
@@ -387,21 +327,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95433-9",
       "code": [
         {
@@ -481,21 +406,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95434-7",
       "code": [
         {
@@ -575,21 +485,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95435-4",
       "code": [
         {
@@ -669,21 +564,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95436-2",
       "code": [
         {
@@ -763,21 +643,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95437-0",
       "code": [
         {
@@ -857,21 +722,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95438-8",
       "code": [
         {
@@ -963,21 +813,6 @@
       "type": "group",
       "item": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95495-8/95494-1",
           "code": [
             {
@@ -1020,21 +855,6 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95495-8/95439-6",
           "code": [
             {
@@ -1116,21 +936,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95440-4",
       "code": [
         {
@@ -1210,21 +1015,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95441-2",
       "code": [
         {
@@ -1304,21 +1094,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95442-0",
       "code": [
         {
@@ -1398,21 +1173,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95443-8",
       "code": [
         {
@@ -1492,21 +1252,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95444-6",
       "code": [
         {
@@ -1586,21 +1331,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95445-3",
       "code": [
         {
@@ -1680,21 +1410,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95446-1",
       "code": [
         {
@@ -1774,21 +1489,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95447-9",
       "code": [
         {
@@ -1868,21 +1568,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95448-7",
       "code": [
         {
@@ -1974,21 +1659,6 @@
       "type": "group",
       "item": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95496-6/95500-5",
           "code": [
             {
@@ -2031,21 +1701,6 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95496-6/95449-5",
           "code": [
             {
@@ -2127,21 +1782,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95450-3",
       "code": [
         {
@@ -2221,21 +1861,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95451-1",
       "code": [
         {
@@ -2315,21 +1940,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95452-9",
       "code": [
         {
@@ -2409,21 +2019,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95453-7",
       "code": [
         {
@@ -2503,21 +2098,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95454-5",
       "code": [
         {
@@ -2597,21 +2177,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95455-2",
       "code": [
         {
@@ -2691,21 +2256,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95456-0",
       "code": [
         {
@@ -2785,21 +2335,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95457-8",
       "code": [
         {
@@ -2879,21 +2414,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95458-6",
       "code": [
         {
@@ -2985,21 +2505,6 @@
       "type": "group",
       "item": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95497-4/95501-3",
           "code": [
             {
@@ -3042,21 +2547,6 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95497-4/95459-4",
           "code": [
             {
@@ -3138,21 +2628,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95460-2",
       "code": [
         {
@@ -3232,21 +2707,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95461-0",
       "code": [
         {
@@ -3326,21 +2786,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95462-8",
       "code": [
         {
@@ -3420,21 +2865,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95463-6",
       "code": [
         {
@@ -3514,21 +2944,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95464-4",
       "code": [
         {
@@ -3608,21 +3023,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95465-1",
       "code": [
         {
@@ -3702,21 +3102,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95466-9",
       "code": [
         {
@@ -3796,21 +3181,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95467-7",
       "code": [
         {
@@ -3890,21 +3260,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95468-5",
       "code": [
         {
@@ -3996,21 +3351,6 @@
       "type": "group",
       "item": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95498-2/95502-1",
           "code": [
             {
@@ -4053,21 +3393,6 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95498-2/95469-3",
           "code": [
             {
@@ -4149,21 +3474,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95470-1",
       "code": [
         {
@@ -4217,21 +3527,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95471-9",
       "code": [
         {
@@ -4285,21 +3580,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95472-7",
       "code": [
         {
@@ -4353,21 +3633,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95473-5",
       "code": [
         {
@@ -4421,21 +3686,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95474-3",
       "code": [
         {
@@ -4489,21 +3739,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95475-0",
       "code": [
         {
@@ -4557,21 +3792,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95476-8",
       "code": [
         {
@@ -4625,21 +3845,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95477-6",
       "code": [
         {
@@ -4693,21 +3898,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95478-4",
       "code": [
         {
@@ -4773,21 +3963,6 @@
       "type": "group",
       "item": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95480-0/95481-8",
           "code": [
             {
@@ -4830,21 +4005,6 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95480-0/95479-2",
           "code": [
             {
@@ -4900,21 +4060,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95482-6",
       "code": [
         {
@@ -4968,21 +4113,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95483-4",
       "code": [
         {
@@ -5036,21 +4166,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95484-2",
       "code": [
         {
@@ -5104,21 +4219,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95485-9",
       "code": [
         {
@@ -5172,21 +4272,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95486-7",
       "code": [
         {
@@ -5240,21 +4325,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95487-5",
       "code": [
         {
@@ -5308,21 +4378,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95488-3",
       "code": [
         {
@@ -5376,21 +4431,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95489-1",
       "code": [
         {
@@ -5444,21 +4484,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95490-9",
       "code": [
         {
@@ -5524,21 +4549,6 @@
       "type": "group",
       "item": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95499-0/95503-9",
           "code": [
             {
@@ -5581,21 +4591,6 @@
           ]
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://hl7.org/fhir/questionnaire-item-control",
-                    "code": "drop-down",
-                    "display": "Drop down"
-                  }
-                ],
-                "text": "Drop down"
-              }
-            }
-          ],
           "linkId": "/95499-0/95491-7",
           "code": [
             {
@@ -5651,21 +4646,6 @@
       ]
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/questionnaire-item-control",
-                "code": "drop-down",
-                "display": "Drop down"
-              }
-            ],
-            "text": "Drop down"
-          }
-        }
-      ],
       "linkId": "/95492-5",
       "code": [
         {
