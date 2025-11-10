@@ -72,19 +72,19 @@
       ]
     },
     {
-      "linkId": "ASSIST-narcan",
+      "linkId": "ASSIST-od-narcan",
       "text": "Do you have a supply of or prescription for Narcan?",
       "type": "choice",
       "answerOption": [
         {
           "valueCoding": {
-            "code": "ASSIST-narcan-0",
+            "code": "ASSIST-od-narcan-0",
             "display": "Yes"
           }
         },
         {
           "valueCoding": {
-            "code": "ASSIST-narcan-1",
+            "code": "ASSIST-od-narcan-1",
             "display": "No"
           }
         }
