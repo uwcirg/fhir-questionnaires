@@ -1,15 +1,9 @@
 {
   "resourceType": "Questionnaire",
   "id": "CIRG-CNICS-ASSIST",
-  "title": "NIDA-Modified ASSIST version 2.0 [NIDA]",
+  "title": "CNICS Modified ASSIST",
   "status": "active",
-  "code": [
-    {
-      "system": "http://loinc.org",
-      "code": "95513-8",
-      "display": "NIDA-Modified ASSIST version 2.0 [NIDA]"
-    }
-  ],
+  "description": "The CNICS Modified ASSIST is based on the \"NIDA-Modified ASSIST version 2.0\"(LOINC 95513-8). It adds questions about additional substances (e.g. psychedelics), using substances as the same time, and overdoses",
   "item": [
     {
       "extension": [
