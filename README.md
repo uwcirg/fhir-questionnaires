@@ -53,6 +53,9 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
      - example: "choice", "decimal", "string", "display"
      - REQUIRED.
      - Note: we ignore other directives eg item.extension.valueCodeableConcept.coding.code "drop-down".  
+  - item[n].repeats
+     - example: "true"
+     - Indicates that this is a checkbox question. Use in combination with "type" = "choice".
   - item[n].answerOption[n]
     - item.answerOption[n].valueCoding
       - code: QuestionnaireResponse refers to this
