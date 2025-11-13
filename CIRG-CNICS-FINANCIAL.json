@@ -1,0 +1,40 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "CIRG-CNICS-FINANCIAL",
+  "title": "CNICS Financial Situation Questionnaire",
+  "status": "active",
+  "description": "CNICS Financial situation questionnaire. Based on: Rice E, Green S, Santos K, Lester P, Rotheram-Borus MJ. A lifetime of low-risk behaviors among HIV-positive Latinas in Los Angeles. J Immigr Minor Health. 2010;12(6):875-881.",
+  "item": [
+    {
+      "linkId": "FINANCIAL-0",
+      "text": "Which of the following best describes your financial situation?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "FINANCIAL-0-0",
+            "display": "Struggling to survive, not enough money to pay bills and buy food"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FINANCIAL-0-1",
+            "display": "Barely paying the bills"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FINANCIAL-0-2",
+            "display": "Have the necessities, have money to cover needs"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FINANCIAL-0-2",
+            "display": "Comfortable, have money to purchase extras"
+          }
+        }
+      ]
+    }
+  ]
+}

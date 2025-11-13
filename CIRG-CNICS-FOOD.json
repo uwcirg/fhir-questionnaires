@@ -1,0 +1,64 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "CIRG-CNICS-FOOD",
+  "title": "CNICS Food Security Questionnaire (FSQ)",
+  "status": "active",
+  "description": "CNICS Food Security Questionnaire (FSQ). Based on: Young J, Jeganathan S, Houtzager L, Di Guilmi A, Purnomo J. A valid two-item food security questionnaire for screening HIV-1 infected patients in a clinical setting. Public Health Nutr. 2009;12(11):2129-2132.",
+  "item": [
+    {
+      "linkId": "FOOD-header",
+      "text": "Please read the following two statements and indicate whether the statement was OFTEN, SOMETIMES, or NEVER true for you or other members of your household in the last 12 months.",
+      "type": "display"
+    },
+    {
+      "linkId": "FOOD-0",
+      "text": "The food I/we bought just didn't last, and I/we didn't have money to get more.",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "FOOD-0-0",
+            "display": "Never true"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FOOD-0-1",
+            "display": "Sometimes true"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FOOD-0-2",
+            "display": "Often true"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "FOOD-1",
+      "text": "I/we couldn't afford to eat balanced meals.",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "FOOD-1-0",
+            "display": "Never true"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FOOD-1-1",
+            "display": "Sometimes true"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "FOOD-1-2",
+            "display": "Often true"
+          }
+        }
+      ]
+    }
+  ]
+}
