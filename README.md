@@ -77,6 +77,8 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
       - CIRG-PC-PTSD-5.json
       - CIRG-PHQ-4.json
       - 1_Questionnaire-USAUDIT.json (screener app)
+  - item[n]."extension"[]."url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression"
+    - This can be used to specify a fhirpath expression to compute a score. For en example, see [CIRG-CNICS-FOOD](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-CNICS-FOOD.json).
   - item[n]."extension"."valueCoding"
     - We sometimes use this to indicate that an item is a score [here](https://github.com/uwcirg/fhir-questionnaires/pull/2/files#diff-66fd6a93556a044e8ffa3a290dac3e49b37b29b60c0cdddfb2645fe5cea49ae2R582)
     - As of 2023-10-12 we don't have code that reads this.
