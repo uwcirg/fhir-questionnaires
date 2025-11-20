@@ -59,6 +59,36 @@
           }
         }
       ]
+    },
+    {
+      "linkId": "FOOD-score",
+      "text": "Food Security Questionnaire score",
+      "type": "decimal",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='FOOD-0').answer.empty() and %resource.item.where(linkId='FOOD-1').answer.empty(), null, iif(%resource.item.where(linkId='FOOD-0').answer.valueCoding.empty() xor %resource.item.where(linkId='FOOD-1').answer.valueCoding.empty(), iif(%resource.item.where(linkId='FOOD-0').answer.valueCoding.code = 'FOOD-0-0' or %resource.item.where(linkId='FOOD-1').answer.valueCoding.code = 'FOOD-1-0', null, 1), iif(%resource.item.where(linkId='FOOD-0').answer.valueCoding.code.replace('FOOD-0-','').toInteger() = 0, iif(%resource.item.where(linkId='FOOD-1').answer.valueCoding.code.replace('FOOD-1-','').toInteger() = 0, 0, 1), iif(%resource.item.where(linkId='FOOD-1').answer.valueCoding.code.replace('FOOD-1-','').toInteger() = 0, 1, 2))))"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "FOOD-critical-flag",
+      "text": "Food Security Questionnaire score: critical flag",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId='FOOD-score').answer.valueDecimal > 0"
+          }
+        }
+      ]
     }
   ]
 }
