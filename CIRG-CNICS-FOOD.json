@@ -85,7 +85,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId='FOOD-score').answer.valueDecimal > 0"
+            "expression": "%resource.item.where(linkId='FOOD-score').answer.valueDecimal.toInteger() > 0"
           }
         }
       ]
