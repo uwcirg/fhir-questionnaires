@@ -76,6 +76,21 @@
       ]
     },
     {
+      "linkId": "FOOD-score-label",
+      "text": "Food Security Questionnaire score: label",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='FOOD-score').answer.valueDecimal.toInteger() = 0, 'Food Secure', iif(%resource.item.where(linkId='FOOD-score').answer.valueDecimal.toInteger() = 1, 'Low Food Security', iif(%resource.item.where(linkId='FOOD-score').answer.valueDecimal.toInteger() = 2, 'Very Low Food Security', null)))"
+          }
+        }
+      ]
+    },
+    {
       "linkId": "FOOD-critical-flag",
       "text": "Food Security Questionnaire score: critical flag",
       "type": "boolean",
