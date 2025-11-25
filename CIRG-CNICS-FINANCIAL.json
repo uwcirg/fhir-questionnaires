@@ -30,8 +30,38 @@
         },
         {
           "valueCoding": {
-            "code": "FINANCIAL-0-2",
+            "code": "FINANCIAL-0-3",
             "display": "Comfortable, have money to purchase extras"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "FINANCIAL-score-label",
+      "text": "Financial Situation Questionnaire score: label",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='FINANCIAL-0').answer.valueCoding.code = 'FINANCIAL-0-0', 'Struggling to survive', iif(%resource.item.where(linkId='FINANCIAL-0').answer.valueCoding.code = 'FINANCIAL-0-1', 'Barely paying the bills', iif(%resource.item.where(linkId='FINANCIAL-0').answer.valueCoding.code = 'FINANCIAL-0-2', 'Has necessities', iif(%resource.item.where(linkId='FINANCIAL-0').answer.valueCoding.code = 'FINANCIAL-0-3', 'Comfortable', null))))"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "FINANCIAL-critical-flag",
+      "text": "Financial Situation Questionnaire score: critical flag",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId='FINANCIAL-0').answer.valueCoding.code = 'FINANCIAL-0-0'"
           }
         }
       ]
