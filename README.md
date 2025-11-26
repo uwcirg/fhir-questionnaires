@@ -79,6 +79,7 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
       - 1_Questionnaire-USAUDIT.json (screener app)
   - item[n].extension[] with url: "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression" and valueExpression.language = "text/fhirpath"
     - This can be used to specify a fhirpath expression for computing the score for an item. For examples with valueDecimal (for numerical score), valueString (score label), and valueBoolean (whether the critical threshold was met), see [CIRG-CNICS-FOOD](https://github.com/uwcirg/fhir-questionnaires/blob/main/CIRG-CNICS-FOOD.json).
+    - Note that if one item's fhirpath expression depends on another item's value, the [SDC Form Filler](https://hl7.org/fhir/uv/sdc/CapabilityStatement-sdc-form-filler.html) assembling the QuestionnaireResponse should calculate dependencies first. What I found in [dhair]([url](https://gitlab.cirg.washington.edu/svn/dhair/-/issues/209)) was that the FHIR server (Hapi) returns the array of Questionnaire.items in a consistent sequence (as it was written to it), facilitating this.
     - Use the fhirpath standard `%resource` to refer to the QuestionnaireResponse - that's compatible with most current interpreters (e.g. [fhirpath.js](https://github.com/HL7/fhirpath.js/pull/180/files)).
     - See also https://gitlab.cirg.washington.edu/svn/dhair/-/issues/209.
   - item[n]."extension"."valueCoding"
