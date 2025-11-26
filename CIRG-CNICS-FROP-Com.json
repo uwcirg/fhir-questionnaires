@@ -3,7 +3,7 @@
   "id": "CIRG-CNICS-FROP-Com",
   "title": "Falls Risk for Older People in the Community (FROP-Com)",
   "status": "active",
-  "description": "FROP-Com questionnaire used for CNICS falls risk. Based on: Mascarenhas M, Hill KD, Barker A, Burton E. Validity of the Falls Risk for Older People in the Community (FROP-Com) tool to predict falls and fall injuries for older people presenting to the emergency department after falling. Eur J Ageing. 2019;16(3):377-386.",
+  "description": "FROP-Com questionnaire used for CNICS falls risk (\"Falls 2021\", #213). Based on: Mascarenhas M, Hill KD, Barker A, Burton E. Validity of the Falls Risk for Older People in the Community (FROP-Com) tool to predict falls and fall injuries for older people presenting to the emergency department after falling. Eur J Ageing. 2019;16(3):377-386.",
   "item": [
     {
       "linkId": "FROP-Com-header",
