@@ -12,7 +12,7 @@
     },
     {
       "linkId": "Symptoms-0",
-      "text": "Fever, chills, or sweats?",
+      "text": "Fatigue or loss of energy?",
       "type": "choice",
       "answerOption": [
         {
@@ -49,7 +49,7 @@
     },
     {
       "linkId": "Symptoms-1",
-      "text": "Feeling dizzy or lightheaded?",
+      "text": "Fever, chills, or sweats?",
       "type": "choice",
       "answerOption": [
         {
@@ -86,7 +86,7 @@
     },
     {
       "linkId": "Symptoms-2",
-      "text": "Pain, numbness, or tingling in the hands or feet?",
+      "text": "Feeling dizzy or lightheaded?",
       "type": "choice",
       "answerOption": [
         {
@@ -123,7 +123,7 @@
     },
     {
       "linkId": "Symptoms-3",
-      "text": "Trouble remembering?",
+      "text": "Pain, numbness, or tingling in the hands or feet?",
       "type": "choice",
       "answerOption": [
         {
@@ -160,7 +160,7 @@
     },
     {
       "linkId": "Symptoms-4",
-      "text": "Nausea or vomiting?",
+      "text": "Trouble remembering?",
       "type": "choice",
       "answerOption": [
         {
@@ -197,7 +197,7 @@
     },
     {
       "linkId": "Symptoms-5",
-      "text": "Diarrhea or loose bowel movements?",
+      "text": "Nausea or vomiting?",
       "type": "choice",
       "answerOption": [
         {
@@ -234,7 +234,7 @@
     },
     {
       "linkId": "Symptoms-6",
-      "text": "Felt sad, down, or depressed?",
+      "text": "Diarrhea or loose bowel movements?",
       "type": "choice",
       "answerOption": [
         {
@@ -271,7 +271,7 @@
     },
     {
       "linkId": "Symptoms-7",
-      "text": "Felt nervous or anxious?",
+      "text": "Felt sad, down, or depressed?",
       "type": "choice",
       "answerOption": [
         {
@@ -308,7 +308,7 @@
     },
     {
       "linkId": "Symptoms-8",
-      "text": "Difficulty falling or staying asleep?",
+      "text": "Felt nervous or anxious?",
       "type": "choice",
       "answerOption": [
         {
@@ -345,7 +345,7 @@
     },
     {
       "linkId": "Symptoms-9",
-      "text": "Skin problems, such as rash, dryness, or itching?",
+      "text": "Difficulty falling or staying asleep?",
       "type": "choice",
       "answerOption": [
         {
@@ -382,7 +382,7 @@
     },
     {
       "linkId": "Symptoms-10",
-      "text": "Cough or trouble catching your breath?",
+      "text": "Skin problems, such as rash, dryness, or itching?",
       "type": "choice",
       "answerOption": [
         {
@@ -419,7 +419,7 @@
     },
     {
       "linkId": "Symptoms-11",
-      "text": "Headache?",
+      "text": "Cough or trouble catching your breath?",
       "type": "choice",
       "answerOption": [
         {
@@ -456,7 +456,7 @@
     },
     {
       "linkId": "Symptoms-12",
-      "text": "Loss of appetite or a change in the taste of food?",
+      "text": "Headache?",
       "type": "choice",
       "answerOption": [
         {
@@ -493,7 +493,7 @@
     },
     {
       "linkId": "Symptoms-13",
-      "text": "Bloating, pain, or gas in your stomach?",
+      "text": "Loss of appetite or a change in the taste of food?",
       "type": "choice",
       "answerOption": [
         {
@@ -530,7 +530,7 @@
     },
     {
       "linkId": "Symptoms-14",
-      "text": "Muscle aches or joint pain?",
+      "text": "Bloating, pain, or gas in your stomach?",
       "type": "choice",
       "answerOption": [
         {
@@ -567,7 +567,7 @@
     },
     {
       "linkId": "Symptoms-15",
-      "text": "Problems with having sex, such as loss of interest or lack of satisfaction?",
+      "text": "Muscle aches or joint pain?",
       "type": "choice",
       "answerOption": [
         {
@@ -604,7 +604,7 @@
     },
     {
       "linkId": "Symptoms-16",
-      "text": "Changes in the way your body looks such as fat deposits or weight gain?",
+      "text": "Problems with having sex, such as loss of interest or lack of satisfaction?",
       "type": "choice",
       "answerOption": [
         {
@@ -641,7 +641,7 @@
     },
     {
       "linkId": "Symptoms-17",
-      "text": "Problems with weight loss or wasting?",
+      "text": "Changes in the way your body looks such as fat deposits or weight gain?",
       "type": "choice",
       "answerOption": [
         {
@@ -678,7 +678,7 @@
     },
     {
       "linkId": "Symptoms-18",
-      "text": "Hair loss or changes in the way your hair looks?",
+      "text": "Problems with weight loss or wasting?",
       "type": "choice",
       "answerOption": [
         {
@@ -714,8 +714,45 @@
       ]
     },
     {
-      "linkId": "Symptoms-num-falls-text",
-      "text": "Fall risk (Symptoms): number of falls",
+      "linkId": "Symptoms-19",
+      "text": "Hair loss or changes in the way your hair looks?",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "code": "Symptoms-19-0",
+            "display": "I do not have this symptom."
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "Symptoms-19-1",
+            "display": "It doesn't bother me."
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "Symptoms-19-2",
+            "display": "It bothers me a little."
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "Symptoms-19-3",
+            "display": "It bothers me."
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "Symptoms-19-4",
+            "display": "It bothers me a lot."
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "Symptoms-bothers-a-lot",
+      "text": "Bothers A Lot",
       "type": "string",
       "readOnly": true,
       "extension": [
@@ -723,22 +760,22 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='Symptoms-0').answer.valueCoding.code = 'Symptoms-0-0', 'None', iif(%resource.item.where(linkId='Symptoms-0').answer.valueCoding.code = 'Symptoms-0-1', '1', iif(%resource.item.where(linkId='Symptoms-0').answer.valueCoding.code = 'Symptoms-0-2', '2', iif(%resource.item.where(linkId='Symptoms-0').answer.valueCoding.code = 'Symptoms-0-3', '3 or more', null))))"
+            "expression": "(iif(%resource.item.where(linkId = 'Symptoms-0').answer.valueCoding.code = 'Symptoms-0-4', 'Fatigue', '') | iif(%resource.item.where(linkId = 'Symptoms-1').answer.valueCoding.code = 'Symptoms-1-4', 'Fevers, chills, sweats', '') | iif(%resource.item.where(linkId = 'Symptoms-2').answer.valueCoding.code = 'Symptoms-2-4', 'Dizzy', '') | iif(%resource.item.where(linkId = 'Symptoms-3').answer.valueCoding.code = 'Symptoms-3-4', 'Numbness/pain feet', '') | iif(%resource.item.where(linkId = 'Symptoms-4').answer.valueCoding.code = 'Symptoms-4-4', 'Memory', '') | iif(%resource.item.where(linkId = 'Symptoms-5').answer.valueCoding.code = 'Symptoms-5-4', 'Nausea/vomiting', '') | iif(%resource.item.where(linkId = 'Symptoms-6').answer.valueCoding.code = 'Symptoms-6-4', 'Diarrhea', '') | iif(%resource.item.where(linkId = 'Symptoms-7').answer.valueCoding.code = 'Symptoms-7-4', 'Sad', '') | iif(%resource.item.where(linkId = 'Symptoms-8').answer.valueCoding.code = 'Symptoms-8-4', 'Nervous/anxious', '') | iif(%resource.item.where(linkId = 'Symptoms-9').answer.valueCoding.code = 'Symptoms-9-4', 'Poor sleep', '') | iif(%resource.item.where(linkId = 'Symptoms-10').answer.valueCoding.code = 'Symptoms-10-4', 'Rash', '') | iif(%resource.item.where(linkId = 'Symptoms-11').answer.valueCoding.code = 'Symptoms-11-4', 'Cough/SOB', '') | iif(%resource.item.where(linkId = 'Symptoms-12').answer.valueCoding.code = 'Symptoms-12-4', 'Headache', '') | iif(%resource.item.where(linkId = 'Symptoms-13').answer.valueCoding.code = 'Symptoms-13-4', 'Poor appetite', '') | iif(%resource.item.where(linkId = 'Symptoms-14').answer.valueCoding.code = 'Symptoms-14-4', 'Bloating, abdominal pain', '') | iif(%resource.item.where(linkId = 'Symptoms-15').answer.valueCoding.code = 'Symptoms-15-4', 'Muscle aches/joint pain', '') | iif(%resource.item.where(linkId = 'Symptoms-16').answer.valueCoding.code = 'Symptoms-16-4', 'Sex problems', '') | iif(%resource.item.where(linkId = 'Symptoms-17').answer.valueCoding.code = 'Symptoms-17-4', 'Fat deposits/wt gain', '') | iif(%resource.item.where(linkId = 'Symptoms-18').answer.valueCoding.code = 'Symptoms-18-4', 'Weight loss/wasting', '') | iif(%resource.item.where(linkId = 'Symptoms-19').answer.valueCoding.code = 'Symptoms-19-4', 'Hair loss/changes', '')).where($this != '').join(', ')"
           }
         }
       ]
     },
     {
-      "linkId": "Symptoms-ed-visit-bool",
-      "text": "Fall risk (Symptoms) Questionnaire: E/D Visit",
-      "type": "boolean",
+      "linkId": "Symptoms-bothers-some",
+      "text": "Bothers Some",
+      "type": "string",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId = 'Symptoms-0').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'Symptoms-0').answer.valueCoding.code != 'Symptoms-0-0' and %resource.item.where(linkId = 'Symptoms-1').answer.valueCoding.code = 'Symptoms-1-0'"
+            "expression": "(iif(%resource.item.where(linkId = 'Symptoms-0').answer.valueCoding.code = 'Symptoms-0-3', 'Fatigue', '') | iif(%resource.item.where(linkId = 'Symptoms-1').answer.valueCoding.code = 'Symptoms-1-3', 'Fevers, chills, sweats', '') | iif(%resource.item.where(linkId = 'Symptoms-2').answer.valueCoding.code = 'Symptoms-2-3', 'Dizzy', '') | iif(%resource.item.where(linkId = 'Symptoms-3').answer.valueCoding.code = 'Symptoms-3-3', 'Numbness/pain feet', '') | iif(%resource.item.where(linkId = 'Symptoms-4').answer.valueCoding.code = 'Symptoms-4-3', 'Memory', '') | iif(%resource.item.where(linkId = 'Symptoms-5').answer.valueCoding.code = 'Symptoms-5-3', 'Nausea/vomiting', '') | iif(%resource.item.where(linkId = 'Symptoms-6').answer.valueCoding.code = 'Symptoms-6-3', 'Diarrhea', '') | iif(%resource.item.where(linkId = 'Symptoms-7').answer.valueCoding.code = 'Symptoms-7-3', 'Sad', '') | iif(%resource.item.where(linkId = 'Symptoms-8').answer.valueCoding.code = 'Symptoms-8-3', 'Nervous/anxious', '') | iif(%resource.item.where(linkId = 'Symptoms-9').answer.valueCoding.code = 'Symptoms-9-3', 'Poor sleep', '') | iif(%resource.item.where(linkId = 'Symptoms-10').answer.valueCoding.code = 'Symptoms-10-3', 'Rash', '') | iif(%resource.item.where(linkId = 'Symptoms-11').answer.valueCoding.code = 'Symptoms-11-3', 'Cough/SOB', '') | iif(%resource.item.where(linkId = 'Symptoms-12').answer.valueCoding.code = 'Symptoms-12-3', 'Headache', '') | iif(%resource.item.where(linkId = 'Symptoms-13').answer.valueCoding.code = 'Symptoms-13-3', 'Poor appetite', '') | iif(%resource.item.where(linkId = 'Symptoms-14').answer.valueCoding.code = 'Symptoms-14-3', 'Bloating, abdominal pain', '') | iif(%resource.item.where(linkId = 'Symptoms-15').answer.valueCoding.code = 'Symptoms-15-3', 'Muscle aches/joint pain', '') | iif(%resource.item.where(linkId = 'Symptoms-16').answer.valueCoding.code = 'Symptoms-16-3', 'Sex problems', '') | iif(%resource.item.where(linkId = 'Symptoms-17').answer.valueCoding.code = 'Symptoms-17-3', 'Fat deposits/wt gain', '') | iif(%resource.item.where(linkId = 'Symptoms-18').answer.valueCoding.code = 'Symptoms-18-3', 'Weight loss/wasting', '') | iif(%resource.item.where(linkId = 'Symptoms-19').answer.valueCoding.code = 'Symptoms-19-3', 'Hair loss/changes', '')).where($this != '').join(', ')"
           }
         }
       ]
