@@ -400,7 +400,7 @@
     },
     {
       "linkId": "ARV-VAS",
-      "text": "Antiretroviral adherence: Visual Analog Scale",
+      "text": "Antiretroviral adherence: Visual Analog Scale (percentage)",
       "type": "integer",
       "readOnly": true,
       "extension": [
