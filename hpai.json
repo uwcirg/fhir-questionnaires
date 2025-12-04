@@ -1,0 +1,140 @@
+{
+  "resourceType": "Questionnaire",
+  "title": "HPAI Provider Questionnaire",
+  "status": "draft",
+  "url": "http://forms.aidbox.io/questionnaire/hpai-provider-questionnaire",
+  "item": [
+    {
+      "type": "choice",
+      "text": "Has the patient been exposed to wild, captive, or livestock animals, including poultry and cattle?",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "display": "Yes",
+            "code": "hpai-0-0"
+          }
+        },
+        {
+          "valueCoding": {
+            "display": "No",
+            "code": "hpai-0-1"
+          }
+        }
+      ],
+      "linkId": "hpai-0"
+    },
+    {
+      "type": "text",
+      "text": "Please add brief notes for the public health investigator",
+      "linkId": "hpai-1",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId = 'hpai-0').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'hpai-0').answer.valueCoding.code = 'hpai-0-0'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "text": "Has the patient been exposed to any sick or dead animals in their environment, including pets (e.g., cats, dogs, birds)?",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "display": "Yes",
+            "code": "hpai-2-0"
+          }
+        },
+        {
+          "valueCoding": {
+            "display": "No",
+            "code": "hpai-2-1"
+          }
+        }
+      ],
+      "linkId": "hpai-2"
+    },
+    {
+      "type": "text",
+      "text": "Please add brief notes for the public health investigator (copy)",
+      "linkId": "hpai-3",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId = 'hpai-2').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'hpai-2').answer.valueCoding.code = 'hpai-2-0'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "text": "Has the patient consumed or handled raw animal foods for humans or pets (e.g., raw cow milk, cheeses or other products made with raw cow milk, raw meat, or raw meat-based pet food)?",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "display": "Yes",
+            "code": "hpai-4-0"
+          }
+        },
+        {
+          "valueCoding": {
+            "display": "No",
+            "code": "hpai-4-1"
+          }
+        }
+      ],
+      "linkId": "hpai-4"
+    },
+    {
+      "type": "text",
+      "text": "Please add brief notes for the public health investigator (copy) (copy)",
+      "linkId": "hpai-5",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId = 'hpai-4').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'hpai-4').answer.valueCoding.code = 'hpai-4-0'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "text": "Has the patient had a recent close contact (within six feet) with a symptomatic person who is suspected of or confirmed to have avian influenza?",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "display": "Yes",
+            "code": "hpai-6-0"
+          }
+        },
+        {
+          "valueCoding": {
+            "display": "No",
+            "code": "hpai-6-1"
+          }
+        }
+      ],
+      "linkId": "hpai-6"
+    },
+    {
+      "type": "text",
+      "text": "Please add brief notes for the public health investigator (copy) (copy) (copy)",
+      "linkId": "ZYHAq6o6",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId = 'hpai-6').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'hpai-6').answer.valueCoding.code = 'hpai-6-0'"
+          }
+        }
+      ]
+    }
+  ]
+}
