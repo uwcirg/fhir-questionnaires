@@ -84,7 +84,7 @@
       "linkId": "Smoking-3",
       "text": "How many packs of tobacco cigarettes do/did you smoke a day?",
       "type": "choice",
-      "repeats": "true",
+      "repeats": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -332,7 +332,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId='Smoking-4').answer.valueCoding.display"
+            "expression": "iif(%resource.item.where(linkId='Smoking-0').answer.empty() and %resource.item.where(linkId='Smoking-1').answer.empty(), 'Not answered', iif(%resource.item.where(linkId='Smoking-0').answer.valueCoding.code = 'Smoking-0-0' and (%resource.item.where(linkId='Smoking-1').answer.empty() or %resource.item.where(linkId='Smoking-1').answer.valueCoding.code = 'Smoking-1-0'), 'No', iif(%resource.item.where(linkId='Smoking-0').answer.valueCoding.code = 'Smoking-0-1' and %resource.item.where(linkId='Smoking-1').answer.valueCoding.code = 'Smoking-1-0', 'Previously smoked', iif(%resource.item.where(linkId='Smoking-0').answer.valueCoding.code = 'Smoking-0-1' and %resource.item.where(linkId='Smoking-1').answer.empty(), 'More than 20 cigarettes in lifetime', iif(%resource.item.where(linkId='Smoking-1').answer.valueCoding.code = 'Smoking-1-1', 'Currently', null)))))"
           }
         }
       ]
@@ -347,7 +347,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId='Smoking-4').answer.valueCoding.display"
+            "expression": "iif(%resource.item.where(linkId='Smoking-7').answer.empty(), 'Not answered',   iif(%resource.item.where(linkId='Smoking-7').answer.valueCoding.code = 'Smoking-7-0', 'No',     iif(%resource.item.where(linkId='Smoking-7').answer.valueCoding.code = 'Smoking-7-1', 'Yes', null)))"
           }
         }
       ]
