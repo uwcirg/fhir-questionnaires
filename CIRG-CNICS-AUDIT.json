@@ -220,7 +220,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0')"
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -296,7 +296,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%patient.gender.exists()) or (%patient.gender != 'male') and !(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0')"
+            "expression": "((%patient.gender != 'male') or %patient.gender.exists() != true) and %resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -372,7 +372,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(%patient.gender.exists()) and (%patient.gender = 'male') and !(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0')"
+            "expression": "%patient.gender.exists() and (%patient.gender = 'male') and (%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0')"
           }
         }
       ]
@@ -448,7 +448,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -524,7 +524,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -600,7 +600,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -676,7 +676,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -752,7 +752,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -804,7 +804,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -856,7 +856,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-enableWhenExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "!(%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') and "
+            "expression": "%resource.item.where(linkId='AUDIT-0').answer.valueCoding.code != 'AUDIT-0-0'"
           }
         }
       ]
@@ -871,7 +871,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') or (%resource.item.where(linkId = 'AUDIT-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-2-not-male').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'AUDIT-2-male').answer.valueCoding.code.exists())"
+            "expression": "%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') or (%resource.item.where(linkId = 'AUDIT-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-2-not-male').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'AUDIT-2-male').answer.valueCoding.code.exists()))"
           }
         }
       ]
@@ -901,7 +901,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(%resource.item.where(linkId='AUDIT-C-complete').answer.valueBoolean = true and (iff((%resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 4 and (%patient.gender = 'male')) and %resource.item.where(linkId='AUDIT-last-7-complete').answer.valueBoolean = true, true,   (iff((%resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 3 and (%patient.gender != 'male')) and %resource.item.where(linkId='AUDIT-last-7-complete').answer.valueBoolean = true, true, false)))))"
+            "expression": "(%resource.item.where(linkId='AUDIT-C-complete').answer.valueBoolean = true and (iif((%resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 4 and (%patient.gender = 'male')) and %resource.item.where(linkId='AUDIT-last-7-complete').answer.valueBoolean = true, true,   (iif((%resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 3 and (%patient.gender != 'male')) and %resource.item.where(linkId='AUDIT-last-7-complete').answer.valueBoolean = true, true, false)))))"
           }
         }
       ]
@@ -961,7 +961,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(%resource.item.where(linkId='AUDIT-Q0-score').valueDecimal.toInteger() + %resource.item.where(linkId='AUDIT-Q1-Q2-score').valueDecimal.toInteger() + iif(%resource.item.where(linkId='AUDIT-3').empty(), 0, %resource.item.where(linkId='AUDIT-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-4').empty(), 0, %resource.item.where(linkId='AUDIT-4').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-5').empty(), 0, %resource.item.where(linkId='AUDIT-5').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-6').empty(), 0, %resource.item.where(linkId='AUDIT-6').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-7').empty(), 0, %resource.item.where(linkId='AUDIT-7').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-8').empty(), 0, %resource.item.where(linkId='AUDIT-8').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-9').empty(), 0, %resource.item.where(linkId='AUDIT-9').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal))"
+            "expression": "(%resource.item.where(linkId='AUDIT-Q0-score').answer.valueDecimal.toInteger() + %resource.item.where(linkId='AUDIT-Q1-Q2-score').answer.valueDecimal.toInteger() + iif(%resource.item.where(linkId='AUDIT-3').empty(), 0, %resource.item.where(linkId='AUDIT-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-4').empty(), 0, %resource.item.where(linkId='AUDIT-4').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-5').empty(), 0, %resource.item.where(linkId='AUDIT-5').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-6').empty(), 0, %resource.item.where(linkId='AUDIT-6').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-7').empty(), 0, %resource.item.where(linkId='AUDIT-7').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-8').empty(), 0, %resource.item.where(linkId='AUDIT-8').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-9').empty(), 0, %resource.item.where(linkId='AUDIT-9').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal))"
           }
         }
       ]
