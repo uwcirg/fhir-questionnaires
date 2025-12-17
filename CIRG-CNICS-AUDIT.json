@@ -863,7 +863,7 @@
     },
     {
       "linkId": "AUDIT-C-complete",
-      "text": "AUDIT-C part of questionnaire (first three questions) complete",
+      "text": "AUDIT-C part of questionnaire (first three questions) complete. This is an internal item for other scores' calculations.",
       "type": "boolean",
       "readOnly": true,
       "extension": [
@@ -872,6 +872,21 @@
           "valueExpression": {
             "language": "text/fhirpath",
             "expression": "%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') or (%resource.item.where(linkId = 'AUDIT-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-2-not-male').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'AUDIT-2-male').answer.valueCoding.code.exists())"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "AUDIT-last-7-complete",
+      "text": "Last 7 questions here have been answered. This is an internal item for other scores' calculations.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId = 'AUDIT-3').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'AUDIT-4').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'AUDIT-5').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'AUDIT-6').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'AUDIT-7').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'AUDIT-8').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'AUDIT-9').answer.valueCoding.code.exists()"
           }
         }
       ]
@@ -886,14 +901,14 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "TODO CONTINUE HERE %resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-0').answer.valueCoding.code = 'AUDIT-0-0') or (%resource.item.where(linkId = 'AUDIT-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'AUDIT-2-not-male').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'AUDIT-2-male').answer.valueCoding.code.exists())"
+            "expression": "(%resource.item.where(linkId='AUDIT-C-complete').answer.valueBoolean = true and (iff((%resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 4 and (%patient.gender = 'male')) and %resource.item.where(linkId='AUDIT-last-7-complete').answer.valueBoolean = true, true,   (iff((%resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 3 and (%patient.gender != 'male')) and %resource.item.where(linkId='AUDIT-last-7-complete').answer.valueBoolean = true, true, false)))))"
           }
         }
       ]
     },
     {
       "linkId": "AUDIT-Q0-score",
-      "text": "Score contribution from Q0",
+      "text": "Score contribution from Q0. This is an internal item for other scores' calculations.",
       "type": "decimal",
       "readOnly": true,
       "extension": [
@@ -908,7 +923,7 @@
     },
     {
       "linkId": "AUDIT-Q1-Q2-score",
-      "text": "Score contribution from Q1 & Q2",
+      "text": "Score contribution from Q1 & Q2. This is an internal item for other scores' calculations.",
       "type": "decimal",
       "readOnly": true,
       "extension": [
@@ -917,6 +932,21 @@
           "valueExpression": {
             "language": "text/fhirpath",
             "expression": "(iif(%resource.item.where(linkId='AUDIT-1').empty(), 0, %resource.item.where(linkId='AUDIT-1').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-2-not-male').empty(), 0, %resource.item.where(linkId='AUDIT-2-not-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal) + iif(%resource.item.where(linkId='AUDIT-2-male').empty(), 0, %resource.item.where(linkId='AUDIT-2-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal))"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "AUDIT-C-score",
+      "text": "AUDIT-C score (score for questions 0-2)",
+      "type": "decimal",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%resource.item.where(linkId='AUDIT-Q0-score').answer.valueDecimal.toInteger() + %resource.item.where(linkId='AUDIT-Q1-Q2-score').answer.valueDecimal.toInteger()"
           }
         }
       ]
