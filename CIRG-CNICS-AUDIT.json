@@ -447,7 +447,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%patient.gender = 'male' and %resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 4, 'At-risk', iif(%patient.gender != 'male' and %resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 3, 'At-risk', 'Not at-risk'))"
+            "expression": "iif(%patient.gender = 'male' and %resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 4, 'At-risk', iif(%patient.gender != 'male' and %resource.item.where(linkId='AUDIT-C-score').answer.valueDecimal.toInteger() >= 3, 'At-risk', iif((%resource.item.where(linkId='AUDIT-C-score').answer.empty() != true), 'Not at-risk', null)))"
           }
         }
       ]
@@ -1006,7 +1006,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%patient.gender = 'male' and %resource.item.where(linkId='AUDIT-score').answer.valueDecimal.toInteger() >= 6, 'At-risk', iif(%patient.gender != 'male' and %resource.item.where(linkId='AUDIT-score').answer.valueDecimal.toInteger() >= 5, 'At-risk', 'Not at-risk'))"
+            "expression": "iif(%patient.gender = 'male' and %resource.item.where(linkId='AUDIT-score').answer.valueDecimal.toInteger() >= 6, 'At-risk', iif(%patient.gender != 'male' and %resource.item.where(linkId='AUDIT-score').answer.valueDecimal.toInteger() >= 5, 'At-risk', iif((%resource.item.where(linkId='AUDIT-score').answer.empty() != true), 'Not at-risk', null)))"
           }
         }
       ]
@@ -1021,7 +1021,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(AUDIT-last-7-any-answers, 'AUDIT', iif(%resource.item.where(linkId='AUDIT-0').empty() = false, 'AUDIT-C', null))"
+            "expression": "iif(%resource.item.where(linkId='AUDIT-last-7-any-answers').answer.valueBoolean.toBoolean() = true, 'AUDIT', iif(%resource.item.where(linkId='AUDIT-0').empty() = false, 'AUDIT-C', null))"
           }
         }
       ]
