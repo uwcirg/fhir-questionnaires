@@ -99,7 +99,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='AUDIT-0').empty(), null, %resource.item.where(linkId='AUDIT-0').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger())"
+            "expression": "iif(%resource.item.where(linkId='AUDIT-0').answer.empty(), null, %resource.item.where(linkId='AUDIT-0').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger())"
           }
         }
       ]
@@ -402,7 +402,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(iif(%resource.item.where(linkId='AUDIT-1').empty(), 0, %resource.item.where(linkId='AUDIT-1').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-2-not-male').empty(), 0, %resource.item.where(linkId='AUDIT-2-not-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-2-male').empty(), 0, %resource.item.where(linkId='AUDIT-2-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()))"
+            "expression": "(iif(%resource.item.where(linkId='AUDIT-1').answer.empty(), 0, %resource.item.where(linkId='AUDIT-1').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-2-not-male').answer.empty(), 0, %resource.item.where(linkId='AUDIT-2-not-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-2-male').answer.empty(), 0, %resource.item.where(linkId='AUDIT-2-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()))"
           }
         }
       ]
@@ -991,7 +991,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(%resource.item.where(linkId='AUDIT-Q0-score').answer.valueDecimal.toInteger() + %resource.item.where(linkId='AUDIT-Q1-Q2-score').answer.valueDecimal.toInteger() + iif(%resource.item.where(linkId='AUDIT-3').empty(), 0, %resource.item.where(linkId='AUDIT-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-4').empty(), 0, %resource.item.where(linkId='AUDIT-4').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-5').empty(), 0, %resource.item.where(linkId='AUDIT-5').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-6').empty(), 0, %resource.item.where(linkId='AUDIT-6').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-7').empty(), 0, %resource.item.where(linkId='AUDIT-7').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-8').empty(), 0, %resource.item.where(linkId='AUDIT-8').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-9').empty(), 0, %resource.item.where(linkId='AUDIT-9').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()))"
+            "expression": "(%resource.item.where(linkId='AUDIT-Q0-score').answer.valueDecimal.toInteger() + %resource.item.where(linkId='AUDIT-Q1-Q2-score').answer.valueDecimal.toInteger() + iif(%resource.item.where(linkId='AUDIT-3').answer.empty(), 0, %resource.item.where(linkId='AUDIT-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-4').answer.empty(), 0, %resource.item.where(linkId='AUDIT-4').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-5').answer.empty(), 0, %resource.item.where(linkId='AUDIT-5').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-6').answer.empty(), 0, %resource.item.where(linkId='AUDIT-6').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-7').answer.empty(), 0, %resource.item.where(linkId='AUDIT-7').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-8').answer.empty(), 0, %resource.item.where(linkId='AUDIT-8').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='AUDIT-9').answer.empty(), 0, %resource.item.where(linkId='AUDIT-9').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()))"
           }
         }
       ]
@@ -1021,7 +1021,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='AUDIT-last-7-any-answers').answer.valueBoolean.toBoolean() = true, 'AUDIT', iif(%resource.item.where(linkId='AUDIT-0').empty() = false, 'AUDIT-C', null))"
+            "expression": "iif(%resource.item.where(linkId='AUDIT-last-7-any-answers').answer.valueBoolean.toBoolean() = true, 'AUDIT', iif(%resource.item.where(linkId='AUDIT-0').answer.empty() = false, 'AUDIT-C', null))"
           }
         }
       ]
