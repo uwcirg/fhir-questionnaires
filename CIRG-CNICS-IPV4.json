@@ -90,6 +90,51 @@
           }
         }
       ]
+    },
+    {
+      "linkId": "IPV4-physical-violence",
+      "text": "Physical violence",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='IPV4-4').answer.valueCoding.code = 'IPV4-4-0', true, false)"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "IPV4-sexual-violence",
+      "text": "Sexual violence",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='IPV4-3').answer.valueCoding.code = 'IPV4-3-0', true, false)"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "IPV4-critical",
+      "text": "Either physical or sexual violence indicated.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "(%resource.item.where(linkId='IPV4-physical-violence').answer.valueBoolean.toBoolean() = true or (%resource.item.where(linkId='IPV4-sexual-violence').answer.valueBoolean.toBoolean() = true))"
+          }
+        }
+      ]
     }
   ]
 }
