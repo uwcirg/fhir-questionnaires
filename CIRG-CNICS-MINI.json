@@ -518,7 +518,7 @@
     },
     {
       "linkId": "MINI-complete",
-      "text": "Is the MINI considered to be completely answered (\"I2\" subset)? This is an internal item for other scores' calculations.",
+      "text": "Is the MINI considered to be completely answered? Criteria: either the answer to the first question is 'No', or all of questions MINI-[2-8] (\"I2\" subset) have responses. This is an internal item for other scores' calculations.",
       "type": "boolean",
       "readOnly": true,
       "extension": [
@@ -547,8 +547,8 @@
       ]
     },
     {
-      "linkId": "MINI-score",
-      "text": "Score for the MINI \"I2\" subset of questions (integer). Range 0-7. This is the MINI score used in the CNICS provider feedback report.",
+      "linkId": "MINI-score-ignoring-skipped",
+      "text": "Score for the MINI \"I2\" subset of questions (integer). Range 0-7. This is an internal item for other scores' calculations.",
       "type": "integer",
       "readOnly": true,
       "extension": [
@@ -562,8 +562,8 @@
       ]
     },
     {
-      "linkId": "MINI-score-interpretation",
-      "text": "Score interpretation for the MINI. Possible values: \"Not answered\", \"(Incomplete; Number of Questions Answered: (n)\", \"Dependent Drinker\", \"Not a Dependent Drinker\"",
+      "linkId": "MINI-score",
+      "text": "Score for the MINI \"I2\" subset of questions (string). Range 0-7. This is the MINI score used in the CNICS provider feedback report. If there are insufficient answers to simply report a score, this reports either 'N/A' (no responses), or '(score) (Incomplete; Number of Questions Answered: (n)'",
       "type": "string",
       "readOnly": true,
       "extension": [
@@ -571,7 +571,22 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(iif(%resource.item.where(linkId='MINI-num-answered').answer.valueInteger.toInteger() = 0, 'Not answered', iif(%resource.item.where(linkId='MINI-complete').answer.valueBoolen.toBoolean() = false, '(Incomplete; Number of Questions Answered: ' + %resource.item.where(linkId='MINI-num-answered').answer.valueInteger.toString() + ')', iif(%resource.item.where(linkId='MINI-score').answer.valueInteger.toInteger() >= 3, 'Dependent Drinker', 'Not a Dependent Drinker'))))"
+            "expression": "iif(%resource.item.where(linkId='MINI-complete').answer.valueBoolean.toBoolean() = true, %resource.item.where(linkId='MINI-score-ignoring-skipped').answer.valueInteger.toString(), iif(%resource.item.where(linkId='MINI-num-answered').answer.valueInteger.toInteger() > 0, %resource.item.where(linkId='MINI-score-ignoring-skipped').answer.valueInteger.toString() + ' (Incomplete; Number of Questions Answered: ' + %resource.item.where(linkId='MINI-num-answered').answer.valueInteger.toString() + ')', 'N/A'))"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "MINI-score-interpretation",
+      "text": "Score interpretation for the MINI. Possible values: \"Dependent Drinker\", \"Not a Dependent Drinker\", (empty string due to unanswered questions)",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='MINI-complete').answer.valueBoolean.toBoolean() = false, '', iif(%resource.item.where(linkId='MINI-score-ignoring-skipped').answer.valueInteger.toInteger() >= 3, 'Dependent Drinker', 'Not a Dependent Drinker'))"
           }
         }
       ]
