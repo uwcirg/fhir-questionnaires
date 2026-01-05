@@ -410,25 +410,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-10-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-10-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-10-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-10-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-10-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -449,7 +455,7 @@
       "code": [
         {
           "system": "https://cnics-pro.cirg.washington.edu/",
-          "code": "ASSIST-1-reportable-text",
+          "code": "ASSIST-11-reportable-text",
           "display": "Methamphetamine"
         }
       ],
@@ -457,25 +463,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-11-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-11-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-11-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-11-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-11-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -504,25 +516,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-12-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-12-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-12-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-12-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-12-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -551,25 +569,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-13-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-13-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-13-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-13-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-13-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -598,25 +622,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-14-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-14-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-14-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-14-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-14-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -645,25 +675,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-15-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-15-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-15-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-15-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-15-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -692,25 +728,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-16-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-16-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-16-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-16-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-16-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -739,25 +781,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-17-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-17-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-17-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-17-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-17-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -786,25 +834,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-18-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-18-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-18-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-18-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-18-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -833,25 +887,31 @@
         {
           "valueCoding": {
             "code": "ASSIST-19-0",
-            "display": "Yes",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1 
-                }
-            ]
+            "display": "Never"
           }
         },
         {
           "valueCoding": {
             "code": "ASSIST-19-1",
-            "display": "No",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0 
-                }
-            ]
+            "display": "Once or twice"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-19-2",
+            "display": "Monthly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-19-3",
+            "display": "Weekly"
+          }
+        },
+        {
+          "valueCoding": {
+            "code": "ASSIST-19-4",
+            "display": "Daily or almost daily"
           }
         }
       ],
@@ -866,6 +926,36 @@
       ]
     },
     {
+      "linkId": "ASSIST-lifetime-score-test0",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in their lifetime.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%questionnaire.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ', '"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ASSIST-lifetime-score-test1",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in their lifetime.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code = 'ASSIST-0-0'),%questionnaire.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code = 'ASSIST-4-0'),%questionnaire.item.where(linkId = 'ASSIST-4').code.where(code = 'ASSIST-4-reportable-text').display + ', ','')"
+          }
+        }
+      ]
+    },
+    {
       "linkId": "ASSIST-lifetime-score",
       "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in their lifetime.",
       "type": "string",
@@ -875,7 +965,82 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code = 'ASSIST-0-0'),%resource.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ',','') + iif(%resource.item.where(linkId = 'ASSIST-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-1').answer.valueCoding.code = 'ASSIST-1-0'),%resource.item.where(linkId = 'ASSIST-1').code.where(code = 'ASSIST-1-reportable-text').display + ',','')"
+            "expression": "iif(%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code = 'ASSIST-0-0'),%questionnaire.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-1').answer.valueCoding.code = 'ASSIST-1-0'),%questionnaire.item.where(linkId = 'ASSIST-1').code.where(code = 'ASSIST-1-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-2').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-2').answer.valueCoding.code = 'ASSIST-2-0'),%questionnaire.item.where(linkId = 'ASSIST-2').code.where(code = 'ASSIST-2-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-3').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-3').answer.valueCoding.code = 'ASSIST-3-0'),%questionnaire.item.where(linkId = 'ASSIST-3').code.where(code = 'ASSIST-3-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code = 'ASSIST-4-0'),%questionnaire.item.where(linkId = 'ASSIST-4').code.where(code = 'ASSIST-4-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-5').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-5').answer.valueCoding.code = 'ASSIST-5-0'),%questionnaire.item.where(linkId = 'ASSIST-5').code.where(code = 'ASSIST-5-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-6').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-6').answer.valueCoding.code = 'ASSIST-6-0'),%questionnaire.item.where(linkId = 'ASSIST-6').code.where(code = 'ASSIST-6-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-7').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-7').answer.valueCoding.code = 'ASSIST-7-0'),%questionnaire.item.where(linkId = 'ASSIST-7').code.where(code = 'ASSIST-7-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-8').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-8').answer.valueCoding.code = 'ASSIST-8-0'),%questionnaire.item.where(linkId = 'ASSIST-8').code.where(code = 'ASSIST-8-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-9').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-9').answer.valueCoding.code = 'ASSIST-9-0'),%questionnaire.item.where(linkId = 'ASSIST-9').code.where(code = 'ASSIST-9-reportable-text').display + ', ','')"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ASSIST-3mo-score-test-2",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif((%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),'did coke in past 3 months','did not do coke in past 3 months')"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ASSIST-3mo-score-test-3",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ASSIST-3mo-score-test",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display + ', ','')"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ASSIST-3mo-score-test2qs",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-11').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-11').answer.valueCoding.code != 'ASSIST-11-0'),%questionnaire.item.where(linkId = 'ASSIST-11').code.where(code = 'ASSIST-11-reportable-text').display + ', ','')"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "ASSIST-3mo-score",
+      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-11').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-11').answer.valueCoding.code != 'ASSIST-11-0'),%questionnaire.item.where(linkId = 'ASSIST-11').code.where(code = 'ASSIST-11-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-12').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-12').answer.valueCoding.code != 'ASSIST-12-0'),%questionnaire.item.where(linkId = 'ASSIST-12').code.where(code = 'ASSIST-12-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-13').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-13').answer.valueCoding.code != 'ASSIST-13-0'),%questionnaire.item.where(linkId = 'ASSIST-13').code.where(code = 'ASSIST-13-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-14').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-14').answer.valueCoding.code != 'ASSIST-14-0'),%questionnaire.item.where(linkId = 'ASSIST-14').code.where(code = 'ASSIST-14-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-15').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-15').answer.valueCoding.code != 'ASSIST-15-0'),%questionnaire.item.where(linkId = 'ASSIST-15').code.where(code = 'ASSIST-15-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-16').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-16').answer.valueCoding.code != 'ASSIST-16-0'),%questionnaire.item.where(linkId = 'ASSIST-16').code.where(code = 'ASSIST-16-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-17').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-17').answer.valueCoding.code != 'ASSIST-17-0'),%questionnaire.item.where(linkId = 'ASSIST-17').code.where(code = 'ASSIST-17-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-18').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-18').answer.valueCoding.code != 'ASSIST-18-0'),%questionnaire.item.where(linkId = 'ASSIST-18').code.where(code = 'ASSIST-18-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-19').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-19').answer.valueCoding.code != 'ASSIST-19-0'),%questionnaire.item.where(linkId = 'ASSIST-19').code.where(code = 'ASSIST-19-reportable-text').display + ', ','')"
           }
         }
       ]
