@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
-  "id": "CIRG-CNICS-ASSIST",
-  "title": "CNICS Modified ASSIST",
+  "id": "CIRG-ASSIST",
+  "title": "Modified ASSIST (never used and deprecated, see CIRG-CNICS-ASSIST instead)",
   "status": "active",
   "description": "The CNICS Modified ASSIST is based on the \"NIDA-Modified ASSIST version 2.0\"(LOINC 95513-8). It uses different terms and examples (e.g. psychedelics instead of hallucinogens), and asks aobut using multiple substances at the same time, and overdoses.",
   "item": [
