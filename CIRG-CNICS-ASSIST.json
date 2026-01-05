@@ -926,36 +926,6 @@
       ]
     },
     {
-      "linkId": "ASSIST-lifetime-score-test0",
-      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in their lifetime.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "%questionnaire.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ', '"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "ASSIST-lifetime-score-test1",
-      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in their lifetime.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code = 'ASSIST-0-0'),%questionnaire.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code = 'ASSIST-4-0'),%questionnaire.item.where(linkId = 'ASSIST-4').code.where(code = 'ASSIST-4-reportable-text').display + ', ','')"
-          }
-        }
-      ]
-    },
-    {
       "linkId": "ASSIST-lifetime-score",
       "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in their lifetime.",
       "type": "string",
@@ -966,66 +936,6 @@
           "valueExpression": {
             "language": "text/fhirpath",
             "expression": "iif(%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-0').answer.valueCoding.code = 'ASSIST-0-0'),%questionnaire.item.where(linkId = 'ASSIST-0').code.where(code = 'ASSIST-0-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-1').answer.valueCoding.code = 'ASSIST-1-0'),%questionnaire.item.where(linkId = 'ASSIST-1').code.where(code = 'ASSIST-1-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-2').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-2').answer.valueCoding.code = 'ASSIST-2-0'),%questionnaire.item.where(linkId = 'ASSIST-2').code.where(code = 'ASSIST-2-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-3').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-3').answer.valueCoding.code = 'ASSIST-3-0'),%questionnaire.item.where(linkId = 'ASSIST-3').code.where(code = 'ASSIST-3-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-4').answer.valueCoding.code = 'ASSIST-4-0'),%questionnaire.item.where(linkId = 'ASSIST-4').code.where(code = 'ASSIST-4-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-5').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-5').answer.valueCoding.code = 'ASSIST-5-0'),%questionnaire.item.where(linkId = 'ASSIST-5').code.where(code = 'ASSIST-5-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-6').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-6').answer.valueCoding.code = 'ASSIST-6-0'),%questionnaire.item.where(linkId = 'ASSIST-6').code.where(code = 'ASSIST-6-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-7').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-7').answer.valueCoding.code = 'ASSIST-7-0'),%questionnaire.item.where(linkId = 'ASSIST-7').code.where(code = 'ASSIST-7-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-8').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-8').answer.valueCoding.code = 'ASSIST-8-0'),%questionnaire.item.where(linkId = 'ASSIST-8').code.where(code = 'ASSIST-8-reportable-text').display + ', ','')+ iif(%resource.item.where(linkId = 'ASSIST-9').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-9').answer.valueCoding.code = 'ASSIST-9-0'),%questionnaire.item.where(linkId = 'ASSIST-9').code.where(code = 'ASSIST-9-reportable-text').display + ', ','')"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "ASSIST-3mo-score-test-2",
-      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif((%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),'did coke in past 3 months','did not do coke in past 3 months')"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "ASSIST-3mo-score-test-3",
-      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "ASSIST-3mo-score-test",
-      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display + ', ','')"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "ASSIST-3mo-score-test2qs",
-      "text": "This \"score\" is a comma-separated list of substances that the subject indicated that they have used in the past 3 months.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-10').answer.valueCoding.code != 'ASSIST-10-0'),%questionnaire.item.where(linkId = 'ASSIST-10').code.where(code = 'ASSIST-10-reportable-text').display + ', ','') + iif(%resource.item.where(linkId = 'ASSIST-11').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'ASSIST-11').answer.valueCoding.code != 'ASSIST-11-0'),%questionnaire.item.where(linkId = 'ASSIST-11').code.where(code = 'ASSIST-11-reportable-text').display + ', ','')"
           }
         }
       ]
