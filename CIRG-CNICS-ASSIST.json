@@ -397,7 +397,7 @@
     },
     {
       "linkId": "ASSIST-10",
-      "text": "Cocaine/crack",
+      "text": "Cocaine/crack?",
       "type": "choice",
       "code": [
         {
@@ -450,7 +450,7 @@
     },
     {
       "linkId": "ASSIST-11",
-      "text": "Methamphetamine (crystal meth, speed, Tina)",
+      "text": "Methamphetamine (crystal meth, speed, Tina)?",
       "type": "choice",
       "code": [
         {
@@ -503,7 +503,7 @@
     },
     {
       "linkId": "ASSIST-12",
-      "text": "Heroin",
+      "text": "Heroin?",
       "type": "choice",
       "code": [
         {
@@ -556,7 +556,7 @@
     },
     {
       "linkId": "ASSIST-13",
-      "text": "Fentanyl (not prescribed by your Dr.)",
+      "text": "Fentanyl (not prescribed by your Dr.)?",
       "type": "choice",
       "code": [
         {
@@ -609,7 +609,7 @@
     },
     {
       "linkId": "ASSIST-14",
-      "text": "Narcotic pain meds for NON-MEDICAL use (oxycodone [OxyContin, Percocet], hydrocodone [Vicodin], methadone, buprenorphine, etc.)",
+      "text": "Narcotic pain meds for NON-MEDICAL use (oxycodone [OxyContin, Percocet], hydrocodone [Vicodin], methadone, buprenorphine, etc.)?",
       "type": "choice",
       "code": [
         {
@@ -662,7 +662,7 @@
     },
     {
       "linkId": "ASSIST-15",
-      "text": "Sedatives or sleeping pills for NON-MEDICAL use (Valium, Serepax, Xanax, Librium, Rohypnol, GHB, etc.)",
+      "text": "Sedatives or sleeping pills for NON-MEDICAL use (Valium, Serepax, Xanax, Librium, Rohypnol, GHB, etc.)?",
       "type": "choice",
       "code": [
         {
@@ -715,7 +715,7 @@
     },
     {
       "linkId": "ASSIST-16",
-      "text": "Marijuana for NON-MEDICAL use (pot, weed, hash, cannabis, etc.)",
+      "text": "Marijuana for NON-MEDICAL use (pot, weed, hash, cannabis, etc.)?",
       "type": "choice",
       "code": [
         {
@@ -768,7 +768,7 @@
     },
     {
       "linkId": "ASSIST-17",
-      "text": "Prescription stimulants for NON-MEDICAL use (Ritalin, Concerta, Dexedrine, Adderall, diet pills, etc.)",
+      "text": "Prescription stimulants for NON-MEDICAL use (Ritalin, Concerta, Dexedrine, Adderall, diet pills, etc.)?",
       "type": "choice",
       "code": [
         {
@@ -821,7 +821,7 @@
     },
     {
       "linkId": "ASSIST-18",
-      "text": "Inhalants (poppers, nitrous oxide, glue, gas, paint thinner, etc.)",
+      "text": "Inhalants (poppers, nitrous oxide, glue, gas, paint thinner, etc.)?",
       "type": "choice",
       "code": [
         {
@@ -874,7 +874,7 @@
     },
     {
       "linkId": "ASSIST-19",
-      "text": "Psychedelics (Ecstasy/\"E\"/MDMA/Molly, Ketamine/\"K\", LSD/acid, mushrooms/psylocibin)",
+      "text": "Psychedelics (Ecstasy/\"E\"/MDMA/Molly, Ketamine/\"K\", LSD/acid, mushrooms/psylocibin)?",
       "type": "choice",
       "code": [
         {
