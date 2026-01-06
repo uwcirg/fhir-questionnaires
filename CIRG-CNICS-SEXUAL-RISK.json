@@ -431,7 +431,20 @@
     {
       "linkId": "SEXUAL-RISK-15",
       "text": "In the past 3 months, thinking about the times you had anal sex without condoms, please mark on the line how often you were the \"bottom\" (receiving partner).",
-      "type": "integer"
+      "type": "integer",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/questionnaire-item-control",
+                "code": "slider"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "linkId": "SEXUAL-RISK-16",
@@ -998,7 +1011,20 @@
     {
       "linkId": "SEXUAL-RISK-37",
       "text": "In the past 3 months, thinking about the times you had anal sex without condoms, please mark on the line how often you were the \"bottom\" (receiving partner)",
-      "type": "integer"
+      "type": "integer",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/ValueSet/questionnaire-item-control",
+                "code": "slider"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "linkId": "SEXUAL-RISK-38",
