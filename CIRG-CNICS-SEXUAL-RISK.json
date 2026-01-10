@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "CIRG-CNICS-SEXUAL-RISK",
-  "title": "CNICS Sexual Risk Questionnaire - LOTS TODO HERE FIXME, SIMPLY COPIED FROM THE AUDIT",
+  "title": "CNICS Sexual Risk Questionnaire",
   "status": "active",
   "description": "CNICS Sexual Risk Questionnaire. Based on: Fredericksen RJ, Mayer KH, Gibbons LE, et al. Development and Content Validation of a Patient-Reported Sexual Risk Measure for Use in Primary Care. J Gen Intern Med. 2018.",
   "item": [
@@ -1065,16 +1065,136 @@
       ]
     },
     {
-      "linkId": "SEXUAL-RISK-Q0-score",
-      "text": "Score contribution from Q0. This is an internal item for other scores' calculations.",
-      "type": "decimal",
+      "linkId": "SEXUAL-RISK-SCORE-NUM-PARTNERS",
+      "text": "The answer to: Approximately how many sex partners have you had in the past 3 months?",
+      "type": "string",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty(), null, %resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger())"
+            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty(), 'Not answered', %resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.display)"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-PARTNERS-GENDERS",
+      "text": "Genders of partner(s). THIS IS JUST A STUB, NOT YET USED.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "'TBD'"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-PARTNERS-HIV-STATUS",
+      "text": "HIV status of partner(s), and whether they were prescribed PrEP. THIS IS JUST A STUB, NOT YET USED.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "'TBD'"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-ANAL",
+      "text": "Whether the patient had unprotected anal sex. This is for internal scoring purposes only.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty(), 'Not answered', %resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.display)"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-ANAL-TYPE",
+      "text": "If the patient had unprotected anal sex, what type/proportion. THIS IS JUST A STUB, NOT YET USED.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "'TBD'"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-ORAL",
+      "text": "Whether the patient had unprotected oral sex. This is for internal scoring purposes only.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": ""
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL",
+      "text": "Whether the patient had unprotected vaginal sex. This is for internal scoring purposes only.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": ""
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED",
+      "text": "Whether the patient had unprotected sex of any type.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": ""
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE",
+      "text": "Whether the patient is concerned for STI exposure. If this is true, it should be flagged as critical.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": ""
           }
         }
       ]
