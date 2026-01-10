@@ -1010,7 +1010,7 @@
     },
     {
       "linkId": "SEXUAL-RISK-37",
-      "text": "In the past 3 months, thinking about the times you had anal sex without condoms, please mark on the line how often you were the \"bottom\" (receiving partner)",
+      "text": "In the past 3 months, thinking about the times you had anal sex without condoms, please mark on the line how often you were the \"bottom\" (receiving partner).",
       "type": "integer",
       "extension": [
         {
@@ -1112,14 +1112,14 @@
     {
       "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-ANAL",
       "text": "Whether the patient had unprotected anal sex. This is for internal scoring purposes only.",
-      "type": "boolean",
+      "type": "string",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty(), 'Not answered', %resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.display)"
+            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-8').answer.valueCoding.code = 'SEXUAL-RISK-8-0') or (%resource.item.where(linkId='SEXUAL-RISK-9').answer.valueCoding.code = 'SEXUAL-RISK-9-0') or(%resource.item.where(linkId='SEXUAL-RISK-13').answer.valueCoding.code = 'SEXUAL-RISK-13-0') or(%resource.item.where(linkId='SEXUAL-RISK-30').answer.valueCoding.code = 'SEXUAL-RISK-30-0') or(%resource.item.where(linkId='SEXUAL-RISK-31').answer.valueCoding.code = 'SEXUAL-RISK-31-0') or(%resource.item.where(linkId='SEXUAL-RISK-35').answer.valueCoding.code = 'SEXUAL-RISK-35-0'),'Yes', iif((%resource.item.where(linkId='SEXUAL-RISK-8').answer.valueCoding.code = 'SEXUAL-RISK-8-2') or (%resource.item.where(linkId='SEXUAL-RISK-9').answer.valueCoding.code = 'SEXUAL-RISK-9-2') or(%resource.item.where(linkId='SEXUAL-RISK-13').answer.valueCoding.code = 'SEXUAL-RISK-13-2') or(%resource.item.where(linkId='SEXUAL-RISK-30').answer.valueCoding.code = 'SEXUAL-RISK-30-2') or(%resource.item.where(linkId='SEXUAL-RISK-31').answer.valueCoding.code = 'SEXUAL-RISK-31-2') or(%resource.item.where(linkId='SEXUAL-RISK-35').answer.valueCoding.code = 'SEXUAL-RISK-35-2'),'I can\\'t remember',iif((%resource.item.where(linkId='SEXUAL-RISK-8').answer.valueCoding.code = 'SEXUAL-RISK-8-1') or (%resource.item.where(linkId='SEXUAL-RISK-9').answer.valueCoding.code = 'SEXUAL-RISK-9-1') or(%resource.item.where(linkId='SEXUAL-RISK-13').answer.valueCoding.code = 'SEXUAL-RISK-13-1') or(%resource.item.where(linkId='SEXUAL-RISK-30').answer.valueCoding.code = 'SEXUAL-RISK-30-1') or(%resource.item.where(linkId='SEXUAL-RISK-31').answer.valueCoding.code = 'SEXUAL-RISK-31-1') or(%resource.item.where(linkId='SEXUAL-RISK-35').answer.valueCoding.code = 'SEXUAL-RISK-35-1'),'No','')))"
           }
         }
       ]
@@ -1142,14 +1142,14 @@
     {
       "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-ORAL",
       "text": "Whether the patient had unprotected oral sex. This is for internal scoring purposes only.",
-      "type": "boolean",
+      "type": "string",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": ""
+            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-6').answer.valueCoding.code = 'SEXUAL-RISK-6-0') or (%resource.item.where(linkId='SEXUAL-RISK-7').answer.valueCoding.code = 'SEXUAL-RISK-7-0') or(%resource.item.where(linkId='SEXUAL-RISK-14').answer.valueCoding.code = 'SEXUAL-RISK-14-0') or(%resource.item.where(linkId='SEXUAL-RISK-28').answer.valueCoding.code = 'SEXUAL-RISK-28-0') or(%resource.item.where(linkId='SEXUAL-RISK-29').answer.valueCoding.code = 'SEXUAL-RISK-29-0') or(%resource.item.where(linkId='SEXUAL-RISK-36').answer.valueCoding.code = 'SEXUAL-RISK-36-0'),'Yes', iif((%resource.item.where(linkId='SEXUAL-RISK-6').answer.valueCoding.code = 'SEXUAL-RISK-6-2') or (%resource.item.where(linkId='SEXUAL-RISK-7').answer.valueCoding.code = 'SEXUAL-RISK-7-2') or(%resource.item.where(linkId='SEXUAL-RISK-14').answer.valueCoding.code = 'SEXUAL-RISK-14-2') or(%resource.item.where(linkId='SEXUAL-RISK-28').answer.valueCoding.code = 'SEXUAL-RISK-28-2') or(%resource.item.where(linkId='SEXUAL-RISK-29').answer.valueCoding.code = 'SEXUAL-RISK-29-2') or(%resource.item.where(linkId='SEXUAL-RISK-36').answer.valueCoding.code = 'SEXUAL-RISK-36-2'),'I can\\'t remember',iif((%resource.item.where(linkId='SEXUAL-RISK-6').answer.valueCoding.code = 'SEXUAL-RISK-6-1') or (%resource.item.where(linkId='SEXUAL-RISK-7').answer.valueCoding.code = 'SEXUAL-RISK-7-1') or(%resource.item.where(linkId='SEXUAL-RISK-14').answer.valueCoding.code = 'SEXUAL-RISK-14-1') or(%resource.item.where(linkId='SEXUAL-RISK-28').answer.valueCoding.code = 'SEXUAL-RISK-28-1') or(%resource.item.where(linkId='SEXUAL-RISK-29').answer.valueCoding.code = 'SEXUAL-RISK-29-1') or(%resource.item.where(linkId='SEXUAL-RISK-36').answer.valueCoding.code = 'SEXUAL-RISK-36-1'),'No','')))"
           }
         }
       ]
@@ -1157,14 +1157,14 @@
     {
       "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL",
       "text": "Whether the patient had unprotected vaginal sex. This is for internal scoring purposes only.",
-      "type": "boolean",
+      "type": "string",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": ""
+            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-10').answer.valueCoding.code = 'SEXUAL-RISK-10-0') or (%resource.item.where(linkId='SEXUAL-RISK-11').answer.valueCoding.code = 'SEXUAL-RISK-11-0') or(%resource.item.where(linkId='SEXUAL-RISK-12').answer.valueCoding.code = 'SEXUAL-RISK-12-0') or(%resource.item.where(linkId='SEXUAL-RISK-32').answer.valueCoding.code = 'SEXUAL-RISK-32-0') or(%resource.item.where(linkId='SEXUAL-RISK-33').answer.valueCoding.code = 'SEXUAL-RISK-33-0') or(%resource.item.where(linkId='SEXUAL-RISK-34').answer.valueCoding.code = 'SEXUAL-RISK-34-0'),'Yes', iif((%resource.item.where(linkId='SEXUAL-RISK-10').answer.valueCoding.code = 'SEXUAL-RISK-10-2') or (%resource.item.where(linkId='SEXUAL-RISK-11').answer.valueCoding.code = 'SEXUAL-RISK-11-2') or(%resource.item.where(linkId='SEXUAL-RISK-12').answer.valueCoding.code = 'SEXUAL-RISK-12-2') or(%resource.item.where(linkId='SEXUAL-RISK-32').answer.valueCoding.code = 'SEXUAL-RISK-32-2') or(%resource.item.where(linkId='SEXUAL-RISK-33').answer.valueCoding.code = 'SEXUAL-RISK-33-2') or(%resource.item.where(linkId='SEXUAL-RISK-34').answer.valueCoding.code = 'SEXUAL-RISK-34-2'),'I can\\'t remember',iif((%resource.item.where(linkId='SEXUAL-RISK-10').answer.valueCoding.code = 'SEXUAL-RISK-10-1') or (%resource.item.where(linkId='SEXUAL-RISK-11').answer.valueCoding.code = 'SEXUAL-RISK-11-1') or(%resource.item.where(linkId='SEXUAL-RISK-12').answer.valueCoding.code = 'SEXUAL-RISK-12-1') or(%resource.item.where(linkId='SEXUAL-RISK-32').answer.valueCoding.code = 'SEXUAL-RISK-32-1') or(%resource.item.where(linkId='SEXUAL-RISK-33').answer.valueCoding.code = 'SEXUAL-RISK-33-1') or(%resource.item.where(linkId='SEXUAL-RISK-34').answer.valueCoding.code = 'SEXUAL-RISK-34-1'),'No','')))"
           }
         }
       ]
@@ -1172,20 +1172,20 @@
     {
       "linkId": "SEXUAL-RISK-SCORE-UNPROTECTED",
       "text": "Whether the patient had unprotected sex of any type.",
-      "type": "boolean",
+      "type": "string",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": ""
+            "expression": "'TBD'"
           }
         }
       ]
     },
     {
-      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE",
+      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE-FIXME-fhirpath",
       "text": "Whether the patient is concerned for STI exposure. If this is true, it should be flagged as critical.",
       "type": "boolean",
       "readOnly": true,
@@ -1194,157 +1194,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": ""
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-Q1-Q2-score",
-      "text": "Score contribution from Q1 & Q2. This is an internal item for other scores' calculations.",
-      "type": "decimal",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "(iif(%resource.item.where(linkId='SEXUAL-RISK-1').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-1').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-2-not-male').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-2-not-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-2-male').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-2-male').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()))"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-C-complete",
-      "text": "SEXUAL-RISK-C part of questionnaire (first three questions) complete. This is an internal item for other scores' calculations.",
-      "type": "boolean",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId = 'SEXUAL-RISK-0').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'SEXUAL-RISK-0').answer.valueCoding.code = 'SEXUAL-RISK-0-0') or (%resource.item.where(linkId = 'SEXUAL-RISK-1').answer.valueCoding.code.exists() and (%resource.item.where(linkId = 'SEXUAL-RISK-2-not-male').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-2-male').answer.valueCoding.code.exists()))"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-C-score",
-      "text": "SEXUAL-RISK-C score (score for questions 0-2)",
-      "type": "decimal",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId='SEXUAL-RISK-Q0-score').answer.valueDecimal.toInteger() + %resource.item.where(linkId='SEXUAL-RISK-Q1-Q2-score').answer.valueDecimal.toInteger()"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-C-score-interpretation",
-      "text": "CNICS SEXUAL-RISK-C score interpretation",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif(%patient.gender = 'male' and %resource.item.where(linkId='SEXUAL-RISK-C-score').answer.valueDecimal.toInteger() >= 4, 'At-risk', iif(%patient.gender != 'male' and %resource.item.where(linkId='SEXUAL-RISK-C-score').answer.valueDecimal.toInteger() >= 3, 'At-risk', iif((%resource.item.where(linkId='SEXUAL-RISK-C-score').answer.empty() != true), 'Not at-risk', null)))"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-last-7-any-answers",
-      "text": "At least one of the last 7 questions has been answered. This is an internal item for other scores' calculations.",
-      "type": "boolean",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId = 'SEXUAL-RISK-3').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-4').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-5').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-6').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-7').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-8').answer.valueCoding.code.exists() or %resource.item.where(linkId = 'SEXUAL-RISK-9').answer.valueCoding.code.exists()"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-last-7-complete",
-      "text": "Last 7 questions here have been answered. This is an internal item for other scores' calculations.",
-      "type": "boolean",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "%resource.item.where(linkId = 'SEXUAL-RISK-3').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'SEXUAL-RISK-4').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'SEXUAL-RISK-5').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'SEXUAL-RISK-6').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'SEXUAL-RISK-7').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'SEXUAL-RISK-8').answer.valueCoding.code.exists() and %resource.item.where(linkId = 'SEXUAL-RISK-9').answer.valueCoding.code.exists()"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-complete",
-      "text": "SEXUAL-RISK questionnaire complete",
-      "type": "boolean",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "(%resource.item.where(linkId='SEXUAL-RISK-C-complete').answer.valueBoolean.toBoolean() = true and (iif((%resource.item.where(linkId='SEXUAL-RISK-C-score').answer.valueDecimal.toInteger() >= 4 and (%patient.gender = 'male')) and %resource.item.where(linkId='SEXUAL-RISK-last-7-complete').answer.valueBoolean.toBoolean() = true, true,   (iif((%resource.item.where(linkId='SEXUAL-RISK-C-score').answer.valueDecimal.toInteger() >= 3 and (%patient.gender != 'male')) and %resource.item.where(linkId='SEXUAL-RISK-last-7-complete').answer.valueBoolean.toBoolean() = true, true, false)))))"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-score",
-      "text": "CNICS SEXUAL-RISK score",
-      "type": "decimal",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "(%resource.item.where(linkId='SEXUAL-RISK-Q0-score').answer.valueDecimal.toInteger() + %resource.item.where(linkId='SEXUAL-RISK-Q1-Q2-score').answer.valueDecimal.toInteger() + iif(%resource.item.where(linkId='SEXUAL-RISK-3').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-4').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-4').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-5').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-5').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-6').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-6').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-7').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-7').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-8').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-8').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='SEXUAL-RISK-9').answer.empty(), 0, %resource.item.where(linkId='SEXUAL-RISK-9').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()))"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-score-interpretation",
-      "text": "CNICS SEXUAL-RISK score interpretation",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif(%patient.gender = 'male' and %resource.item.where(linkId='SEXUAL-RISK-score').answer.valueDecimal.toInteger() >= 6, 'At-risk', iif(%patient.gender != 'male' and %resource.item.where(linkId='SEXUAL-RISK-score').answer.valueDecimal.toInteger() >= 5, 'At-risk', iif((%resource.item.where(linkId='SEXUAL-RISK-score').answer.empty() != true), 'Not at-risk', null)))"
-          }
-        }
-      ]
-    },
-    {
-      "linkId": "SEXUAL-RISK-qnr-to-report",
-      "text": "Which CNICS SEXUAL-RISK score to display. Returns 'SEXUAL-RISK', 'SEXUAL-RISK-C', or null.",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-last-7-any-answers').answer.valueBoolean.toBoolean() = true, 'SEXUAL-RISK', iif(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty() = false, 'SEXUAL-RISK-C', null))"
+            "expression": "true"
           }
         }
       ]
