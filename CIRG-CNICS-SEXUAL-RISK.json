@@ -1185,7 +1185,7 @@
       ]
     },
     {
-      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE-fhirpath",
+      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE",
       "text": "Whether the patient is concerned for STI exposure. If this is true, it should be flagged as critical.",
       "type": "boolean",
       "readOnly": true,
