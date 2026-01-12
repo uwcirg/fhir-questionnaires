@@ -1179,13 +1179,13 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "'TBD'"
+            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ANAL').answer.valueString.toString = 'Yes' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ORAL').answer.valueString.toString = 'Yes' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL').answer.valueString.toString = 'Yes'),'Yes',iif((%resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ANAL').answer.valueString.toString = 'I can\\'t remember' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ORAL').answer.valueString.toString = 'I can\\'t remember' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL').answer.valueString.toString = 'I can\\'t remember'),'I can\\'t remember','No'))"
           }
         }
       ]
     },
     {
-      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE-FIXME-fhirpath",
+      "linkId": "SEXUAL-RISK-SCORE-STI-EXPOSURE-fhirpath",
       "text": "Whether the patient is concerned for STI exposure. If this is true, it should be flagged as critical.",
       "type": "boolean",
       "readOnly": true,
@@ -1194,7 +1194,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "true"
+            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-16').answer.valueCoding.code = 'SEXUAL-RISK-16-0') or (%resource.item.where(linkId='SEXUAL-RISK-17').answer.valueCoding.code = 'SEXUAL-RISK-17-0') or (%resource.item.where(linkId='SEXUAL-RISK-38').answer.valueCoding.code = 'SEXUAL-RISK-38-0') or (%resource.item.where(linkId='SEXUAL-RISK-39').answer.valueCoding.code = 'SEXUAL-RISK-39-0'), true, iif((%resource.item.where(linkId='SEXUAL-RISK-16').answer.valueCoding.code = 'SEXUAL-RISK-16-1') or (%resource.item.where(linkId='SEXUAL-RISK-17').answer.valueCoding.code = 'SEXUAL-RISK-17-1') or (%resource.item.where(linkId='SEXUAL-RISK-38').answer.valueCoding.code = 'SEXUAL-RISK-38-1') or (%resource.item.where(linkId='SEXUAL-RISK-39').answer.valueCoding.code = 'SEXUAL-RISK-39-1'), false,''))"
           }
         }
       ]
