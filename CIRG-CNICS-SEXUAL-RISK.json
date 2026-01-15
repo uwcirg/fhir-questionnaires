@@ -1179,7 +1179,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ANAL').answer.valueString.toString = 'Yes' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ORAL').answer.valueString.toString = 'Yes' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL').answer.valueString.toString = 'Yes'),'Yes',iif((%resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ANAL').answer.valueString.toString = 'I can\\'t remember' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ORAL').answer.valueString.toString = 'I can\\'t remember' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL').answer.valueString.toString = 'I can\\'t remember'),'I can\\'t remember','No'))"
+            "expression": "iif((%resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ANAL').answer.valueString.toString() = 'Yes' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ORAL').answer.valueString.toString() = 'Yes' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL').answer.valueString.toString() = 'Yes'),'Yes',iif((%resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ANAL').answer.valueString.toString() = 'I can\\'t remember' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-ORAL').answer.valueString.toString() = 'I can\\'t remember' or %resource.item.where(linkId='SEXUAL-RISK-SCORE-UNPROTECTED-VAGINAL').answer.valueString.toString() = 'I can\\'t remember'),'I can\\'t remember','No'))"
           }
         }
       ]
