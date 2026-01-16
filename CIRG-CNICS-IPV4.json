@@ -2,7 +2,7 @@
   "resourceType": "Questionnaire",
   "id": "CIRG-CNICS-IPV4",
   "title": "IPV-4",
-  "description": "TODO: add 2 score items for the two types of violence, and one more indicating whether to flag it w/ red color... IPV-4, a patient-reported screening instrument of intimate partner violence for primary and HIV care. Reference: [Fredericksen, Rob, Emma Fitzsimmons, Sonia Avendano-Soto, et al. \"Development and Integration of IPV-4, a Patient-Reported Screening Instrument of Intimate Partner Violence for Primary and HIV Care.\" Journal of AIDS and HIV Research 14, no. 2 (2022): 41–49. https://doi.org/10.5897/JAHR2021.0551.](https://academicjournals.org/journal/JAHR/article-full-text/E39BF4A70048)",
+  "description": "IPV-4, a patient-reported screening instrument of intimate partner violence for primary and HIV care. Reference: [Fredericksen, Rob, Emma Fitzsimmons, Sonia Avendano-Soto, et al. \"Development and Integration of IPV-4, a Patient-Reported Screening Instrument of Intimate Partner Violence for Primary and HIV Care.\" Journal of AIDS and HIV Research 14, no. 2 (2022): 41–49. https://doi.org/10.5897/JAHR2021.0551.](https://academicjournals.org/journal/JAHR/article-full-text/E39BF4A70048)",
   "status": "active",
   "item": [
     {
