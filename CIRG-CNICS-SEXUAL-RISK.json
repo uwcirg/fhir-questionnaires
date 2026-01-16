@@ -1081,7 +1081,7 @@
     },
     {
       "linkId": "SEXUAL-RISK-SCORE-PARTNERS-GENDERS",
-      "text": "Genders of partner(s). THIS IS JUST A STUB, NOT YET USED.",
+      "text": "Genders of partner(s).",
       "type": "string",
       "readOnly": true,
       "extension": [
@@ -1089,7 +1089,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "'TBD'"
+            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-1').answer.empty(), '', %resource.item.where(linkId='SEXUAL-RISK-1').answer.valueCoding.display + '; ') + iif(%resource.item.where(linkId='SEXUAL-RISK-18').answer.empty() or %resource.item.where(linkId='SEXUAL-RISK-18').answer.valueCoding.code = 'SEXUAL-RISK-18-3', '', %resource.item.where(linkId='SEXUAL-RISK-18').answer.valueCoding.display + ' male; ') + iif(%resource.item.where(linkId='SEXUAL-RISK-19').answer.empty() or %resource.item.where(linkId='SEXUAL-RISK-19').answer.valueCoding.code = 'SEXUAL-RISK-19-3', '',  %resource.item.where(linkId='SEXUAL-RISK-19').answer.valueCoding.display + ' female; ') + iif(%resource.item.where(linkId='SEXUAL-RISK-20').answer.empty() or %resource.item.where(linkId='SEXUAL-RISK-20').answer.valueCoding.code = 'SEXUAL-RISK-20-3', '',  %resource.item.where(linkId='SEXUAL-RISK-20').answer.valueCoding.display + ' male-to-female; ') + iif(%resource.item.where(linkId='SEXUAL-RISK-21').answer.empty() or %resource.item.where(linkId='SEXUAL-RISK-21').answer.valueCoding.code = 'SEXUAL-RISK-21-3', '',  %resource.item.where(linkId='SEXUAL-RISK-21').answer.valueCoding.display + ' female-to-male; ') + iif(%resource.item.where(linkId='SEXUAL-RISK-22').answer.empty() or %resource.item.where(linkId='SEXUAL-RISK-22').answer.valueCoding.code = 'SEXUAL-RISK-22-3', '',  %resource.item.where(linkId='SEXUAL-RISK-22').answer.valueCoding.display + ' no specific gender; ') + iif(%resource.item.where(linkId='SEXUAL-RISK-23').answer.empty() or %resource.item.where(linkId='SEXUAL-RISK-23').answer.valueCoding.code = 'SEXUAL-RISK-23-3', '',  %resource.item.where(linkId='SEXUAL-RISK-23').answer.valueCoding.display + ' unknown')"
           }
         }
       ]
