@@ -1080,6 +1080,36 @@
       ]
     },
     {
+      "linkId": "SEXUAL-RISK-SCORE-ONE-PARTNER",
+      "text": "Whether the answer to \"Approximately how many sex partners have you had in the past 3 months?\" is 1. For internal use only. THIS HAS BEEN TESTED FOR NON-RESPONSE AND VARIOUS RESPONSES TO SEXUAL-RISK-0.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty() != true) and %resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.code = 'SEXUAL-RISK-0-1'"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-MULTIPLE-PARTNERS",
+      "text": "Whether the answer to \"Approximately how many sex partners have you had in the past 3 months?\" is more than 1. For internal use only. THIS HAS BEEN TESTED FOR NON-RESPONSE AND VARIOUS RESPONSES TO SEXUAL-RISK-0.",
+      "type": "boolean",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "(%resource.item.where(linkId='SEXUAL-RISK-0').answer.empty() != true) and ((%resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.code = 'SEXUAL-RISK-0-2') or (%resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.code = 'SEXUAL-RISK-0-3') or (%resource.item.where(linkId='SEXUAL-RISK-0').answer.valueCoding.code = 'SEXUAL-RISK-0-4'))"
+          }
+        }
+      ]
+    },
+    {
       "linkId": "SEXUAL-RISK-SCORE-PARTNERS-GENDERS",
       "text": "Genders of partner(s).",
       "type": "string",
@@ -1095,8 +1125,8 @@
       ]
     },
     {
-      "linkId": "SEXUAL-RISK-SCORE-PARTNERS-HIV-STATUS",
-      "text": "HIV status of partner(s), and whether they were prescribed PrEP. THIS IS JUST A STUB, NOT YET USED.",
+      "linkId": "SEXUAL-RISK-SCORE-PARTNERS-HIV-NEG-PREP",
+      "text": "Whether any partners were HIV negative, and if so whether they were prescribed PrEP.",
       "type": "string",
       "readOnly": true,
       "extension": [
@@ -1104,7 +1134,37 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "'TBD'"
+            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-SCORE-ONE-PARTNER').answer.valueBoolean.toBoolean() = true, iif(%resource.item.where(linkId='SEXUAL-RISK-4').answer.valueCoding.code = 'SEXUAL-RISK-4-0','HIV negative partner: prescribed PrEP', iif(%resource.item.where(linkId='SEXUAL-RISK-4').answer.valueCoding.code = 'SEXUAL-RISK-4-1','HIV negative partner: not prescribed PrEP', iif(%resource.item.where(linkId='SEXUAL-RISK-4').answer.valueCoding.code = 'SEXUAL-RISK-4-2','HIV negative partner: PrEP use unknown',''))), iif(%resource.item.where(linkId='SEXUAL-RISK-SCORE-MULTIPLE-PARTNERS').answer.valueBoolean.toBoolean() = true, iif(%resource.item.where(linkId='SEXUAL-RISK-26').answer.valueCoding.code = 'SEXUAL-RISK-26-0','HIV negative partner(s): all prescribed PrEP', iif(%resource.item.where(linkId='SEXUAL-RISK-26').answer.valueCoding.code = 'SEXUAL-RISK-26-1','HIV negative partner(s): some prescribed PrEP', iif(%resource.item.where(linkId='SEXUAL-RISK-26').answer.valueCoding.code = 'SEXUAL-RISK-26-2','HIV negative partner(s): none prescribed PrEP', iif(%resource.item.where(linkId='SEXUAL-RISK-26').answer.valueCoding.code = 'SEXUAL-RISK-26-3','HIV negative partner(s): PrEP use unknown','')))),''))"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-PARTNERS-HIV-POS-ARV",
+      "text": "Whether any partners were HIV positive, and if so whether they are on ARVs.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-SCORE-ONE-PARTNER').answer.valueBoolean.toBoolean() = true, iif(%resource.item.where(linkId='SEXUAL-RISK-3').answer.valueCoding.code = 'SEXUAL-RISK-3-0','HIV positive partner: prescribed ARVs', iif(%resource.item.where(linkId='SEXUAL-RISK-3').answer.valueCoding.code = 'SEXUAL-RISK-3-1','HIV positive partner: not prescribed ARVs', iif(%resource.item.where(linkId='SEXUAL-RISK-3').answer.valueCoding.code = 'SEXUAL-RISK-3-2','HIV positive partner: ARV use unknown',''))), iif(%resource.item.where(linkId='SEXUAL-RISK-SCORE-MULTIPLE-PARTNERS').answer.valueBoolean.toBoolean() = true, iif(%resource.item.where(linkId='SEXUAL-RISK-25').answer.valueCoding.code = 'SEXUAL-RISK-25-0','HIV positive partner(s): all prescribed ARVs', iif(%resource.item.where(linkId='SEXUAL-RISK-25').answer.valueCoding.code = 'SEXUAL-RISK-25-1','HIV positive partner(s): some prescribed ARVs', iif(%resource.item.where(linkId='SEXUAL-RISK-25').answer.valueCoding.code = 'SEXUAL-RISK-25-2','HIV positive partner(s): none prescribed ARVs', iif(%resource.item.where(linkId='SEXUAL-RISK-25').answer.valueCoding.code = 'SEXUAL-RISK-25-3','HIV positive partner(s): ARV use unknown','')))),''))"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "SEXUAL-RISK-SCORE-PARTNERS-HIV-UNKNOWN",
+      "text": "Whether any partners have an unknown HIV status.",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='SEXUAL-RISK-SCORE-ONE-PARTNER').answer.valueBoolean.toBoolean() = true, iif(%resource.item.where(linkId='SEXUAL-RISK-2').answer.valueCoding.code = 'SEXUAL-RISK-2-2','Partner with unknown HIV status', ''), iif(%resource.item.where(linkId='SEXUAL-RISK-SCORE-MULTIPLE-PARTNERS').answer.valueBoolean.toBoolean() = true, iif(%resource.item.where(linkId='SEXUAL-RISK-24').answer.valueCoding.where(code = 'SEXUAL-RISK-24-2' or code = 'SEXUAL-RISK-24-3').exists(),'Partner(s) with unknown HIV status', ''), ''))"
           }
         }
       ]
