@@ -64,7 +64,8 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
       - display: the text displayed for the option.
     - item.answerOption[n].extension
       - "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue"
-        - almost always valueDecimal; rarely valueString (example [here](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-C-IDAS.json)).
+        - Almost always valueDecimal. We use this in FHIRPath expressions to calculate numerical scores (e.g. CNICS). 
+        - Rarely valueString (example [here](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-C-IDAS.json)). We don't use this in FHIRPath (tho I was inclined to, for remapping strings to be more report-friendly).
       - "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix" I see this is nearly always populated, but Amy do you use this at all? Seems redundant w/ ordinalValue (just above).
   - item[n]._text.extension where item[n].type = "display"
     - XTHML displayed...
