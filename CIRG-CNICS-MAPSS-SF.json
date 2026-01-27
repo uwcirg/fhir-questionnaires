@@ -72,7 +72,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='MAPSS-SF-0').answer.empty(),'', iif(%resource.item.where(linkId='MAPSS-SF-0').answer.valueCoding.code = 'MAPSS-SF-0-1','high social support', iif(%resource.item.where(linkId='MAPSS-SF-1').answer.empty() or %resource.item.where(linkId='MAPSS-SF-2').answer.empty(),'incomplete', iif((%resource.item.where(linkId='MAPSS-SF-1').answer.valueCoding.code = 'MAPSS-SF-1-1') or (%resource.item.where(linkId='MAPSS-SF-2').answer.valueCoding.code = 'MAPSS-SF-2-1'),'medium social support','low social support')))"
+            "expression": "iif(%resource.item.where(linkId='MAPSS-SF-0').answer.empty(),'', iif(%resource.item.where(linkId='MAPSS-SF-0').answer.valueCoding.code = 'MAPSS-SF-0-1','high social support', iif(%resource.item.where(linkId='MAPSS-SF-1').answer.empty() or %resource.item.where(linkId='MAPSS-SF-2').answer.empty(),'incomplete', iif((%resource.item.where(linkId='MAPSS-SF-1').answer.valueCoding.code = 'MAPSS-SF-1-1') or (%resource.item.where(linkId='MAPSS-SF-2').answer.valueCoding.code = 'MAPSS-SF-2-1'),'medium social support','low social support'))))"
           }
         }
       ] 
@@ -87,7 +87,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "true"
+            "expression": "(%resource.item.where(linkId='MAPSS-SF-SCORE-SOCIAL-SUPPORT').answer.empty() = false) and (%resource.item.where(linkId='MAPSS-SF-SCORE-SOCIAL-SUPPORT').answer.valueString = 'low social support')"
           }
         }
       ] 
