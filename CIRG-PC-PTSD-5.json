@@ -179,6 +179,21 @@
       "required": false,
       "linkId": "/102017-1",
       "text": "PC-PTSD-5 score"
+    },
+    {
+      "linkId": "PC-PTSD-5-SCORE-SYMPTOMS",
+      "text": "PTSD Symptoms",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='PC-PTSD-5-0').answer.empty(),'', iif(%resource.item.where(linkId='PC-PTSD-5-0').answer.valueCoding.code = 'PC-PTSD-5-0-1','high social support', iif(%resource.item.where(linkId='PC-PTSD-5-1').answer.empty() or %resource.item.where(linkId='PC-PTSD-5-2').answer.empty(),'incomplete', iif((%resource.item.where(linkId='PC-PTSD-5-1').answer.valueCoding.code = 'PC-PTSD-5-1-1') or (%resource.item.where(linkId='PC-PTSD-5-2').answer.valueCoding.code = 'PC-PTSD-5-2-1'),'medium social support','low social support'))))"
+          }
+        }
+      ] 
     }
   ]
 }
