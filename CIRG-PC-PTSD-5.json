@@ -182,7 +182,7 @@
     },
     {
       "linkId": "PC-PTSD-5-SCORE-SYMPTOMS",
-      "text": "PTSD Symptoms",
+      "text": "PTSD Symptoms (Past month)",
       "type": "string",
       "readOnly": true,
       "extension": [
