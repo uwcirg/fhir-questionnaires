@@ -51,13 +51,13 @@
         {
           "valueCoding": {
             "code": "MAPSS-SF-2-0",
-            "display": "Not enough"
+            "display": "Not satisfied"
           }
         },
         {
           "valueCoding": {
             "code": "MAPSS-SF-2-1",
-            "display": "Enough or more than enough"
+            "display": "Satisfied or more than satisfied"
           }
         }
       ]
@@ -72,7 +72,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "iif(%resource.item.where(linkId='MAPSS-SF-1').answer.empty() = false, %resource.item.where(linkId='MAPSS-SF-1').answer.valueCoding.display, iif(%resource.item.where(linkId='MAPSS-SF-3').answer.empty(),'', iif(%resource.item.where(linkId='MAPSS-SF-3').answer.valueCoding.where(code = 'MAPSS-SF-3-10').exists(),'', iif(%resource.item.where(linkId='MAPSS-SF-3').answer.valueCoding.where(code = 'MAPSS-SF-3-11').exists(),'No','Yes'))))"
+            "expression": "iif(%resource.item.where(linkId='MAPSS-SF-0').answer.empty(),'', iif(%resource.item.where(linkId='MAPSS-SF-0').answer.valueCoding.code = 'MAPSS-SF-0-1','high social support', iif(%resource.item.where(linkId='MAPSS-SF-1').answer.empty() or %resource.item.where(linkId='MAPSS-SF-2').answer.empty(),'incomplete', iif((%resource.item.where(linkId='MAPSS-SF-1').answer.valueCoding.code = 'MAPSS-SF-1-1') or (%resource.item.where(linkId='MAPSS-SF-2').answer.valueCoding.code = 'MAPSS-SF-2-1'),'medium social support','low social support')))"
           }
         }
       ] 
@@ -87,7 +87,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": ""
+            "expression": "true"
           }
         }
       ] 
