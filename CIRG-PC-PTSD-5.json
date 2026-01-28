@@ -179,6 +179,21 @@
       "required": false,
       "linkId": "/102017-1",
       "text": "PC-PTSD-5 score"
+    },
+    {
+      "linkId": "PC-PTSD-5-SCORE-SYMPTOMS",
+      "text": "PTSD Symptoms (Past month)",
+      "type": "string",
+      "readOnly": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "iif(%resource.item.where(linkId='/102011-4').answer.empty() or %resource.item.where(linkId='/102011-4').answer.valueCoding.code = 'LA32-8', '', (iif((%resource.item.where(linkId='/102012-2').answer.empty() = false) and (%resource.item.where(linkId='/102012-2').answer.valueCoding.code = 'LA33-6'), 'Intrusive Thoughts, ', '')) +  (iif((%resource.item.where(linkId='/102013-0').answer.empty() = false) and (%resource.item.where(linkId='/102013-0').answer.valueCoding.code = 'LA33-6'), 'Avoidance, ', '')) +  (iif((%resource.item.where(linkId='/102014-8').answer.empty() = false) and (%resource.item.where(linkId='/102014-8').answer.valueCoding.code = 'LA33-6'), 'Hypervigilance, ', '')) +  (iif((%resource.item.where(linkId='/102015-5').answer.empty() = false) and (%resource.item.where(linkId='/102015-5').answer.valueCoding.code = 'LA33-6'), 'Numb/Detached, ', '')) +  (iif((%resource.item.where(linkId='/102016-3').answer.empty() = false) and (%resource.item.where(linkId='/102016-3').answer.valueCoding.code = 'LA33-6'), 'Guilt, ', '')))"
+          }
+        }
+      ] 
     }
   ]
 }
