@@ -163,7 +163,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "TODO"
+            "expression": "iif(%resource.item.where(linkId='EUROQOL-0').answer.empty(),'', iif(%resource.item.where(linkId='EUROQOL-0').answer.valueCoding.code = 'EUROQOL-0-0','No problem',iif(%resource.item.where(linkId='EUROQOL-0').answer.valueCoding.code = 'EUROQOL-0-1','Some problems',iif(%resource.item.where(linkId='EUROQOL-0').answer.valueCoding.code = 'EUROQOL-0-2','Unable to do',''))))"
           }
         }
       ] 
@@ -178,7 +178,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "TODO"
+            "expression": "iif(%resource.item.where(linkId='EUROQOL-1').answer.empty(),'', iif(%resource.item.where(linkId='EUROQOL-1').answer.valueCoding.code = 'EUROQOL-1-0','No problem',iif(%resource.item.where(linkId='EUROQOL-1').answer.valueCoding.code = 'EUROQOL-1-1','Some problems',iif(%resource.item.where(linkId='EUROQOL-1').answer.valueCoding.code = 'EUROQOL-1-2','Unable to do',''))))"
           }
         }
       ] 
@@ -193,7 +193,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "TODO"
+            "expression": "iif(%resource.item.where(linkId='EUROQOL-2').answer.empty(),'', iif(%resource.item.where(linkId='EUROQOL-2').answer.valueCoding.code = 'EUROQOL-2-0','No problem',iif(%resource.item.where(linkId='EUROQOL-2').answer.valueCoding.code = 'EUROQOL-2-1','Some problems',iif(%resource.item.where(linkId='EUROQOL-2').answer.valueCoding.code = 'EUROQOL-2-2','Unable to do',''))))"
           }
         }
       ] 
@@ -208,7 +208,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "TODO"
+            "expression": "iif(%resource.item.where(linkId='EUROQOL-3').answer.empty(),'', iif(%resource.item.where(linkId='EUROQOL-3').answer.valueCoding.code = 'EUROQOL-3-0','No pain',iif(%resource.item.where(linkId='EUROQOL-3').answer.valueCoding.code = 'EUROQOL-3-1','Moderate pain',iif(%resource.item.where(linkId='EUROQOL-3').answer.valueCoding.code = 'EUROQOL-3-2','Extreme pain',''))))"
           }
         }
       ] 
@@ -223,22 +223,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "TODO"
-          }
-        }
-      ] 
-    },
-    {
-      "linkId": "EUROQOL-SCORE-OVERALL",
-      "text": "Overall health state (0%-100%)",
-      "type": "string",
-      "readOnly": true,
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
-          "valueExpression": {
-            "language": "text/fhirpath",
-            "expression": "TODO"
+            "expression": "iif(%resource.item.where(linkId='EUROQOL-4').answer.empty(),'', iif(%resource.item.where(linkId='EUROQOL-4').answer.valueCoding.code = 'EUROQOL-4-0','Not anxious/depressed',iif(%resource.item.where(linkId='EUROQOL-4').answer.valueCoding.code = 'EUROQOL-4-1','Moderately anxious/depressed',iif(%resource.item.where(linkId='EUROQOL-4').answer.valueCoding.code = 'EUROQOL-4-2','Extremely anxious/depressed',''))))"
           }
         }
       ] 
