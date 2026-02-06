@@ -291,14 +291,14 @@
     {
       "linkId": "HIV-STIGMA-SCORE",
       "text": "Mean of responses (1-5) across all 4 questions; if fewer than 3 items answered, the score is not reported.",
-      "type": "integer",
+      "type": "decimal",
       "readOnly": true,
       "extension": [
         {
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "((iif(%resource.item.where(linkId='HIV-STIGMA-0').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-0').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='HIV-STIGMA-1').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-1').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='HIV-STIGMA-2').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-2').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='HIV-STIGMA-3').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger())) / %resource.item.where(linkId='HIV-STIGMA-NUM-ANSWERED').answer.valueInteger.toInteger())"
+            "expression": "(iif(%resource.item.where(linkId='HIV-STIGMA-NUM-ANSWERED').answer.valueInteger.toInteger() < 3, null, (iif(%resource.item.where(linkId='HIV-STIGMA-0').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-0').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='HIV-STIGMA-1').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-1').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='HIV-STIGMA-2').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-2').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger()) + iif(%resource.item.where(linkId='HIV-STIGMA-3').answer.empty(), 0, %resource.item.where(linkId='HIV-STIGMA-3').answer.valueCoding.extension('http://hl7.org/fhir/StructureDefinition/ordinalValue').valueDecimal.toInteger())) / %resource.item.where(linkId='HIV-STIGMA-NUM-ANSWERED').answer.valueInteger.toInteger()))"
           }
         }
       ] 
@@ -313,7 +313,7 @@
           "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression",
           "valueExpression": {
             "language": "text/fhirpath",
-            "expression": "(iif(%resource.item.where(linkId='HIV-STIGMA-SCORE').answer.empty(), null,iif(%resource.item.where(linkId='HIV-STIGMA-SCORE').answer.valueInteger.toInteger() >= 4, true,false))"
+            "expression": "(iif(%resource.item.where(linkId='HIV-STIGMA-SCORE').answer.empty(), null,iif(%resource.item.where(linkId='HIV-STIGMA-SCORE').answer.valueInteger.toInteger() >= 4, true,false)))"
           }
         }
       ] 
