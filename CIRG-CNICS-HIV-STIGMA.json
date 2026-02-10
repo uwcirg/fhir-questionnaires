@@ -3,7 +3,7 @@
   "id": "CIRG-CNICS-HIV-STIGMA",
   "title": "HIV Stigma questionnaire",
   "status": "active",
-  "description": "HIV Stigma questionnaire. Christopoulos KA, Neilands TB, Hartogensis W, et al. Internalized HIV Stigma Is Associated With Concurrent Viremia and Poor Retention in a Cohort of US Patients in HIV Care. J Acquir Immune Defic Syndr. 2019;82(2):116-123.",
+  "description": "HIV Stigma questionnaire. Scored: 1-5 (mean across responses); >= 4 suggests stigma. Christopoulos KA, Neilands TB, Hartogensis W, et al. Internalized HIV Stigma Is Associated With Concurrent Viremia and Poor Retention in a Cohort of US Patients in HIV Care. J Acquir Immune Defic Syndr. 2019;82(2):116-123.",
   "item": [
     {
       "linkId": "HIV-STIGMA-0",
@@ -290,7 +290,7 @@
     },
     {
       "linkId": "HIV-STIGMA-SCORE",
-      "text": "Mean of responses (1-5) across all 4 questions; if fewer than 3 items answered, the score is not reported.",
+      "text": "Mean of responses (1-5) across all 4 questions; a score of 4 or higher suggests stigma. If fewer than 3 items answered, the score is not reported.",
       "type": "decimal",
       "readOnly": true,
       "extension": [
@@ -305,7 +305,7 @@
     },
     {
       "linkId": "HIV-STIGMA-SCORE-CRITICAL",
-      "text": "Whether the score suggests stigma, and is therefore to be flagged as critical",
+      "text": "Whether the score suggests stigma, and is therefore to be flagged as critical.",
       "type": "boolean",
       "readOnly": true,
       "extension": [
