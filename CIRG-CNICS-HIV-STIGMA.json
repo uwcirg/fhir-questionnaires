@@ -1,9 +1,9 @@
 {
   "resourceType": "Questionnaire",
   "id": "CIRG-CNICS-HIV-STIGMA",
-  "title": "HIV Stigma questionnaire. Christopoulos KA, Neilands TB, Hartogensis W, et al. Internalized HIV Stigma Is Associated With Concurrent Viremia and Poor Retention in a Cohort of US Patients in HIV Care. J Acquir Immune Defic Syndr. 2019;82(2):116-123.",
+  "title": "HIV Stigma questionnaire",
   "status": "active",
-  "description": "HIV Stigma questionnaire",
+  "description": "HIV Stigma questionnaire. Christopoulos KA, Neilands TB, Hartogensis W, et al. Internalized HIV Stigma Is Associated With Concurrent Viremia and Poor Retention in a Cohort of US Patients in HIV Care. J Acquir Immune Defic Syndr. 2019;82(2):116-123.",
   "item": [
     {
       "linkId": "HIV-STIGMA-0",
