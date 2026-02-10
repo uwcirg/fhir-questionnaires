@@ -275,7 +275,7 @@
     },
     {
       "linkId": "HIV-STIGMA-SCORE-NUM-ANSWERED",
-      "text": "Number of questions answered",
+      "text": "Number of questions answered. For internal scoring use only.",
       "type": "integer",
       "readOnly": true,
       "extension": [
