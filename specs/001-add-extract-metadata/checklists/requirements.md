@@ -1,7 +1,8 @@
-# Specification Quality Checklist: Add `$extract` Metadata to a FHIR Questionnaire
+# Specification Quality Checklist: Fork a FHIR Questionnaire Into Per-Environment `$extract` Outputs
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning  
 **Created**: 2026-05-04  
+**Last Updated**: 2026-06-29  
 **Feature**: [spec.md](../spec.md)
 
 ## Content Quality
@@ -13,7 +14,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain
+- [x] No [NEEDS CLARIFICATION] markers remain
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -32,5 +33,6 @@
 ## Notes
 
 - Items marked incomplete require spec updates before `/speckit.clarify` or `/speckit.plan`.
-- One [NEEDS CLARIFICATION] remains on FR-005 (UAT-vs-production representation in Questionnaire JSON). This mirrors the deferred `TODO(UAT_VS_PROD_REPRESENTATION)` in the constitution and is intentionally left for `/speckit.clarify` to resolve, since picking a representation here would either pre-empt or contradict the constitution amendment that will eventually fix it.
+- 2026-06-29: Spec realigned to Constitution v2.0.0. The former FR-005 `[NEEDS CLARIFICATION]` on UAT-vs-production representation is now RESOLVED — the constitution chose forking into two per-environment output files, so there are no open clarification markers.
+- All items now pass.
 - Note on "no implementation details": the spec mentions Python and `/utils` because the user request fixes those; it does so in the Input header and Assumptions section only, and does not constrain any FR/SC by language or framework. Treated as scope-fixing, not implementation leak.
