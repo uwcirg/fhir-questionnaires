@@ -91,3 +91,6 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
     - This can be used by our Questionnaire Filler to determine whether to display a question. Implementation [here](https://github.com/asbi-cds-tools/questionnaire-to-survey/blob/63f117fd666830f4fdecec10ad4cea363abed413/fhirConversionTools.js#L346); example of usage [here](https://github.com/uwcirg/asbi-screening-app/blob/master/src/fhir/1_Questionnaire-USAUDIT.json#L77).
 
 **We'll continue to curate this as need be**
+
+# Tooling
+- `utils/fork_questionnaire_for_extract.py` — forks one Questionnaire into per-environment `$extract` outputs (`deploy-specific/ucsd-uat/` and `deploy-specific/ucsd-prod/`), injecting the SDC metadata and the environment's single flowsheet FHIR ID (matched by LOINC against `deploy-specific/mapping-input/`). See `specs/001-add-extract-metadata/quickstart.md`.

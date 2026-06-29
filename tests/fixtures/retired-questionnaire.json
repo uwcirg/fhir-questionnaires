@@ -1,0 +1,12 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "retired-example",
+  "status": "retired",
+  "item": [
+    {
+      "linkId": "/44250-9",
+      "type": "choice",
+      "code": [{ "code": "44250-9", "display": "Little interest" }]
+    }
+  ]
+}
