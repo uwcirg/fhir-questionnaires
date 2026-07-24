@@ -3,7 +3,7 @@
   "id": "CIRG-PHQ9",
   "name": "phq9",
   "description": "PHQ-9 quick depression assessment panel. References: [https://www.phqscreeners.com/select-screener](https://www.phqscreeners.com/select-screener), [https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf](https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf).",
-  "url": "http://www.cdc.gov/ncbddd/fasd/phq9",
+  "url": "Questionnaire/CIRG-PHQ9",
   "identifier": [
     {
       "system": "http://hl7.org/fhir/uv/sdc/NamingSystem/questionnaire-ids",
@@ -29,6 +29,19 @@
     {
       "code": "44249-1",
       "display": "PHQ-9 quick depression assessment panel [Reported.PHQ]"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtractCategory",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "survey"
+          }
+        ]
+      }
     }
   ],
   "item": [

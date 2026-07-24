@@ -45,9 +45,17 @@ SDC_OBSERVATION_EXTRACT = (
 SDC_CALCULATED_EXPRESSION = (
     "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-calculatedExpression"
 )
+SDC_OBSERVATION_EXTRACT_CATEGORY = (
+    "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtractCategory"
+)
 EPIC_FLOWSHEET_SYSTEM = (
     "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
 )
+# Observation.category HAPI stamps on every extracted Observation. A PHQ-9 is a
+# survey instrument, so `survey` is the correct category (matches the working
+# GAD-7 questionnaire).
+OBSERVATION_CATEGORY_SYSTEM = "http://terminology.hl7.org/CodeSystem/observation-category"
+OBSERVATION_CATEGORY_CODE = "survey"
 
 REQUIRED_CSV_COLUMNS = ["RECORD NAME", "LOINC code", "FHIR ID - UAT", "FHIR ID - Prod"]
 
@@ -284,6 +292,34 @@ def inject_extract_metadata(item, flowsheet_id):
         codings.append({"system": EPIC_FLOWSHEET_SYSTEM, "code": flowsheet_id})
 
 
+def ensure_root_extract_category(doc):
+    """Declare the root ``observationExtractCategory`` HAPI's ``$extract`` needs.
+
+    HAPI reads this Questionnaire-root extension to set ``Observation.category``
+    on every emitted Observation; without it the operation fails even though the
+    per-item ``observationExtract`` flags are present. Added once per document
+    (the survey category). Idempotent: a document that already declares it is
+    left unchanged. Callers add it only to documents that actually got extract
+    metadata injected, so non-extract instruments stay untouched.
+    """
+    extensions = doc.setdefault("extension", [])
+    if any(e.get("url") == SDC_OBSERVATION_EXTRACT_CATEGORY for e in extensions):
+        return
+    extensions.append(
+        {
+            "url": SDC_OBSERVATION_EXTRACT_CATEGORY,
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "system": OBSERVATION_CATEGORY_SYSTEM,
+                        "code": OBSERVATION_CATEGORY_CODE,
+                    }
+                ]
+            },
+        }
+    )
+
+
 # --- warnings / run report (T019, T020, T021, T023) -------------------------
 
 
@@ -370,6 +406,7 @@ def build_environment_output(source, index, conflicts, env):
     :func:`report_gaps`.
     """
     doc = copy.deepcopy(source)
+    injected_any = False
     for item, _parent in iter_items(doc.get("item", [])):
         outcome, detail = resolve_item(item, index, conflicts)
         if outcome != "mapped":
@@ -378,6 +415,11 @@ def build_environment_output(source, index, conflicts, env):
         if not flowsheet_id:
             continue  # missing env ID → never fabricate (FR-007)
         inject_extract_metadata(item, flowsheet_id)
+        injected_any = True
+    # Only a document that actually marks items for extraction needs the root
+    # category HAPI reads; leave documents with zero extract items untouched.
+    if injected_any:
+        ensure_root_extract_category(doc)
     return doc
 
 
