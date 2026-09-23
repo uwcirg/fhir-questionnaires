@@ -3,7 +3,7 @@
   "id": "CIRG-PHQ9",
   "name": "phq9",
   "description": "PHQ-9 quick depression assessment panel. References: [https://www.phqscreeners.com/select-screener](https://www.phqscreeners.com/select-screener), [https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf](https://www.phqscreeners.com/images/sites/g/files/g10016261/f/201412/instructions.pdf).",
-  "url": "http://www.cdc.gov/ncbddd/fasd/phq9",
+  "url": "Questionnaire/CIRG-PHQ9",
   "identifier": [
     {
       "system": "http://hl7.org/fhir/uv/sdc/NamingSystem/questionnaire-ids",
@@ -48,7 +48,7 @@
           }
         }
       ],
-      "linkId": "/44250-9",
+      "linkId": "44250-9",
       "code": [
         {
           "code": "44250-9",
@@ -141,7 +141,7 @@
           }
         }
       ],
-      "linkId": "/44255-8",
+      "linkId": "44255-8",
       "code": [
         {
           "code": "44255-8",
@@ -234,7 +234,7 @@
           }
         }
       ],
-      "linkId": "/44259-0",
+      "linkId": "44259-0",
       "code": [
         {
           "code": "44259-0",
@@ -327,7 +327,7 @@
           }
         }
       ],
-      "linkId": "/44254-1",
+      "linkId": "44254-1",
       "code": [
         {
           "code": "44254-1",
@@ -420,7 +420,7 @@
           }
         }
       ],
-      "linkId": "/44251-7",
+      "linkId": "44251-7",
       "code": [
         {
           "code": "44251-7",
@@ -513,7 +513,7 @@
           }
         }
       ],
-      "linkId": "/44258-2",
+      "linkId": "44258-2",
       "code": [
         {
           "code": "44258-2",
@@ -606,7 +606,7 @@
           }
         }
       ],
-      "linkId": "/44252-5",
+      "linkId": "44252-5",
       "code": [
         {
           "code": "44252-5",
@@ -699,7 +699,7 @@
           }
         }
       ],
-      "linkId": "/44253-3",
+      "linkId": "44253-3",
       "code": [
         {
           "code": "44253-3",
@@ -792,7 +792,7 @@
           }
         }
       ],
-      "linkId": "/44260-8",
+      "linkId": "44260-8",
       "code": [
         {
           "code": "44260-8",
@@ -885,7 +885,7 @@
           }
         }
       ],
-      "linkId": "/69722-7",
+      "linkId": "69722-7",
       "code": [
         {
           "code": "69722-7",
@@ -991,7 +991,7 @@
           }
         }
       ],
-      "linkId": "/44261-6",
+      "linkId": "44261-6",
       "code": [
         {
           "code": "44261-6",
