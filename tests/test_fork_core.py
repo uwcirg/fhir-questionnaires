@@ -8,6 +8,9 @@ EPIC_FLOWSHEET_SYSTEM = (
 SDC_OBSERVATION_EXTRACT = (
     "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract"
 )
+SDC_OBSERVATION_EXTRACT_CATEGORY = (
+    "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtractCategory"
+)
 
 # PHQ-9 first item: LOINC 44250-9 (PHQ9_INTEREST) from the repo CSV.
 UAT_INTEREST = "teN3kKw8NMBIF9ZU7Nd-9pQ0"
@@ -65,6 +68,21 @@ def test_uat_file_has_no_prod_ids_and_vice_versa(tool, phq9_copy, repo_csv, out_
     # Production ID for PHQ9_INTEREST must not appear in the UAT file, and vice versa.
     assert PROD_INTEREST not in uat_text
     assert UAT_INTEREST not in prod_text
+
+
+def test_root_observation_extract_category_present(tool, phq9_copy, repo_csv, out_dirs):
+    # HAPI's $extract needs the root observationExtractCategory to set
+    # Observation.category; both env outputs must declare it exactly once (survey).
+    _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
+    for doc in (uat, prod):
+        cats = [
+            e
+            for e in doc.get("extension", [])
+            if e.get("url") == SDC_OBSERVATION_EXTRACT_CATEGORY
+        ]
+        assert len(cats) == 1
+        coding = cats[0]["valueCodeableConcept"]["coding"][0]
+        assert coding["code"] == "survey"
 
 
 # --- T010: one-flowsheet invariant (cli.md case 2) --------------------------

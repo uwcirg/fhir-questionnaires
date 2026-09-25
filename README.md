@@ -39,6 +39,8 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
    - REQUIRED (1..1), same as standard.
    - Default for us: "active"
    - We don't read this for anything, and have populated it inconsistently.
+- "url"
+   - OPTIONAL (0..1), same as standard. If the Questionnaire is configured for SDC $extract, then this is required and it needs to match what its QuestionnaireResponses have for "questionnaire".
 - "item"[n]
   - item[n].text - used in the UI.
   - item[n].code.display - ignore, same as item.text but from external source. No need to remove, often too laborious.
