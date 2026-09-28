@@ -65,7 +65,7 @@ def test_missing_prod_id_not_fabricated(tool, tmp_path, out_dirs, capsys):
     uat_dir, prod_dir = out_dirs
     q = _write_questionnaire(
         tmp_path / "q.json",
-        [{"linkId": "/44250-9", "type": "choice", "code": [{"code": "44250-9"}]}],
+        [{"linkId": "44250-9", "type": "choice", "code": [{"code": "44250-9"}]}],
     )
     # Prod ID intentionally blank.
     csv_path = _write_csv(tmp_path / "map.csv", ["PHQ9_INTEREST,44250-9,UAT-ID,"])
@@ -94,7 +94,7 @@ def test_conflicting_csv_rows_leave_item_unmodified(tool, tmp_path, out_dirs, ca
     uat_dir, prod_dir = out_dirs
     q = _write_questionnaire(
         tmp_path / "q.json",
-        [{"linkId": "/44250-9", "type": "choice", "code": [{"code": "44250-9"}]}],
+        [{"linkId": "44250-9", "type": "choice", "code": [{"code": "44250-9"}]}],
     )
     csv_path = _write_csv(
         tmp_path / "map.csv",
