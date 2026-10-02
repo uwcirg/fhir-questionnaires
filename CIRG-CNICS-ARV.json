@@ -247,7 +247,7 @@
     },
     {
       "linkId": "ARV-6",
-      "text": "How many doses of your medications did you miss in the last 4 days?",
+      "text": "How many doses of your medications did you miss in the last 7 days?",
       "type": "choice",
       "answerOption": [
         {
