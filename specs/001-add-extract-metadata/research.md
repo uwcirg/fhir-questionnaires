@@ -41,9 +41,14 @@ Observation per answer:
   http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id` and `code =` the
   environment's flowsheet FHIR ID, so the extracted `Observation.code.coding` carries **exactly
   one flowsheet coding** for that environment.
-- Ensure the extracted Observation lands `category = vital-signs`, `subject` from the QR, and
-  `effectiveDateTime` from the QR authored time (root-level observation-link metadata as HAPI
-  requires).
+- Ensure the extracted Observation lands `subject` from the QR and `effectiveDateTime` from the
+  QR authored time (root-level observation-link metadata as HAPI requires).
+- Declare `category = vital-signs` on each output via the root SDC
+  `sdc-questionnaire-observationExtractCategory` extension. **Finding (2026-09)**: HAPI does not
+  read this extension from the Questionnaire and stamps `survey`
+  ([cqframework/clinical-reasoning#1128](https://github.com/cqframework/clinical-reasoning/issues/1128)).
+  The declaration is kept, and `vital-signs` is set on the Observation by processing downstream
+  of `$extract`, outside this tool (Constitution Principle I, Category rule).
 
 **Open validation**: The precise extension wiring HAPI honors (and whether the flowsheet coding
 is placed on `item.code` vs. a dedicated extract-code extension) is confirmed against the HAPI

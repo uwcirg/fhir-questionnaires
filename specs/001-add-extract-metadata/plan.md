@@ -31,11 +31,11 @@ idempotent and byte-stable so clinical reviewers can diff each file against one 
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-Constitution v2.0.0. Each principle is satisfied by an explicit design rule:
+Constitution v2.1.0. Each principle is satisfied by an explicit design rule:
 
 | Principle | Gate | How this plan satisfies it |
 |-----------|------|----------------------------|
-| **I. One Observation per response, exactly one flowsheet code** | Extracted Observation shape fixed; one flowsheet coding; scores excluded | Tool annotates each in-scope item so HAPI emits one Observation per answer with `category=vital-signs`, exactly one flowsheet coding (system `http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id`, code = the environment's FHIR ID). Score items get no metadata. |
+| **I. One Observation per response, exactly one flowsheet code** | Extracted Observation shape fixed; one flowsheet coding; scores excluded | Tool annotates each in-scope item so HAPI emits one Observation per answer with exactly one flowsheet coding (system `http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id`, code = the environment's FHIR ID). Each output declares `vital-signs` via the root SDC `observationExtractCategory` extension; HAPI ignores it and stamps `survey` (cqframework/clinical-reasoning#1128), so the category is set downstream of `$extract`, outside this tool, per Principle I's Category rule. Score items get no metadata. |
 | **II. JSONPath in HAPI; no CQL** | No CQL introduced | Tool only injects static SDC metadata + flowsheet codings; any extraction expression emitted is JSONPath. No CQL anywhere. |
 | **III. CSV maps LOINC → per-env IDs** | Join on `LOINC code`; bidirectional warnings; no guessing | Matching is item-LOINC ↔ CSV `LOINC code` column; unmatched records and unmatched items both warn and continue; tool never invents IDs. |
 | **IV. Fork into per-environment outputs** | Two files, UAT-only and prod-only IDs, correct dirs; exclusions | Two outputs written to `deploy-specific/ucsd-uat/` and `deploy-specific/ucsd-prod/`; UAT file carries only `FHIR ID - UAT`, prod only `FHIR ID - Prod`; scores/display/unmapped/no-LOINC items left byte-for-byte unchanged. |

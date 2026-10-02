@@ -95,4 +95,4 @@ A repository of FHIR Questionnaires in json format. This is intended to be a def
 **We'll continue to curate this as need be**
 
 # Tooling
-- `utils/fork_questionnaire_for_extract.py` — forks one Questionnaire into per-environment `$extract` outputs (`deploy-specific/ucsd-uat/` and `deploy-specific/ucsd-prod/`), injecting the SDC metadata and the environment's single flowsheet FHIR ID (matched by LOINC against `deploy-specific/mapping-input/`). See `specs/001-add-extract-metadata/quickstart.md`.
+- `utils/fork_questionnaire_for_extract.py` — forks one Questionnaire into per-environment `$extract` outputs (`deploy-specific/ucsd-uat/` and `deploy-specific/ucsd-prod/`), injecting the SDC metadata and the environment's single flowsheet FHIR ID (matched by LOINC against `deploy-specific/mapping-input/`). See `specs/001-add-extract-metadata/quickstart.md`. Note that the SDC category (e.g. 'vital-signs') is not actually read from the Questionnaire by Hapi, per issue that we filed: https://github.com/cqframework/clinical-reasoning/issues/1128. However, that's only part of the SDC capacity here.

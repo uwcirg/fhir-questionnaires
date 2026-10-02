@@ -69,7 +69,7 @@ test modules, fixtures). This is called out in Parallel Opportunities.
 
 ### Implementation for User Story 1
 
-- [X] T013 [US1] Implement per-item, per-environment extract-metadata injection in `utils/fork_questionnaire_for_extract.py` (data-model entity 4; research R3): add the SDC `observationExtract` boolean extension and the single flowsheet coding (`system` Epic flowsheet-id, `code` = the env's FHIR ID) so HAPI emits one Observation with `category=vital-signs`, subject + effectiveDateTime from the QR. Touch only owned elements.
+- [X] T013 [US1] Implement per-item, per-environment extract-metadata injection in `utils/fork_questionnaire_for_extract.py` (data-model entity 4; research R3): add the SDC `observationExtract` boolean extension and the single flowsheet coding (`system` Epic flowsheet-id, `code` = the env's FHIR ID) so HAPI emits one Observation with subject + effectiveDateTime from the QR; also declare `vital-signs` once via the root SDC `observationExtractCategory` extension (HAPI ignores it and emits `survey`; the category is set downstream of `$extract`, outside this tool — spec FR-004). Touch only owned elements.
 - [X] T014 [US1] Implement the two-document build in `utils/fork_questionnaire_for_extract.py`: deep-copy the source into a UAT doc and a prod doc, injecting only that environment's flowsheet ID per mapped in-scope item; skip `display`/`group` items (FR-003, FR-005).
 - [X] T015 [US1] Wire `main()` end-to-end in `utils/fork_questionnaire_for_extract.py`: guards → load CSV index → walk items → build both docs → write via the serializer to `--uat-dir` and `--prod-dir`; return exit 0 on success.
 

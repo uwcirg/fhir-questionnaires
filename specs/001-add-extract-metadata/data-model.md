@@ -50,14 +50,21 @@ flowsheet coding for that environment:
 - Flowsheet coding: `system =
   http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id`,
   `code =` `FHIR ID - UAT` (UAT output) or `FHIR ID - Prod` (prod output).
-- Resulting Observation: `category[0].coding[0] = {system:
-  http://hl7.org/fhir/observation-category, code: vital-signs}`, `subject` from QR,
-  `effectiveDateTime` from QR authored time.
+- Root SDC `observationExtractCategory` extension
+  (`...sdc-questionnaire-observationExtractCategory`), declared once per output Questionnaire
+  with `{system: http://hl7.org/fhir/observation-category, code: vital-signs}`.
+- Resulting Observation as emitted by HAPI: `subject` from QR, `effectiveDateTime` from QR
+  authored time. HAPI does not read the category extension from the Questionnaire
+  ([cqframework/clinical-reasoning#1128](https://github.com/cqframework/clinical-reasoning/issues/1128))
+  and stamps `category = survey`; processing downstream of `$extract`, outside this tool, sets
+  `category[0].coding[0] = {system: http://hl7.org/fhir/observation-category, code: vital-signs}`
+  before the Observation reaches the EMR.
 - **Owned scope**: the tool only adds/updates these elements; all other item content is preserved.
 
-#### Example: extracted downstream Observation (UAT)
+#### Example: Observation delivered to the EMR (UAT)
 
-This is the Observation HAPI `$extract` should emit for the PHQ-9 first item
+This is the Observation delivered to the EMR — HAPI's `$extract` output after the downstream
+step has replaced HAPI's default `survey` category with `vital-signs` — for the PHQ-9 first item
 (LOINC `44250-9`, "Little interest or pleasure in doing things") answered "Not at all", using
 the **UAT** flowsheet FHIR ID `teN3kKw8NMBIF9ZU7Nd-9pQ0` from the CSV. The production output's
 Observation is identical except `code.coding[0].code` is the `FHIR ID - Prod` value

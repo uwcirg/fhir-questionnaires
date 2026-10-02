@@ -2,13 +2,31 @@
 
 **Feature Branch**: `001-add-extract-metadata`  
 **Created**: 2026-05-04  
-**Last Updated**: 2026-06-29  
+**Last Updated**: 2026-10-02  
 **Status**: Draft  
 **Input**: User description: "A python script (in /utils) which reads a FHIR Questionnaire
 and a CSV mapping each item's LOINC code to UAT and production flowsheet FHIR IDs, and
 outputs two new Questionnaires — one for the UAT EMR and one for production — each carrying
 a single flowsheet code per item, so a server can run `$extract` on QuestionnaireResponse."
 Revised 2026-06-29 to align with Constitution v2.0.0.
+
+## Clarifications
+
+### Session 2026-10-02
+
+- Q: HAPI does not read the SDC `observationExtractCategory` extension from the
+  Questionnaire
+  ([cqframework/clinical-reasoning#1128](https://github.com/cqframework/clinical-reasoning/issues/1128)),
+  so does the `vital-signs` category requirement change what the tool, the
+  Questionnaires, or the tests must do? → A: No. The tool keeps declaring the
+  category extension on each output Questionnaire as it does today, and that
+  declaration is the full extent of this feature's category obligation. HAPI's
+  `$extract` currently ignores it and stamps `survey`; the `vital-signs`
+  category on the final Observation is supplied by processing downstream of
+  `$extract`, outside this feature. The rest of the SDC metadata the tool
+  injects (per-item `observationExtract` and the single flowsheet code) is
+  honored by HAPI and is unaffected. No Questionnaire, utility-script, or test
+  changes result from this clarification.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -39,9 +57,11 @@ in-scope items carry the flowsheet ID from the matching CSV column for that
 environment (`FHIR ID - UAT` in the UAT file, `FHIR ID - Prod` in the prod
 file); and that, when each file is posted with a matching
 `QuestionnaireResponse` to a HAPI server, it produces Observations whose
-`code.coding` carries exactly one flowsheet code, whose `category` is
-`vital-signs`, and whose `subject` and `effectiveDateTime` come from the
-QuestionnaireResponse.
+`code.coding` carries exactly one flowsheet code and whose `subject` and
+`effectiveDateTime` come from the QuestionnaireResponse. Also confirm that each
+output declares the `vital-signs` category via the SDC
+`observationExtractCategory` extension; the Observation's `category` as emitted
+by HAPI is not part of this test (see Clarifications, Session 2026-10-02).
 
 **Acceptance Scenarios**:
 
@@ -51,7 +71,9 @@ QuestionnaireResponse.
    Questionnaires are written — one under `deploy-specific/ucsd-uat/` and one
    under `deploy-specific/ucsd-prod/` — and each matched item carries the
    metadata required for `$extract` to produce one Observation conforming to
-   Constitution Principle I (vital-signs category; exactly one
+   Constitution Principle I (vital-signs category declared on the
+   Questionnaire, though applied downstream of HAPI rather than by `$extract`
+   itself; exactly one
    `code.coding` flowsheet entry whose `code` is that environment's flowsheet
    FHIR ID; subject from QR; effectiveDateTime from QR authored time; answer
    carried in `valueCodeableConcept.coding[].display` for choice/text answers
@@ -194,7 +216,14 @@ outputs.
   derived from the QR's subject; `effectiveDateTime` derived from the QR's
   authored timestamp; and `valueCodeableConcept.coding[].display` (for
   choice/text answers) or the appropriate `value[x]` (for other answer types)
-  carrying the answer.
+  carrying the answer. The `category` element of this requirement is satisfied
+  by the tool declaring the SDC `observationExtractCategory` extension
+  (`vital-signs`) on each output Questionnaire; because HAPI does not read that
+  extension from the Questionnaire
+  ([cqframework/clinical-reasoning#1128](https://github.com/cqframework/clinical-reasoning/issues/1128)),
+  the Observation HAPI emits carries `survey`, and setting `vital-signs` on the
+  Observation is the responsibility of processing downstream of `$extract`,
+  outside this tool.
 - **FR-005**: No Observation produced by either output may be coded with more
   than one flowsheet. The UAT output and the production output MUST NOT share or
   cross-contaminate flowsheet IDs.
@@ -300,6 +329,13 @@ outputs.
   and is the authority on whether the metadata is sufficient; this tool's
   correctness is judged against that consumer's behavior (Constitution
   Principle I), not against an internal extraction engine in this tool.
+- One known exception to that consumer's SDC support: HAPI does not read the
+  `observationExtractCategory` extension from the Questionnaire
+  ([cqframework/clinical-reasoning#1128](https://github.com/cqframework/clinical-reasoning/issues/1128))
+  and defaults `Observation.category` to `survey`. The tool still emits the
+  extension (it is correct SDC and costs nothing if HAPI later honors it), and
+  the `vital-signs` category is applied downstream of `$extract`. The other SDC
+  metadata the tool injects is honored by HAPI.
 - Existing utilities under `/utils` (e.g., `remove_item_extensions.py`) are the
   precedent for how single-file Questionnaire transformations are packaged and
   invoked in this repo; the new tool is expected to fit that same shape.

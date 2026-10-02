@@ -1,36 +1,29 @@
 <!--
 SYNC IMPACT REPORT
-Version change: 1.0.0 → 2.0.0 (MAJOR — backward-incompatible principle redefinitions)
+Version change: 2.0.0 → 2.1.0 (MINOR — Principle I materially expanded; the delivered
+  Observation shape is unchanged, so this is not a MAJOR shape change)
 Modified principles:
-  - I. "Observation-Based $extract Targeting Epic Flowsheets"
-       → "One Observation Per Individual Response, Exactly One Flowsheet Code"
-       (added the hard rule that each Observation carries exactly ONE flowsheet code;
-        added that computed score items are excluded)
-  - III. "CSV Is the Source of Truth for Flowsheet IDs"
-       → "CSV Maps LOINC Codes to Per-Environment Flowsheet IDs"
-       (join key changed from (questionnaire_code, link_id) to the item's LOINC code
-        matched against the CSV "LOINC code" column; warnings made bidirectional)
-  - IV. REDEFINED: "Score Items Are Extracted; Their FHIRPath Is Not Touched"
-       → "Fork Each Questionnaire Into Per-Environment Outputs"
-       (the prior rule that score items MUST be extracted is REMOVED/REVERSED; the new
-        Principle IV codifies forking one source Questionnaire into separate UAT and
-        production Questionnaires, resolving the former TODO)
-Added sections: N/A (section headings unchanged)
-Removed sections:
-  - TODO(UAT_VS_PROD_REPRESENTATION) deferred item — now resolved: the chosen
-    representation is two separate output Questionnaire files (one per environment),
-    each carrying a single flowsheet code per item.
+  - I. "One Observation Per Individual Response, Exactly One Flowsheet Code" (title
+       unchanged). The fixed shape now describes the Observation delivered to the target
+       EMR. Added a "Category" rule: HAPI ignores the Questionnaire's
+       observationExtractCategory extension and stamps `survey`
+       (cqframework/clinical-reasoning#1128), so the Questionnaire MUST still declare
+       `vital-signs` and the step downstream of $extract MUST set it before delivery.
+       All other shape elements are still required as emitted by HAPI's $extract.
+Added sections: N/A
+Removed sections: N/A
 Templates requiring updates:
   - .specify/templates/plan-template.md ✅ no edits required (Constitution Check
     references the constitution file dynamically)
   - .specify/templates/spec-template.md ✅ no edits required (no constitution-specific content)
   - .specify/templates/tasks-template.md ✅ no edits required (no constitution-specific content)
-  - specs/001-add-extract-metadata/spec.md ⚠ PENDING — that spec describes a single-file,
-    dual-environment, score-extracting tool keyed on linkId; it now conflicts with
-    Principles I, III, and IV. Re-run /speckit.specify (or /speckit.clarify) to align it:
-    fork-into-two-files, LOINC-keyed mapping, scores excluded, one flowsheet code per Observation.
-  - README.md ⚠ intentionally NOT updated; general Questionnaire-authoring guidance
-    remains out of scope for this constitution.
+  - specs/001-add-extract-metadata/spec.md ✅ already aligned (Clarifications
+    Session 2026-10-02, FR-004, Assumptions)
+  - specs/001-add-extract-metadata/plan.md ✅ updated (Constitution Check cites v2.1.0;
+    Principle I row reflects the Category rule)
+  - specs/001-add-extract-metadata/tasks.md (T013), data-model.md (entity 4 and the
+    example Observation), research.md (R3) ✅ updated to the same wording
+  - README.md ✅ Tooling note already records the HAPI category limitation.
 Deferred items: none.
 -->
 
@@ -52,11 +45,15 @@ amendment.
 
 In-scope Questionnaires MUST be modified so that HAPI's `$extract` operation
 produces one FHIR `Observation` per answered, individual-response
-`QuestionnaireResponse.item`. The generated Observation shape is fixed:
+`QuestionnaireResponse.item`. The shape of the Observation delivered to the
+target EMR is fixed. Every element below MUST be present as emitted by HAPI's
+`$extract`, with the single exception of `category`, which is governed by the
+"Category" rule that follows the list:
 
 - `resourceType` MUST be `"Observation"`.
 - `category[0].coding[0]` MUST be
-  `{ system: "http://hl7.org/fhir/observation-category", code: "vital-signs" }`.
+  `{ system: "http://hl7.org/fhir/observation-category", code: "vital-signs" }`
+  on the Observation delivered to the target EMR.
 - `code.coding` MUST contain **exactly one** flowsheet coding. Its `system`
   MUST be
   `http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id`, and
@@ -71,6 +68,22 @@ produces one FHIR `Observation` per answered, individual-response
   for choice/text answers; non-choice answers use the corresponding `value[x]`
   expected by the target EMR for that flowsheet row.
 
+**Category**: HAPI does not read the SDC
+`sdc-questionnaire-observationExtractCategory` extension from the
+Questionnaire and stamps `survey` on every extracted Observation
+([cqframework/clinical-reasoning#1128](https://github.com/cqframework/clinical-reasoning/issues/1128)).
+Therefore:
+
+- Each output Questionnaire MUST still declare the `vital-signs` category via
+  that extension, using the `system` and `code` above. This is the full extent
+  of the Questionnaire's (and the forking tool's) category obligation.
+- The processing step downstream of `$extract` — between HAPI and the target
+  EMR — MUST set `category[0].coding[0]` to the value above before the
+  Observation is delivered. An Observation MUST NOT reach the target EMR
+  carrying HAPI's default `survey` category.
+- The `category` HAPI itself emits is NOT a compliance criterion for a
+  Questionnaire or for the forking tool.
+
 Computed **score** items (those whose value is calculated by the form filler,
 e.g. a total whose `linkId` carries an
 `sdc-questionnaire-calculatedExpression`) are OUT OF SCOPE: only individual
@@ -81,7 +94,10 @@ the UAT and production systems reject any Observation coded with more than one
 flowsheet. Emitting exactly one flowsheet code per Observation — and one output
 Questionnaire per environment — is what keeps ingestion working. Any deviation
 from this shape, including adding a second flowsheet code, breaks downstream
-ingestion. Changes to this shape are MAJOR amendments.
+ingestion. Changes to this shape are MAJOR amendments. The category is applied
+downstream only because HAPI ignores the Questionnaire's declaration; keeping
+the declaration in the Questionnaire records the intended value at its source
+and lets HAPI honor it without further Questionnaire changes if that is fixed.
 
 ### II. JSONPath in HAPI; CQL Out of Scope
 
@@ -222,4 +238,4 @@ staff. Noisy diffs hide real changes and erode trust in the tooling.
   not override the general Questionnaire-authoring guidance in `README.md`;
   those scopes are kept separate by design.
 
-**Version**: 2.0.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-06-29
+**Version**: 2.1.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-10-02
