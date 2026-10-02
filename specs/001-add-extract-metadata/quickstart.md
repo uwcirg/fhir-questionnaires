@@ -1,5 +1,7 @@
 # Quickstart: Fork a Questionnaire for `$extract`
 
+> **Note**: The CSV schema described here was superseded by constitution v3.1.0 and feature 002 (`specs/002-populate-flowsheet-mapping-csv/`): the columns are now `CNICS NAME`, `RECORD NAME (UCSD Epic)`, `LOINC code`, `FHIR ID - UAT`, `FHIR ID - Prod`, and each run prints many expected "matched no item" warnings for rows belonging to other Questionnaires.
+
 ## Prerequisites
 - Python 3.11+ (stdlib only; no `pip install` needed to run the tool).
 - Run from the repository root.

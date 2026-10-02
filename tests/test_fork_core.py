@@ -1,6 +1,10 @@
 """User Story 1 core tests (cli.md cases 1, 2, 5) plus edge cases (T026)."""
 
+import csv
 import json
+import shutil
+
+from .conftest import REPO_ROOT
 
 EPIC_FLOWSHEET_SYSTEM = (
     "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
@@ -130,3 +134,45 @@ def test_no_loinc_item_unchanged(tool):
     assert tool.extract_loinc(item2) is None
     outcome, _ = tool.resolve_item(item2, {}, {})
     assert outcome == "no_loinc"
+
+
+# --- repo CSV with one section per Questionnaire (feature 002) --------------
+
+
+def test_phq9_outputs_match_checked_in_files(tool, phq9_copy, repo_csv, out_dirs):
+    uat_dir, prod_dir = out_dirs
+    rc = tool.run(str(phq9_copy), str(repo_csv), str(uat_dir), str(prod_dir))
+    assert rc == 0
+    deployed = REPO_ROOT / "deploy-specific"
+    assert (uat_dir / "CIRG-PHQ-9.json").read_bytes() == (
+        deployed / "ucsd-uat" / "CIRG-PHQ-9.json"
+    ).read_bytes()
+    assert (prod_dir / "CIRG-PHQ-9.json").read_bytes() == (
+        deployed / "ucsd-prod" / "CIRG-PHQ-9.json"
+    ).read_bytes()
+
+
+def test_fork_listed_but_unmapped_questionnaire(tool, tmp_path, repo_csv, out_dirs, capsys):
+    uat_dir, prod_dir = out_dirs
+    source = tmp_path / "CIRG-CNICS-AUDIT.json"
+    shutil.copy(REPO_ROOT / "CIRG-CNICS-AUDIT.json", source)
+
+    rc = tool.run(str(source), str(repo_csv), str(uat_dir), str(prod_dir))
+    err_lines = capsys.readouterr().err.splitlines()
+    assert rc == 0
+    assert (uat_dir / "CIRG-CNICS-AUDIT.json").exists()
+    assert (prod_dir / "CIRG-CNICS-AUDIT.json").exists()
+
+    # A listed row with blank FHIR IDs is a known gap, reported per environment.
+    for column in ("FHIR ID - UAT", "FHIR ID - Prod"):
+        assert any("loinc=AUDIT-0 " in ln and column in ln for ln in err_lines), column
+
+    # Separator rows are never treated as records.
+    with open(repo_csv, encoding="utf-8", newline="") as f:
+        separators = [row[0] for row in list(csv.reader(f))[1:] if not row[2].strip()]
+    assert separators
+    for separator in separators:
+        assert not any(
+            'CSV record "%s"' % separator in ln or ln.endswith("loinc=%s" % separator)
+            for ln in err_lines
+        ), separator

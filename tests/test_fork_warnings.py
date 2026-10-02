@@ -28,7 +28,9 @@ def _write_questionnaire(path, items):
     return path
 
 
-def _write_csv(path, rows, header="RECORD NAME,LOINC code,FHIR ID - UAT,FHIR ID - Prod"):
+def _write_csv(
+    path, rows, header="RECORD NAME (UCSD Epic),LOINC code,FHIR ID - UAT,FHIR ID - Prod"
+):
     path.write_text(header + "\n" + "\n".join(rows) + "\n")
     return path
 
