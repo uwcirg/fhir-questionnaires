@@ -58,7 +58,12 @@ EPIC_FLOWSHEET_SYSTEM = (
 OBSERVATION_CATEGORY_SYSTEM = "http://hl7.org/fhir/observation-category"
 OBSERVATION_CATEGORY_CODE = "vital-signs"
 
-REQUIRED_CSV_COLUMNS = ["RECORD NAME", "LOINC code", "FHIR ID - UAT", "FHIR ID - Prod"]
+REQUIRED_CSV_COLUMNS = [
+    "RECORD NAME (UCSD Epic)",
+    "LOINC code",
+    "FHIR ID - UAT",
+    "FHIR ID - Prod",
+]
 
 # Environment key -> CSV column carrying that environment's flowsheet FHIR ID.
 ENV_COLUMNS = {"uat": "FHIR ID - UAT", "prod": "FHIR ID - Prod"}
@@ -167,7 +172,7 @@ def load_csv_index(csv_path):
             records.append(
                 {
                     "loinc": loinc,
-                    "record_name": (row.get("RECORD NAME") or "").strip(),
+                    "record_name": (row.get("RECORD NAME (UCSD Epic)") or "").strip(),
                     "uat": (row.get("FHIR ID - UAT") or "").strip(),
                     "prod": (row.get("FHIR ID - Prod") or "").strip(),
                 }
