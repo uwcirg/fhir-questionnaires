@@ -1,31 +1,49 @@
 <!--
 SYNC IMPACT REPORT
-Version change: 2.0.0 → 2.1.0 (MINOR — Principle I materially expanded; the delivered
-  Observation shape is unchanged, so this is not a MAJOR shape change)
+Version change: 2.1.0 → 3.0.0 (MAJOR — the mapping CSV's required columns change
+  (`RECORD NAME` renamed, `CNICS NAME` added) and the join key is redefined from "the
+  item's LOINC code" to "the item's linkId"; Governance classes both as MAJOR)
+  Also redefines extraction scope: computed scores/totals are now extracted for every
+  Questionnaire except CIRG-PHQ9. Folded into 3.0.0 because 3.0.0 was never committed.
 Modified principles:
-  - I. "One Observation Per Individual Response, Exactly One Flowsheet Code" (title
-       unchanged). The fixed shape now describes the Observation delivered to the target
-       EMR. Added a "Category" rule: HAPI ignores the Questionnaire's
-       observationExtractCategory extension and stamps `survey`
-       (cqframework/clinical-reasoning#1128), so the Questionnaire MUST still declare
-       `vital-signs` and the step downstream of $extract MUST set it before delivery.
-       All other shape elements are still required as emitted by HAPI's $extract.
+  - I. "One Observation Per Individual Response, Exactly One Flowsheet Code" →
+       "One Observation Per Reported Item, Exactly One Flowsheet Code". Computed items
+       (calculatedExpression) are in scope, except those of Questionnaires whose scores
+       the target EMR computes itself (CIRG-PHQ9 only) and "internal" items.
+  - III. "CSV Maps LOINC Codes to Per-Environment Flowsheet IDs" →
+         "CSV Maps Questionnaire Items to Per-Environment Flowsheet IDs".
+         Columns are now `CNICS NAME`, `RECORD NAME (UCSD Epic)`, `LOINC code`,
+         `FHIR ID - UAT`, `FHIR ID - Prod`. `LOINC code` is copied from item.linkId.
+         Added separator rows labelled with Questionnaire.id, the rules for which items
+         get a row (no display headers, no "internal" items, no itemControl items), and
+         column ownership (site supplies record name and FHIR IDs; blank until then).
+  - IV. exclusion list and the byte-for-byte rule follow Principle I's new computed-item
+         rule; calculatedExpression is never modified.
 Added sections: N/A
 Removed sections: N/A
 Templates requiring updates:
   - .specify/templates/plan-template.md ✅ no edits required (Constitution Check
     references the constitution file dynamically)
-  - .specify/templates/spec-template.md ✅ no edits required (no constitution-specific content)
-  - .specify/templates/tasks-template.md ✅ no edits required (no constitution-specific content)
-  - specs/001-add-extract-metadata/spec.md ✅ already aligned (Clarifications
-    Session 2026-10-02, FR-004, Assumptions)
-  - specs/001-add-extract-metadata/plan.md ✅ updated (Constitution Check cites v2.1.0;
-    Principle I row reflects the Category rule)
-  - specs/001-add-extract-metadata/tasks.md (T013), data-model.md (entity 4 and the
-    example Observation), research.md (R3) ✅ updated to the same wording
-  - README.md ✅ Tooling note already records the HAPI category limitation.
-Deferred items: none.
+  - .specify/templates/spec-template.md ✅ no edits required
+  - .specify/templates/tasks-template.md ✅ no edits required
+  - README.md ✅ no edits required (Tooling note does not name CSV columns)
+  - deploy-specific/mapping-input/CNICS PRO UCSD flowsheet FHIR IDs.csv ⚠ pending —
+    still has the v2 header and only PHQ-9 rows
+  - utils/fork_questionnaire_for_extract.py ⚠ pending — REQUIRED_CSV_COLUMNS and the
+    record_name lookup still use `RECORD NAME`; must change with the CSV header. It also
+    skips every computed score item; it must now skip them only for CIRG-PHQ9 (plus
+    "internal" items)
+  - tests/test_fork_scores.py ⚠ pending — asserts scores are always skipped
+  - tests/test_fork_warnings.py, tests/fixtures/csv-missing-column.csv ⚠ pending — same
+  - specs/001-add-extract-metadata/{spec,data-model,research,tasks}.md ⚠ pending — cite
+    the v2 column name and LOINC-only join key
+Deferred items:
+  - TODO(ITEMCONTROL_EXCLUSION): every PHQ-9 response item carries the itemControl
+    extension yet is already mapped. Principle III retains those rows; confirm whether
+    the exclusion is meant for all itemControl items (e.g. the ARV-9 slider) or only
+    display/help ones.
 -->
+
 
 # FHIR Questionnaires Constitution
 
@@ -41,11 +59,13 @@ amendment.
 
 ## Core Principles
 
-### I. One Observation Per Individual Response, Exactly One Flowsheet Code
+### I. One Observation Per Reported Item, Exactly One Flowsheet Code
 
 In-scope Questionnaires MUST be modified so that HAPI's `$extract` operation
-produces one FHIR `Observation` per answered, individual-response
-`QuestionnaireResponse.item`. The shape of the Observation delivered to the
+produces one FHIR `Observation` per answered, reported
+`QuestionnaireResponse.item` — each individual response and, except where the
+"Computed items" rule below excludes them, each computed score or total. The
+shape of the Observation delivered to the
 target EMR is fixed. Every element below MUST be present as emitted by HAPI's
 `$extract`, with the single exception of `category`, which is governed by the
 "Category" rule that follows the list:
@@ -65,8 +85,8 @@ target EMR is fixed. Every element below MUST be present as emitted by HAPI's
 - `effectiveDateTime` MUST be derived from the QuestionnaireResponse's authored
   timestamp (or an equivalent recorded time).
 - `valueCodeableConcept.coding[].display` MUST carry the answer's display text
-  for choice/text answers; non-choice answers use the corresponding `value[x]`
-  expected by the target EMR for that flowsheet row.
+  for choice/text answers; non-choice answers and computed items use the
+  corresponding `value[x]` expected by the target EMR for that flowsheet row.
 
 **Category**: HAPI does not read the SDC
 `sdc-questionnaire-observationExtractCategory` extension from the
@@ -84,17 +104,30 @@ Therefore:
 - The `category` HAPI itself emits is NOT a compliance criterion for a
   Questionnaire or for the forking tool.
 
-Computed **score** items (those whose value is calculated by the form filler,
-e.g. a total whose `linkId` carries an
-`sdc-questionnaire-calculatedExpression`) are OUT OF SCOPE: only individual
-responses are reported as Observations. See Principle IV's exclusion rules.
+**Computed items**: Items whose value is calculated by the form filler (those
+carrying an `sdc-questionnaire-calculatedExpression`, e.g. a score or total)
+are IN SCOPE and reported as Observations like any individual response, with
+two exceptions:
+
+- Computed items of a Questionnaire whose scores the target EMR calculates
+  itself are OUT OF SCOPE. Today that is `CIRG-PHQ9` only: UCSD's Epic already
+  computes the PHQ-9 totals from the individual responses. Adding a
+  Questionnaire to, or removing one from, this list is a constitution
+  amendment.
+- Computed items whose `text` states that they are "internal" items (e.g.
+  `AUDIT-Q0-score`) are OUT OF SCOPE for every Questionnaire.
+
+See Principle IV's exclusion rules.
 
 **Rationale**: The target EMR ingests these Observations as flowsheet rows, and
 the UAT and production systems reject any Observation coded with more than one
 flowsheet. Emitting exactly one flowsheet code per Observation — and one output
 Questionnaire per environment — is what keeps ingestion working. Any deviation
 from this shape, including adding a second flowsheet code, breaks downstream
-ingestion. Changes to this shape are MAJOR amendments. The category is applied
+ingestion. Changes to this shape are MAJOR amendments. Totals are sent for
+every instrument except PHQ-9 because the target EMR has no capacity to compute
+them for those instruments; sending a PHQ-9 total would duplicate the one Epic
+already derives. The category is applied
 downstream only because HAPI ignores the Questionnaire's declaration; keeping
 the declaration in the Questionnaire records the intended value at its source
 and lets HAPI honor it without further Questionnaire changes if that is fixed.
@@ -110,15 +143,47 @@ arises that cannot be satisfied in JSONPath, the constitution MUST be amended
 extraction logic beyond direct mapping is anticipated. Constraining the
 expression language keeps the surface small and reviewable.
 
-### III. CSV Maps LOINC Codes to Per-Environment Flowsheet IDs
+### III. CSV Maps Questionnaire Items to Per-Environment Flowsheet IDs
 
 The mapping from a Questionnaire item to its UAT and production flowsheet FHIR
 IDs lives in a CSV checked into this repository at
-`deploy-specific/mapping-input/`. The CSV's columns are `RECORD NAME`,
-`LOINC code`, `FHIR ID - UAT`, and `FHIR ID - Prod`. The **`LOINC code`
-column** is the join key: each Questionnaire item is matched to a CSV row by
-its LOINC code, and the row supplies that item's UAT and production flowsheet
-FHIR IDs.
+`deploy-specific/mapping-input/`. The CSV's columns are, in order:
+
+1. `CNICS NAME` — a very brief human-friendly label for the item, derived from
+   `Questionnaire.item[].text`. Maintained by this team.
+2. `RECORD NAME (UCSD Epic)` — the name of the Epic flowsheet record at the
+   target site. Supplied by the target site; this team MUST NOT invent it.
+3. `LOINC code` — the **join key**. It MUST hold the item's identifier copied
+   from `Questionnaire.item[].linkId` (a single leading `/` removed). For
+   LOINC-based instruments (e.g. PHQ-9) that identifier is the LOINC code; for
+   instruments whose items carry no LOINC code (e.g. `AUDIT-1`) it is the
+   `linkId` as authored. The column name is retained for continuity.
+4. `FHIR ID - UAT` and 5. `FHIR ID - Prod` — the flowsheet FHIR IDs. Supplied
+   by the target site once it has created the flowsheets; blank until then.
+
+Each Questionnaire item is matched to a CSV row by the `LOINC code` column, and
+the row supplies that item's UAT and production flowsheet FHIR IDs.
+
+**Separator rows**: Each Questionnaire's rows MUST be preceded by a separator
+row whose `CNICS NAME` cell is the `Questionnaire.id` (e.g. `CIRG-CNICS-AUDIT`)
+and whose other cells are blank. Tooling MUST skip any row whose `LOINC code`
+cell is blank, so separator rows are never treated as mappings.
+
+**Which items get a row**: When a Questionnaire is added to the CSV, every item
+at any nesting depth gets one row, EXCEPT:
+
+- display-only headers (`item.type` = `"display"`, e.g. `AUDIT-header`);
+- items whose `text` states that they are "internal" items (e.g.
+  `AUDIT-Q0-score`);
+- items carrying the
+  `http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl`
+  extension.
+
+Rows that already exist with site-supplied values (the PHQ-9 rows) MUST be
+retained as they are; these exclusions govern rows added for a Questionnaire,
+not the removal of rows the target site has already mapped. Having a CSV row
+does not by itself put an item in scope for extraction — Principle IV's
+exclusions still apply (the PHQ-9 score rows are mapped but not extracted).
 
 Tooling that injects flowsheet IDs into Questionnaire JSON MUST read from this
 CSV and MUST tolerate imperfect mappings. Specifically:
@@ -134,11 +199,15 @@ Neither condition is a fatal error. Tooling MUST NOT invent or guess flowsheet
 IDs to fill a gap.
 
 **Rationale**: Two environments need two IDs, and confusing them sends test
-data into production flowsheets or vice versa. Keying on the LOINC code keeps
-the mapping legible to clinical reviewers (LOINC is the shared vocabulary
-between the instrument and the flowsheet), and centralizing it in CSV makes the
-source of truth obvious. Surfacing gaps without failing the whole run lets the
-team make incremental progress on partially-mapped instruments.
+data into production flowsheets or vice versa. The CSV is also the worksheet
+exchanged with the target site: this team lists the items it will send
+(`CNICS NAME`, `LOINC code`), and the site answers with the flowsheet it built
+for each (`RECORD NAME (UCSD Epic)`, the two FHIR IDs). Keying on the item's
+`linkId` gives every item a stable key whether or not the instrument is
+LOINC-coded, and where it is, the key is the LOINC code clinical reviewers
+already know. Separator rows keep a many-instrument file readable. Surfacing
+gaps without failing the whole run lets the team make incremental progress on
+partially-mapped instruments.
 
 ### IV. Fork Each Questionnaire Into Per-Environment Outputs
 
@@ -157,14 +226,15 @@ rule of Principle I.
 Items that are OUT OF SCOPE and MUST NOT receive flowsheet metadata in either
 output:
 
-- Computed **score** items (per Principle I) — only individual responses are
-  reported.
+- Computed items that Principle I excludes: those of a Questionnaire whose
+  scores the target EMR calculates itself (`CIRG-PHQ9`), and "internal" items.
 - Display-only items (`item.type` = `"display"`).
-- Items whose LOINC code has no matching CSV record (per Principle III).
+- Items with no matching CSV record (per Principle III).
 
-Score items and any other content the tool does not own MUST be left
-byte-for-byte unchanged in the outputs, including any
-`sdc-questionnaire-calculatedExpression` they carry.
+Excluded items and any other content the tool does not own MUST be left
+byte-for-byte unchanged in the outputs. For every computed item, in scope or
+not, the `sdc-questionnaire-calculatedExpression` it carries MUST be left
+unchanged.
 
 **Rationale**: The target UAT and production systems use different flowsheet
 FHIR IDs and cannot receive an Observation coded with more than one flowsheet.
@@ -188,8 +258,12 @@ staff. Noisy diffs hide real changes and erode trust in the tooling.
 
 - The mapping CSV described in Principle III MUST live under
   `deploy-specific/mapping-input/` and MUST include at minimum the columns
-  `RECORD NAME`, `LOINC code`, `FHIR ID - UAT`, and `FHIR ID - Prod`.
-  Additional columns are permitted and ignored.
+  `CNICS NAME`, `RECORD NAME (UCSD Epic)`, `LOINC code`, `FHIR ID - UAT`, and
+  `FHIR ID - Prod`. Additional columns are permitted and ignored.
+- Rows for one Questionnaire MUST be contiguous, in the Questionnaire's item
+  order, under that Questionnaire's separator row.
+- `RECORD NAME (UCSD Epic)`, `FHIR ID - UAT`, and `FHIR ID - Prod` MUST be left
+  blank for items the target site has not yet built flowsheets for.
 - Per-environment outputs MUST be written under `deploy-specific/ucsd-uat/`
   (UAT) and `deploy-specific/ucsd-prod/` (production).
 - `$extract` enablement is performed one source Questionnaire at a time.
@@ -200,8 +274,8 @@ staff. Noisy diffs hide real changes and erode trust in the tooling.
 - Questionnaires that are deprecated — files under `deprecated/`, files matching
   `*.deprecated.json`, or Questionnaires whose `status` is `retired` — are OUT
   OF SCOPE for `$extract` enablement and MUST be skipped by tooling.
-- Display-only items (`item.type` = `"display"`), computed score items, and
-  items whose LOINC code is absent from the CSV are OUT OF SCOPE for
+- Display-only items (`item.type` = `"display"`), the computed items excluded
+  by Principle I, and items whose `LOINC code` value is absent from the CSV are OUT OF SCOPE for
   extraction.
 
 ## Development Workflow
@@ -209,7 +283,7 @@ staff. Noisy diffs hide real changes and erode trust in the tooling.
 - A PR that enables `$extract` for a Questionnaire MUST include: the two
   generated per-environment Questionnaire JSON files, any CSV updates they
   depend on, and a description that links each mapped item to its CSV record by
-  LOINC code.
+  its `LOINC code` value.
 - Reviewers MUST verify each output against the corresponding CSV column
   (`FHIR ID - UAT` for the UAT file, `FHIR ID - Prod` for the production file)
   before approving. Tooling SHOULD make this a near-mechanical check.
@@ -238,4 +312,4 @@ staff. Noisy diffs hide real changes and erode trust in the tooling.
   not override the general Questionnaire-authoring guidance in `README.md`;
   those scopes are kept separate by design.
 
-**Version**: 2.1.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-10-02
+**Version**: 3.0.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-10-02
