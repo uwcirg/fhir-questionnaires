@@ -48,7 +48,7 @@ def test_happy_path_two_files_env_correct(tool, phq9_copy, repo_csv, out_dirs):
 
     uat_first = uat["item"][0]
     prod_first = prod["item"][0]
-    assert uat_first["linkId"] == "/44250-9"
+    assert uat_first["linkId"] == "44250-9"
 
     # Each mapped item carries its env's flowsheet coding with the Epic system.
     assert _flowsheet_codes(uat_first) == [UAT_INTEREST]
@@ -72,7 +72,7 @@ def test_uat_file_has_no_prod_ids_and_vice_versa(tool, phq9_copy, repo_csv, out_
 
 def test_root_observation_extract_category_present(tool, phq9_copy, repo_csv, out_dirs):
     # HAPI's $extract needs the root observationExtractCategory to set
-    # Observation.category; both env outputs must declare it exactly once (survey).
+    # Observation.category; both env outputs must declare it exactly once (vital-signs).
     _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
     for doc in (uat, prod):
         cats = [
@@ -82,7 +82,8 @@ def test_root_observation_extract_category_present(tool, phq9_copy, repo_csv, ou
         ]
         assert len(cats) == 1
         coding = cats[0]["valueCodeableConcept"]["coding"][0]
-        assert coding["code"] == "survey"
+        assert coding["system"] == "http://hl7.org/fhir/observation-category"
+        assert coding["code"] == "vital-signs"
 
 
 # --- T010: one-flowsheet invariant (cli.md case 2) --------------------------

@@ -51,11 +51,12 @@ SDC_OBSERVATION_EXTRACT_CATEGORY = (
 EPIC_FLOWSHEET_SYSTEM = (
     "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
 )
-# Observation.category HAPI stamps on every extracted Observation. A PHQ-9 is a
-# survey instrument, so `survey` is the correct category (matches the working
-# GAD-7 questionnaire).
-OBSERVATION_CATEGORY_SYSTEM = "http://terminology.hl7.org/CodeSystem/observation-category"
-OBSERVATION_CATEGORY_CODE = "survey"
+# Observation.category HAPI stamps on every extracted Observation. Epic's
+# flowsheet Observation.Create API expects `vital-signs` under the STU3-era
+# `http://hl7.org/fhir/observation-category` system
+# (https://fhir.epic.com/Specifications?api=963), per spec FR-004.
+OBSERVATION_CATEGORY_SYSTEM = "http://hl7.org/fhir/observation-category"
+OBSERVATION_CATEGORY_CODE = "vital-signs"
 
 REQUIRED_CSV_COLUMNS = ["RECORD NAME", "LOINC code", "FHIR ID - UAT", "FHIR ID - Prod"]
 
@@ -298,7 +299,7 @@ def ensure_root_extract_category(doc):
     HAPI reads this Questionnaire-root extension to set ``Observation.category``
     on every emitted Observation; without it the operation fails even though the
     per-item ``observationExtract`` flags are present. Added once per document
-    (the survey category). Idempotent: a document that already declares it is
+    (the vital-signs category). Idempotent: a document that already declares it is
     left unchanged. Callers add it only to documents that actually got extract
     metadata injected, so non-extract instruments stay untouched.
     """

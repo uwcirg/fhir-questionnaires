@@ -1,6 +1,6 @@
 """User Story 3 test: exclude computed score items (cli.md case 4; FR-007, SC-007).
 
-The PHQ-9 total-score item /44261-6 carries a calculatedExpression extension. It
+The PHQ-9 total-score item 44261-6 carries a calculatedExpression extension. It
 must receive no extract metadata in either output and stay byte-identical to the
 source item; a warning notes its matched CSV record was skipped as a score.
 """
@@ -32,11 +32,11 @@ def test_score_item_excluded_and_unchanged(tool, phq9_copy, repo_csv, out_dirs, 
     uat = json.load(open(uat_dir / "CIRG-PHQ-9.json", encoding="utf-8"))
     prod = json.load(open(prod_dir / "CIRG-PHQ-9.json", encoding="utf-8"))
 
-    src_score = _find(source["item"], "/44261-6")
+    src_score = _find(source["item"], "44261-6")
     assert src_score is not None
 
     for doc in (uat, prod):
-        out_score = _find(doc["item"], "/44261-6")
+        out_score = _find(doc["item"], "44261-6")
         # No flowsheet coding was added...
         assert not any(
             c.get("system") == EPIC_FLOWSHEET_SYSTEM for c in out_score.get("code", [])
