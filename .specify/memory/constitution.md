@@ -1,48 +1,38 @@
 <!--
 SYNC IMPACT REPORT
-Version change: 2.1.0 → 3.0.0 (MAJOR — the mapping CSV's required columns change
-  (`RECORD NAME` renamed, `CNICS NAME` added) and the join key is redefined from "the
-  item's LOINC code" to "the item's linkId"; Governance classes both as MAJOR)
-  Also redefines extraction scope: computed scores/totals are now extracted for every
-  Questionnaire except CIRG-PHQ9. Folded into 3.0.0 because 3.0.0 was never committed.
+Version change: 3.0.0 → 3.1.0 (MINOR — Principle III's row rules materially revised;
+  columns and join key column are unchanged)
 Modified principles:
-  - I. "One Observation Per Individual Response, Exactly One Flowsheet Code" →
-       "One Observation Per Reported Item, Exactly One Flowsheet Code". Computed items
-       (calculatedExpression) are in scope, except those of Questionnaires whose scores
-       the target EMR computes itself (CIRG-PHQ9 only) and "internal" items.
-  - III. "CSV Maps LOINC Codes to Per-Environment Flowsheet IDs" →
-         "CSV Maps Questionnaire Items to Per-Environment Flowsheet IDs".
-         Columns are now `CNICS NAME`, `RECORD NAME (UCSD Epic)`, `LOINC code`,
-         `FHIR ID - UAT`, `FHIR ID - Prod`. `LOINC code` is copied from item.linkId.
-         Added separator rows labelled with Questionnaire.id, the rules for which items
-         get a row (no display headers, no "internal" items, no itemControl items), and
-         column ownership (site supplies record name and FHIR IDs; blank until then).
-  - IV. exclusion list and the byte-for-byte rule follow Principle I's new computed-item
-         rule; calculatedExpression is never modified.
+  - III. "CSV Maps Questionnaire Items to Per-Environment Flowsheet IDs" (title
+         unchanged).
+         - The questionnaire-itemControl extension no longer excludes an item from the
+           CSV; answerable items carrying it (sliders) get a row. Resolves
+           TODO(ITEMCONTROL_EXCLUSION) from v3.0.0.
+         - `CIRG-PC-PTSD-5` identifiers keep their leading `/` in `LOINC code`, as an
+           exception to the strip-one-slash rule; tooling must match them intact.
+         - Grouping-only items listed explicitly among items that get no row.
 Added sections: N/A
 Removed sections: N/A
 Templates requiring updates:
-  - .specify/templates/plan-template.md ✅ no edits required (Constitution Check
-    references the constitution file dynamically)
+  - .specify/templates/plan-template.md ✅ no edits required
   - .specify/templates/spec-template.md ✅ no edits required
   - .specify/templates/tasks-template.md ✅ no edits required
-  - README.md ✅ no edits required (Tooling note does not name CSV columns)
+  - README.md ✅ no edits required
+  - specs/002-populate-flowsheet-mapping-csv/spec.md ✅ updated (Dependency assumption
+    now cites v3.1.0)
+  - utils/fork_questionnaire_for_extract.py ⚠ pending — strips the leading `/` for every
+    Questionnaire, so it cannot match `CIRG-PC-PTSD-5` rows; still requires the
+    `RECORD NAME` column; still skips every computed score item (must be CIRG-PHQ9 and
+    "internal" items only)
+  - tests/test_fork_warnings.py, tests/test_fork_scores.py,
+    tests/fixtures/csv-missing-column.csv ⚠ pending — same
   - deploy-specific/mapping-input/CNICS PRO UCSD flowsheet FHIR IDs.csv ⚠ pending —
-    still has the v2 header and only PHQ-9 rows
-  - utils/fork_questionnaire_for_extract.py ⚠ pending — REQUIRED_CSV_COLUMNS and the
-    record_name lookup still use `RECORD NAME`; must change with the CSV header. It also
-    skips every computed score item; it must now skip them only for CIRG-PHQ9 (plus
-    "internal" items)
-  - tests/test_fork_scores.py ⚠ pending — asserts scores are always skipped
-  - tests/test_fork_warnings.py, tests/fixtures/csv-missing-column.csv ⚠ pending — same
+    feature 002
   - specs/001-add-extract-metadata/{spec,data-model,research,tasks}.md ⚠ pending — cite
     the v2 column name and LOINC-only join key
-Deferred items:
-  - TODO(ITEMCONTROL_EXCLUSION): every PHQ-9 response item carries the itemControl
-    extension yet is already mapped. Principle III retains those rows; confirm whether
-    the exclusion is meant for all itemControl items (e.g. the ARV-9 slider) or only
-    display/help ones.
+Deferred items: none.
 -->
+
 
 
 # FHIR Questionnaires Constitution
@@ -154,7 +144,10 @@ IDs lives in a CSV checked into this repository at
 2. `RECORD NAME (UCSD Epic)` — the name of the Epic flowsheet record at the
    target site. Supplied by the target site; this team MUST NOT invent it.
 3. `LOINC code` — the **join key**. It MUST hold the item's identifier copied
-   from `Questionnaire.item[].linkId` (a single leading `/` removed). For
+   from `Questionnaire.item[].linkId`, with a single leading `/` removed —
+   except for `CIRG-PC-PTSD-5`, whose identifiers keep their leading `/` (e.g.
+   `/102011-4`) because many stored QuestionnaireResponses already use that
+   form. Tooling MUST match that Questionnaire's rows with the `/` intact. For
    LOINC-based instruments (e.g. PHQ-9) that identifier is the LOINC code; for
    instruments whose items carry no LOINC code (e.g. `AUDIT-1`) it is the
    `linkId` as authored. The column name is retained for continuity.
@@ -175,13 +168,14 @@ at any nesting depth gets one row, EXCEPT:
 - display-only headers (`item.type` = `"display"`, e.g. `AUDIT-header`);
 - items whose `text` states that they are "internal" items (e.g.
   `AUDIT-Q0-score`);
-- items carrying the
-  `http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl`
-  extension.
+- grouping-only items (`item.type` = `"group"`), which take no answer.
+
+The `http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl`
+extension does NOT by itself exclude an item: answerable items that carry it
+(e.g. the `ARV-9` slider) get a row like any other.
 
 Rows that already exist with site-supplied values (the PHQ-9 rows) MUST be
-retained as they are; these exclusions govern rows added for a Questionnaire,
-not the removal of rows the target site has already mapped. Having a CSV row
+retained as they are. Having a CSV row
 does not by itself put an item in scope for extraction — Principle IV's
 exclusions still apply (the PHQ-9 score rows are mapped but not extracted).
 
@@ -312,4 +306,4 @@ staff. Noisy diffs hide real changes and erode trust in the tooling.
   not override the general Questionnaire-authoring guidance in `README.md`;
   those scopes are kept separate by design.
 
-**Version**: 3.0.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-10-02
+**Version**: 3.1.0 | **Ratified**: 2026-05-04 | **Last Amended**: 2026-10-02
