@@ -955,6 +955,10 @@
             ],
             "text": "Drop down"
           }
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract",
+          "valueBoolean": true
         }
       ],
       "linkId": "69722-7",
@@ -962,6 +966,10 @@
         {
           "code": "69722-7",
           "display": "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?"
+        },
+        {
+          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
+          "code": "tdYjwfyJvuW4IRAhjwoPFeA0"
         }
       ],
       "text": "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
