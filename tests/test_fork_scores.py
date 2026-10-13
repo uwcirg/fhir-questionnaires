@@ -7,9 +7,13 @@ source item; a warning notes its matched CSV record was skipped as a score.
 
 import json
 
-EPIC_FLOWSHEET_SYSTEM = (
-    "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
+from .conftest import (
+    OLD_FLOWSHEET_SYSTEM,
+    PROD_FLOWSHEET_SYSTEM,
+    UAT_FLOWSHEET_SYSTEM,
 )
+
+FLOWSHEET_SYSTEMS = (UAT_FLOWSHEET_SYSTEM, PROD_FLOWSHEET_SYSTEM, OLD_FLOWSHEET_SYSTEM)
 
 
 def _find(items, link_id):
@@ -39,7 +43,7 @@ def test_score_item_excluded_and_unchanged(tool, phq9_copy, repo_csv, out_dirs, 
         out_score = _find(doc["item"], "44261-6")
         # No flowsheet coding was added...
         assert not any(
-            c.get("system") == EPIC_FLOWSHEET_SYSTEM for c in out_score.get("code", [])
+            c.get("system") in FLOWSHEET_SYSTEMS for c in out_score.get("code", [])
         )
         # ...and the item is byte-identical to the source item.
         assert out_score == src_score
