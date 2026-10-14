@@ -59,8 +59,8 @@
           "display": "Little interest or pleasure in doing things"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tFN1y-XuXVcZBVua5Shx3hA0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3025"
         }
       ],
       "text": "Little interest or pleasure in doing things",
@@ -160,8 +160,8 @@
           "display": "Feeling down, depressed, or hopeless"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tgAEmGWuKOH90pDSRw12lMw0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3026"
         }
       ],
       "text": "Feeling down, depressed, or hopeless",
@@ -261,8 +261,8 @@
           "display": "Trouble falling or staying asleep, or sleeping too much"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "typS9O2qDI0m.HMK.UCuU9Q0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3027"
         }
       ],
       "text": "Trouble falling or staying asleep, or sleeping too much",
@@ -362,8 +362,8 @@
           "display": "Feeling tired or having little energy"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tQlxHdYutrpw.q9oN8UTWIw0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3028"
         }
       ],
       "text": "Feeling tired or having little energy",
@@ -463,8 +463,8 @@
           "display": "Poor appetite or overeating"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tatJ03AeDkOmJkhqVq5nPuA0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3029"
         }
       ],
       "text": "Poor appetite or overeating",
@@ -564,8 +564,8 @@
           "display": "Feeling bad about yourself-or that you are a failure or have let yourself or your family down"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tjuTfQDPPGDzFJOBye4CUQA0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3030"
         }
       ],
       "text": "Feeling bad about yourself-or that you are a failure or have let yourself or your family down",
@@ -665,8 +665,8 @@
           "display": "Trouble concentrating on things, such as reading the newspaper or watching television"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "th5JnOCvgEo6wFNMYttQ1hA0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3031"
         }
       ],
       "text": "Trouble concentrating on things, such as reading the newspaper or watching television",
@@ -766,8 +766,8 @@
           "display": "Moving or speaking so slowly that other people could have noticed. Or the opposite-being so fidgety or restless that you have been moving around a lot more than usual"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tUanlOhZVjhrnccxjKKNlPQ0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3032"
         }
       ],
       "text": "Moving or speaking so slowly that other people could have noticed. Or the opposite-being so fidgety or restless that you have been moving around a lot more than usual",
@@ -867,8 +867,8 @@
           "display": "Thoughts that you would be better off dead, or of hurting yourself in some way"
         },
         {
-          "system": "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id",
-          "code": "tlj.UZxepQkWIO1YvyNgSgQ0"
+          "system": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+          "code": "3033"
         }
       ],
       "text": "Thoughts that you would be better off dead, or of hurting yourself in some way",

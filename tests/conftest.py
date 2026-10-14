@@ -13,6 +13,14 @@ SOURCE_PHQ9 = REPO_ROOT / "CIRG-PHQ-9.json"
 REPO_CSV = REPO_ROOT / "deploy-specific" / "mapping-input" / "CNICS PRO UCSD flowsheet FHIR IDs.csv"
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 
+# Flowsheet coding systems, as literals deliberately independent of the tool's own
+# constants so a typo there fails a test instead of being mirrored by it.
+UAT_FLOWSHEET_SYSTEM = "urn:oid:1.2.840.114350.1.13.136.3.7.2.707679"
+PROD_FLOWSHEET_SYSTEM = "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679"
+OLD_FLOWSHEET_SYSTEM = (
+    "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
+)
+
 
 def _load_tool():
     """Import the tool module by file path (it lives in utils/, not a package)."""
