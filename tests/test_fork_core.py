@@ -4,11 +4,13 @@ import csv
 import json
 import shutil
 
-from .conftest import REPO_ROOT
-
-EPIC_FLOWSHEET_SYSTEM = (
-    "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
+from .conftest import (
+    OLD_FLOWSHEET_SYSTEM,
+    PROD_FLOWSHEET_SYSTEM,
+    REPO_ROOT,
+    UAT_FLOWSHEET_SYSTEM,
 )
+
 SDC_OBSERVATION_EXTRACT = (
     "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract"
 )
@@ -16,16 +18,24 @@ SDC_OBSERVATION_EXTRACT_CATEGORY = (
     "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtractCategory"
 )
 
-# PHQ-9 first item: LOINC 44250-9 (PHQ9_INTEREST) from the repo CSV.
-UAT_INTEREST = "teN3kKw8NMBIF9ZU7Nd-9pQ0"
-PROD_INTEREST = "tFN1y-XuXVcZBVua5Shx3hA0"
+# The PHQ-9 items the tool codes, linkId -> Flowsheet Record ID from the repo CSV.
+# Not coded: 69722-7 (no CSV row) and 44261-6 (computed score).
+PHQ9_RECORD_IDS = {
+    "44250-9": "3025",
+    "44255-8": "3026",
+    "44259-0": "3027",
+    "44254-1": "3028",
+    "44251-7": "3029",
+    "44258-2": "3030",
+    "44252-5": "3031",
+    "44253-3": "3032",
+    "44260-8": "3033",
+}
 
 
-def _flowsheet_codes(item):
+def _flowsheet_codes(item, system):
     return [
-        c.get("code")
-        for c in item.get("code", [])
-        if c.get("system") == EPIC_FLOWSHEET_SYSTEM
+        c.get("code") for c in item.get("code", []) if c.get("system") == system
     ]
 
 
@@ -54,9 +64,9 @@ def test_happy_path_two_files_env_correct(tool, phq9_copy, repo_csv, out_dirs):
     prod_first = prod["item"][0]
     assert uat_first["linkId"] == "44250-9"
 
-    # Each mapped item carries its env's flowsheet coding with the Epic system.
-    assert _flowsheet_codes(uat_first) == [UAT_INTEREST]
-    assert _flowsheet_codes(prod_first) == [PROD_INTEREST]
+    # Each mapped item carries the same record ID under its env's flowsheet system.
+    assert _flowsheet_codes(uat_first, UAT_FLOWSHEET_SYSTEM) == ["3025"]
+    assert _flowsheet_codes(prod_first, PROD_FLOWSHEET_SYSTEM) == ["3025"]
 
     # And the observationExtract extension is present on mapped items.
     assert any(
@@ -65,13 +75,38 @@ def test_happy_path_two_files_env_correct(tool, phq9_copy, repo_csv, out_dirs):
     )
 
 
-def test_uat_file_has_no_prod_ids_and_vice_versa(tool, phq9_copy, repo_csv, out_dirs):
+def test_each_file_carries_only_its_own_system(tool, phq9_copy, repo_csv, out_dirs):
     _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
-    uat_text = json.dumps(uat)
-    prod_text = json.dumps(prod)
-    # Production ID for PHQ9_INTEREST must not appear in the UAT file, and vice versa.
-    assert PROD_INTEREST not in uat_text
-    assert UAT_INTEREST not in prod_text
+    # The production system must not appear in the UAT file, and vice versa.
+    assert PROD_FLOWSHEET_SYSTEM not in json.dumps(uat)
+    assert UAT_FLOWSHEET_SYSTEM not in json.dumps(prod)
+
+
+def test_outputs_differ_only_in_system(tool, phq9_copy, repo_csv, out_dirs):
+    uat_dir, prod_dir = out_dirs
+    _run(tool, phq9_copy, repo_csv, out_dirs)
+    uat_text = (uat_dir / "CIRG-PHQ-9.json").read_text(encoding="utf-8")
+    prod_text = (prod_dir / "CIRG-PHQ-9.json").read_text(encoding="utf-8")
+    assert uat_text != prod_text
+    assert prod_text.replace(PROD_FLOWSHEET_SYSTEM, UAT_FLOWSHEET_SYSTEM) == uat_text
+
+
+def test_old_scheme_absent(tool, phq9_copy, repo_csv, out_dirs):
+    _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
+    for doc in (uat, prod):
+        assert OLD_FLOWSHEET_SYSTEM not in json.dumps(doc)
+
+
+def test_phq9_mapped_items_carry_their_record_ids(tool, phq9_copy, repo_csv, out_dirs):
+    _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
+    for doc, system in ((uat, UAT_FLOWSHEET_SYSTEM), (prod, PROD_FLOWSHEET_SYSTEM)):
+        coded = {}
+        for item in _iter_items(doc["item"]):
+            codes = _flowsheet_codes(item, system)
+            if codes:
+                assert len(codes) == 1, item["linkId"]
+                coded[item["linkId"]] = codes[0]
+        assert coded == PHQ9_RECORD_IDS
 
 
 def test_root_observation_extract_category_present(tool, phq9_copy, repo_csv, out_dirs):
@@ -95,9 +130,9 @@ def test_root_observation_extract_category_present(tool, phq9_copy, repo_csv, ou
 
 def test_no_item_has_more_than_one_flowsheet_coding(tool, phq9_copy, repo_csv, out_dirs):
     _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
-    for doc in (uat, prod):
+    for doc, system in ((uat, UAT_FLOWSHEET_SYSTEM), (prod, PROD_FLOWSHEET_SYSTEM)):
         for item in _iter_items(doc["item"]):
-            assert len(_flowsheet_codes(item)) <= 1
+            assert len(_flowsheet_codes(item, system)) <= 1
 
 
 # --- T011: idempotency (cli.md case 5) --------------------------------------
@@ -119,10 +154,10 @@ def test_idempotent_byte_identical_rerun(tool, phq9_copy, repo_csv, out_dirs):
 
 def test_display_and_score_items_get_no_flowsheet(tool, phq9_copy, repo_csv, out_dirs):
     _, uat, prod = _run(tool, phq9_copy, repo_csv, out_dirs)
-    for doc in (uat, prod):
+    for doc, system in ((uat, UAT_FLOWSHEET_SYSTEM), (prod, PROD_FLOWSHEET_SYSTEM)):
         for item in _iter_items(doc["item"]):
             if item.get("type") == "display":
-                assert _flowsheet_codes(item) == []
+                assert _flowsheet_codes(item, system) == []
 
 
 def test_no_loinc_item_unchanged(tool):
