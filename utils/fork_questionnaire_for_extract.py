@@ -48,9 +48,13 @@ SDC_CALCULATED_EXPRESSION = (
 SDC_OBSERVATION_EXTRACT_CATEGORY = (
     "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtractCategory"
 )
-EPIC_FLOWSHEET_SYSTEM = (
-    "http://open.epic.com/FHIR/StructureDefinition/observation-flowsheet-id"
-)
+# Environment key -> `system` of the flowsheet coding. The flowsheet record ID
+# itself is the same in both environments; only its coding system differs
+# (Constitution v4.0.0, Principle I).
+FLOWSHEET_SYSTEMS = {
+    "uat": "urn:oid:1.2.840.114350.1.13.136.3.7.2.707679",
+    "prod": "urn:oid:1.2.840.114350.1.13.136.2.7.2.707679",
+}
 # Observation.category HAPI stamps on every extracted Observation. Epic's
 # flowsheet Observation.Create API expects `vital-signs` under the STU3-era
 # `http://hl7.org/fhir/observation-category` system
@@ -61,12 +65,8 @@ OBSERVATION_CATEGORY_CODE = "vital-signs"
 REQUIRED_CSV_COLUMNS = [
     "RECORD NAME (UCSD Epic)",
     "LOINC code",
-    "FHIR ID - UAT",
-    "FHIR ID - Prod",
+    "Flowsheet Record ID",
 ]
-
-# Environment key -> CSV column carrying that environment's flowsheet FHIR ID.
-ENV_COLUMNS = {"uat": "FHIR ID - UAT", "prod": "FHIR ID - Prod"}
 
 DEFAULT_CSV = "deploy-specific/mapping-input/CNICS PRO UCSD flowsheet FHIR IDs.csv"
 DEFAULT_UAT_DIR = "deploy-specific/ucsd-uat"
@@ -143,12 +143,12 @@ def load_csv_index(csv_path):
 
     Returns ``(index, conflicts, records)`` where:
 
-    * ``index``     -- ``loinc_lower -> {"uat", "prod", "record_name", "loinc"}``
+    * ``index``     -- ``loinc_lower -> {"record_id", "record_name", "loinc"}``
                        for every non-conflicting LOINC.
     * ``conflicts`` -- ``loinc_lower -> [record, ...]`` for LOINCs that appear
-                       in multiple rows with conflicting env IDs (FR-009; detection
+                       in multiple rows with differing record IDs (FR-009; detection
                        only — such items are skipped, never collapsed).
-    * ``records``   -- list of all rows as ``{"loinc", "record_name", "uat", "prod"}``
+    * ``records``   -- list of all rows as ``{"loinc", "record_name", "record_id"}``
                        in file order, for unmatched-record reporting (FR-008).
 
     Raises ``ValueError`` (→ fatal) if any required column is missing, before any
@@ -173,8 +173,7 @@ def load_csv_index(csv_path):
                 {
                     "loinc": loinc,
                     "record_name": (row.get("RECORD NAME (UCSD Epic)") or "").strip(),
-                    "uat": (row.get("FHIR ID - UAT") or "").strip(),
-                    "prod": (row.get("FHIR ID - Prod") or "").strip(),
+                    "record_id": (row.get("Flowsheet Record ID") or "").strip(),
                 }
             )
 
@@ -186,14 +185,13 @@ def load_csv_index(csv_path):
     index = {}
     conflicts = {}
     for key, rows in grouped.items():
-        distinct = {(r["uat"], r["prod"]) for r in rows}
+        distinct = {r["record_id"] for r in rows}
         if len(distinct) > 1:
             conflicts[key] = rows
             continue
         rec = rows[0]
         index[key] = {
-            "uat": rec["uat"],
-            "prod": rec["prod"],
+            "record_id": rec["record_id"],
             "record_name": rec["record_name"],
             "loinc": rec["loinc"],
         }
@@ -281,21 +279,21 @@ def resolve_item(item, index, conflicts):
 # --- extract-metadata injection (T013, data-model entity 4) -----------------
 
 
-def inject_extract_metadata(item, flowsheet_id):
+def inject_extract_metadata(item, system, record_id):
     """Annotate one in-scope item so HAPI ``$extract`` emits one Observation.
 
     Adds the SDC ``observationExtract`` boolean extension and a single flowsheet
-    coding (``system`` = Epic flowsheet-id, ``code`` = the environment's FHIR ID)
-    to ``item.code``. Only these owned elements are touched; all other content is
-    preserved.
+    coding (``system`` = the environment's flowsheet system, ``code`` = the
+    flowsheet record ID) to ``item.code``. Only these owned elements are touched;
+    all other content is preserved.
     """
     extensions = item.setdefault("extension", [])
     if not any(e.get("url") == SDC_OBSERVATION_EXTRACT for e in extensions):
         extensions.append({"url": SDC_OBSERVATION_EXTRACT, "valueBoolean": True})
 
     codings = item.setdefault("code", [])
-    if not any(c.get("system") == EPIC_FLOWSHEET_SYSTEM for c in codings):
-        codings.append({"system": EPIC_FLOWSHEET_SYSTEM, "code": flowsheet_id})
+    if not any(c.get("system") == system for c in codings):
+        codings.append({"system": system, "code": record_id})
 
 
 def ensure_root_extract_category(doc):
@@ -379,14 +377,13 @@ def report_gaps(source, index, conflicts, records):
             )
             continue
 
-        # outcome == "mapped": warn for any environment whose ID is blank.
-        record = detail["record"]
-        for env, column in ENV_COLUMNS.items():
-            if not record.get(env):
-                warn(
-                    "loinc=%s has no %s; omitted from %s output"
-                    % (loinc, column, env)
-                )
+        # outcome == "mapped": warn once when the record ID is blank (it serves
+        # both environments).
+        if not detail["record"].get("record_id"):
+            warn(
+                "loinc=%s has no Flowsheet Record ID; omitted from both outputs"
+                % loinc
+            )
 
     # CSV records whose LOINC matched no item (FR-008), one per record.
     for rec in records:
@@ -403,12 +400,12 @@ def report_gaps(source, index, conflicts, records):
 
 
 def build_environment_output(source, index, conflicts, env):
-    """Return a deep copy of ``source`` with only ``env``'s flowsheet IDs injected.
+    """Return a deep copy of ``source`` with ``env``'s flowsheet codings injected.
 
     ``env`` is ``"uat"`` or ``"prod"``. Mapped, answerable, non-score items whose
-    record carries that environment's ID get the extract metadata; everything
-    else (scores, display/group, unmapped, no-LOINC, conflicts, blank env ID) is
-    left byte-for-byte unchanged. No warnings are emitted here — see
+    record carries a flowsheet record ID get the extract metadata, coded under
+    that environment's system; everything else (scores, display/group, unmapped,
+    no-LOINC, conflicts, blank record ID) is left byte-for-byte unchanged. No warnings are emitted here — see
     :func:`report_gaps`.
     """
     doc = copy.deepcopy(source)
@@ -417,10 +414,10 @@ def build_environment_output(source, index, conflicts, env):
         outcome, detail = resolve_item(item, index, conflicts)
         if outcome != "mapped":
             continue
-        flowsheet_id = detail["record"].get(env)
-        if not flowsheet_id:
-            continue  # missing env ID → never fabricate (FR-007)
-        inject_extract_metadata(item, flowsheet_id)
+        record_id = detail["record"].get("record_id")
+        if not record_id:
+            continue  # missing record ID → never fabricate (FR-007)
+        inject_extract_metadata(item, FLOWSHEET_SYSTEMS[env], record_id)
         injected_any = True
     # Only a document that actually marks items for extraction needs the root
     # category HAPI reads; leave documents with zero extract items untouched.
